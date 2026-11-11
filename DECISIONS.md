@@ -8,3 +8,4 @@
 - **Task runner:** Taskfile instead of Makefile.
 - **LLM in development:** a `claude_code` provider shells out to the Claude Code CLI so the Max plan is used instead of API credits. `fake` is used in tests. API providers are for production.
 - **pnpm builds:** esbuild is allowed to run its install script in `web/pnpm-workspace.yaml`, everything else stays blocked.
+- **Tests:** owner asked for no new tests from M1 onward, overriding the build plan. Existing api and home page tests stay.
