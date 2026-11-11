@@ -1,0 +1,110 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ledgit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ledgit}
+      POSTGRES_DB: ${POSTGRES_DB:-ledgit}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ledgit} -d ${POSTGRES_DB:-ledgit}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    image: ${PGSCHEMA_IMAGE:-pgplex/pgschema:latest}
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD:-ledgit}
+    command:
+      - apply
+      - --host=db
+      - --port=5432
+      - --db=${POSTGRES_DB:-ledgit}
+      - --user=${POSTGRES_USER:-ledgit}
+      - --schema=public
+      - --sslmode=disable
+      - --file=/db/schema/manifest.sql
+      - --auto-approve
+    working_dir: /db
+    volumes:
+      - ./db:/db:ro
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+      target: dev
+    env_file: .env
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ./api/receipts:/app/api/receipts
+      - ./api/tests:/app/api/tests
+      - ./data:/app/data
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/worker.Dockerfile
+      target: dev
+    profiles: [pipeline]
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./api/receipts:/app/api/receipts
+      - ./data:/app/data
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+      target: dev
+    env_file: .env
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-5173}:5173"
+    volumes:
+      - ./web/src:/app/web/src
+      - ./web/index.html:/app/web/index.html
+      - ./web/vite.config.ts:/app/web/vite.config.ts
+
+  storybook:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+      target: dev
+    profiles: [storybook]
+    command: ["pnpm", "storybook", "--host", "0.0.0.0", "--no-open"]
+    ports:
+      - "${STORYBOOK_PORT:-6006}:6006"
+    volumes:
+      - ./web/src:/app/web/src
+      - ./web/.storybook:/app/web/.storybook
+
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.49.0-noble
+    profiles: [e2e]
+    working_dir: /app/web
+    command: ["pnpm", "e2e"]
+    environment:
+      E2E_BASE_URL: http://web:5173
+    depends_on:
+      - web
+    volumes:
+      - ./web:/app/web
+
+volumes:
+  dbdata:
