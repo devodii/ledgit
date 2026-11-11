@@ -17,7 +17,7 @@ import { Icon, type IconName } from '../../ui/Icon';
 import { ConnectorCard } from '../ConnectorCard';
 import styles from './PipelineFlow.module.scss';
 
-type SourceData = { connector: ConnectorInfo; health: ConnectorHealth };
+type SourceData = { connector: ConnectorInfo; health: ConnectorHealth; below: boolean };
 type StageData = { index: number; label: string; detail: string; icon: IconName; feeds: string[] };
 type OutputData = { label: string; detail: string; icon: IconName };
 type SourceNodeT = Node<SourceData, 'source'>;
@@ -68,7 +68,7 @@ function SourceNode({ data }: NodeProps<SourceNodeT>) {
           </span>
         </span>
         <span className={styles.label}>{connector.name}</span>
-        <Handle type="source" position={Position.Right} />
+        <Handle type="source" position={data.below ? Position.Top : Position.Bottom} />
       </div>
     </HoverCard>
   );
@@ -99,10 +99,13 @@ function StageNode({ data }: NodeProps<StageNodeT>) {
         aria-label={`Stage ${data.index + 1}, ${data.label}`}
       >
         <Handle type="target" position={Position.Left} />
+        <Handle type="target" id="top" position={Position.Top} />
+        <Handle type="target" id="bottom" position={Position.Bottom} />
         <span className={styles.step}>{data.index + 1}</span>
         <Icon name={data.icon} size="sm" />
         <span>{data.label}</span>
         <Handle type="source" position={Position.Right} />
+        <Handle type="source" id="out" position={Position.Bottom} />
       </div>
     </HoverCard>
   );
@@ -120,7 +123,7 @@ function OutputNode({ data }: NodeProps<OutputNodeT>) {
       }
     >
       <div className={styles.orb} tabIndex={0} role="group" aria-label={data.label}>
-        <Handle type="target" position={Position.Left} />
+        <Handle type="target" position={Position.Top} />
         <span className={`${styles.square}`}>
           <Icon name={data.icon} size="lg" />
         </span>
@@ -199,37 +202,67 @@ const FEEDS: Record<string, number[]> = {
   soroban: [6],
 };
 
-const ROW = 92;
-const STAGE_ROW = (CONNECTORS.length * ROW) / STAGES.length;
+const STAGE_X = 270;
+const STAGE_Y = 330;
+const SPACING = 150;
+const ABOVE_Y = 70;
+const BELOW_Y = 560;
+
+const PLACEMENT: Record<string, { stage: number; slot: number; of: number; below: boolean }> = {
+  youtube: { stage: 0, slot: 0, of: 1, below: false },
+  transcripts: { stage: 1, slot: 0, of: 1, below: false },
+  sessions: { stage: 2, slot: 0, of: 1, below: false },
+  scf: { stage: 4, slot: 0, of: 3, below: false },
+  stellar_expert: { stage: 4, slot: 1, of: 3, below: false },
+  stellar_toml: { stage: 4, slot: 2, of: 3, below: false },
+  browser: { stage: 4, slot: 0, of: 3, below: true },
+  lumenloop: { stage: 4, slot: 1, of: 3, below: true },
+  stellarlight: { stage: 4, slot: 2, of: 3, below: true },
+  sep_info: { stage: 6, slot: 0, of: 3, below: false },
+  horizon: { stage: 6, slot: 1, of: 3, below: false },
+  soroban: { stage: 6, slot: 2, of: 3, below: false },
+};
+
+const OUTPUT_POSITIONS = [
+  { x: STAGE_X * 5 + 120, y: BELOW_Y, from: 5 },
+  { x: STAGE_X * 5 + 270, y: BELOW_Y, from: 5 },
+  { x: STAGE_X * 6 + 230, y: BELOW_Y, from: 6 },
+];
 
 function buildGraph(health: Record<string, ConnectorHealth>) {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
-  CONNECTORS.forEach((connector, index) => {
+  for (const connector of CONNECTORS) {
+    const place = PLACEMENT[connector.name];
+    const x = place.stage * STAGE_X + (place.slot - (place.of - 1) / 2) * SPACING;
     nodes.push({
       id: `source-${connector.name}`,
       type: 'source',
-      position: { x: 0, y: index * ROW },
-      data: { connector, health: health[connector.name] ?? 'ok' },
+      position: { x: x + 30, y: place.below ? BELOW_Y : ABOVE_Y },
+      data: { connector, health: health[connector.name] ?? 'ok', below: place.below },
     });
-    for (const stage of FEEDS[connector.name] ?? []) {
-      const dashed = connector.role === 'secondary' || connector.name === 'browser';
+    const dashed = connector.role === 'secondary' || connector.name === 'browser';
+    const targets = FEEDS[connector.name] ?? [];
+    for (const stage of targets) {
+      const sameColumn = stage === place.stage;
       edges.push({
         id: `e-${connector.name}-${stage}`,
         source: `source-${connector.name}`,
         target: `stage-${stage}`,
+        targetHandle: sameColumn && place.below ? 'bottom' : 'top',
+        type: 'default',
         animated: health[connector.name] === 'checking',
         className: dashed ? styles.dashedEdge : styles.edge,
         markerEnd: { type: MarkerType.ArrowClosed },
       });
     }
-  });
+  }
   STAGES.forEach((stage, index) => {
     const feeds = CONNECTORS.filter((c) => FEEDS[c.name]?.includes(index)).map((c) => c.name);
     nodes.push({
       id: `stage-${index}`,
       type: 'stage',
-      position: { x: 380, y: index * STAGE_ROW + 10 },
+      position: { x: index * STAGE_X, y: STAGE_Y },
       data: { ...stage, index, feeds },
     });
     if (index > 0) {
@@ -242,26 +275,23 @@ function buildGraph(health: Record<string, ConnectorHealth>) {
       });
     }
   });
-  const outputY = [STAGE_ROW * 4.6, STAGE_ROW * 5.6, STAGE_ROW * 6.4];
   OUTPUTS.forEach((output, index) => {
+    const spot = OUTPUT_POSITIONS[index];
     nodes.push({
       id: `output-${index}`,
       type: 'output',
-      position: { x: 740, y: outputY[index] },
+      position: { x: spot.x, y: spot.y },
       data: output,
     });
-  });
-  const link = (id: string, source: string, target: string) =>
     edges.push({
-      id,
-      source,
-      target,
+      id: `e-out-${index}`,
+      source: `stage-${spot.from}`,
+      sourceHandle: 'out',
+      target: `output-${index}`,
       className: styles.edge,
       markerEnd: { type: MarkerType.ArrowClosed },
     });
-  link('e-write-registry', 'stage-5', 'output-0');
-  link('e-write-db', 'stage-5', 'output-1');
-  link('e-verify-verdict', 'stage-6', 'output-2');
+  });
   return { nodes, edges };
 }
 
@@ -270,7 +300,7 @@ export interface PipelineFlowProps {
   height?: number;
 }
 
-export function PipelineFlow({ health = {}, height = 780 }: PipelineFlowProps) {
+export function PipelineFlow({ health = {}, height = 720 }: PipelineFlowProps) {
   const { nodes, edges } = useMemo(() => buildGraph(health), [health]);
   return (
     <section className={styles.wrapper} aria-label="Data pipeline flow">

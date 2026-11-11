@@ -24,10 +24,13 @@ textarea {
   color: inherit;
 }
 
-img,
-svg {
+img {
   display: block;
   max-width: 100%;
+}
+
+svg {
+  display: block;
 }
 
 h1,
