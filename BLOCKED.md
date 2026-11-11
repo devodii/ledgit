@@ -8,3 +8,7 @@ Items waiting on the project owner. Work continues on everything not listed here
 - `YOUTUBE_API_KEY`: optional, improves video discovery in M3 and M4. Get it in Google Cloud console: create a project, enable YouTube Data API v3, create an API key under Credentials.
 
 Every other variable has a working local default.
+
+## Environment
+
+- Docker Hub (`registry-1.docker.io`) is unreachable from this machine (no route over IPv6). Images cannot be pulled, so the compose stack, the pgschema migrate service and the Docker build check are unverified locally. Fix your network or Docker proxy settings, then run `task up`.
