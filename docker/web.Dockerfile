@@ -12,5 +12,7 @@ FROM base AS build
 COPY web/ ./
 RUN pnpm build
 
-FROM nginx:1.27-alpine AS prod
+FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/web/dist /usr/share/nginx/html
+EXPOSE 8080

@@ -51,6 +51,8 @@ services:
       - ./api/receipts:/app/api/receipts
       - ./api/tests:/app/api/tests
       - ./data:/app/data
+      - ./fixtures:/app/fixtures:ro
+      - ./evals:/app/evals
 
   worker:
     build:
