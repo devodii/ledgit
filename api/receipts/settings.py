@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     http_contact_url: str = "https://github.com/devodii/ledgit"
     http_rate_limit_rps: float = 1.0
     http_timeout_seconds: float = 20.0
+    dns_fallback: bool = True
     cache_dir: Path = REPO_ROOT / "data" / "cache"
     tasks_dir: Path = REPO_ROOT / "data" / "tasks"
     data_dir: Path = REPO_ROOT / "data"

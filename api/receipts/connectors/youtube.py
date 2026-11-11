@@ -28,7 +28,16 @@ class YouTubeConnector(Connector):
         )
 
     def _ydl(self, **opts: Any) -> yt_dlp.YoutubeDL:
-        return yt_dlp.YoutubeDL({"quiet": True, "no_warnings": True, "skip_download": True, **opts})
+        return yt_dlp.YoutubeDL(
+            {
+                "quiet": True,
+                "no_warnings": True,
+                "skip_download": True,
+                "js_runtimes": {"node": {}},
+                "remote_components": ["ejs:github"],
+                **opts,
+            }
+        )
 
     def list_playlist(self, playlist_id: str) -> list[VideoMeta]:
         cache = self.cache_dir / f"playlist-{playlist_id}.json"
@@ -96,6 +105,7 @@ class YouTubeConnector(Connector):
             channel=info.get("channel") or "",
             published_at=published,
             duration=info.get("duration"),
+            description=info.get("description") or "",
         )
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(meta.model_dump_json())

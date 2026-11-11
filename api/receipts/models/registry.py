@@ -32,10 +32,19 @@ class Speaker(StrictModel):
     role: str = ""
 
 
+class SourceRef(StrictModel):
+    name: str
+    url: str
+    retrieved_at: datetime
+    provides: list[str] = Field(default_factory=list)
+
+
 class OrgRef(StrictModel):
     name: str
     domain: str = ""
     country: str = ""
+    domain_source: str = ""
+    country_source: str = ""
 
     @property
     def slug(self) -> str:
@@ -62,6 +71,7 @@ class Scf(StrictModel):
     found: bool = False
     project_url: str = ""
     awarded_usd: Decimal | None = None
+    source: str = ""
 
 
 class Backing(StrictModel):
@@ -95,4 +105,5 @@ class RegistryEntry(StrictModel):
     claim: ClaimBody
     backing: Backing = Field(default_factory=Backing)
     evidence: list[EvidenceItem] = Field(default_factory=list)
+    sources: list[SourceRef] = Field(default_factory=list)
     provenance: Provenance

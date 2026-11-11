@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 import httpx
 from pydantic import BaseModel
 
+from receipts.connectors.dns import install_doh_fallback
 from receipts.connectors.errors import ConnectorError, DomainNotAllowed, RobotsDisallowed
 from receipts.settings import get_settings
 
@@ -38,6 +39,8 @@ class HttpClient:
         transport: httpx.BaseTransport | None = None,
     ) -> None:
         settings = get_settings()
+        if settings.dns_fallback:
+            install_doh_fallback()
         self.name = name
         self.allowed_domains = allowed_domains
         self.min_interval = 1.0 / (rate_limit_rps or settings.http_rate_limit_rps)

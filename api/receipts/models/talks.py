@@ -11,6 +11,7 @@ class VideoMeta(BaseModel):
     channel: str = ""
     published_at: datetime | None = None
     duration: int | None = None
+    description: str = ""
 
     @property
     def url(self) -> str:

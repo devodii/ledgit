@@ -1,11 +1,11 @@
 from typing import Any, ClassVar
 
 from pydantic import BaseModel
-from stellar_sdk import Address, xdr
 
 from receipts.connectors.base import Connector, HealthResult
 from receipts.connectors.errors import ConnectorError
 from receipts.connectors.http import HttpClient
+from receipts.connectors.xdr import contract_instance_key
 from receipts.models.enums import Network
 from receipts.settings import get_settings
 
@@ -17,18 +17,6 @@ class ContractStatus(BaseModel):
     recent_events: int = 0
     window_ledgers: int = 0
     retention_days: float = 0.0
-
-
-def instance_key(contract_id: str) -> str:
-    key = xdr.LedgerKey(
-        type=xdr.LedgerEntryType.CONTRACT_DATA,
-        contract_data=xdr.LedgerKeyContractData(
-            contract=Address(contract_id).to_xdr_sc_address(),
-            key=xdr.SCVal(xdr.SCValType.SCV_LEDGER_KEY_CONTRACT_INSTANCE),
-            durability=xdr.ContractDataDurability.PERSISTENT,
-        ),
-    )
-    return key.to_xdr()
 
 
 class SorobanConnector(Connector):
@@ -59,9 +47,9 @@ class SorobanConnector(Connector):
         return body["result"]
 
     def contract(self, contract_id: str, network: Network, activity_days: int) -> ContractStatus:
-        entries = self._rpc(network, "getLedgerEntries", {"keys": [instance_key(contract_id)]}).get(
-            "entries"
-        )
+        entries = self._rpc(
+            network, "getLedgerEntries", {"keys": [contract_instance_key(contract_id)]}
+        ).get("entries")
         if not entries:
             return ContractStatus(exists=False, contract_id=contract_id, network=network)
         health = self._rpc(network, "getHealth")
