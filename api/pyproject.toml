@@ -12,7 +12,6 @@ dependencies = [
   "pydantic>=2.9",
   "pydantic-settings>=2.6",
   "httpx>=0.27",
-  "typer>=0.15",
   "apscheduler>=3.10",
   "playwright>=1.48",
   "pyyaml>=6.0",
@@ -28,7 +27,7 @@ dev = [
 ]
 
 [project.scripts]
-receipts = "receipts.cli:app"
+receipts = "receipts.cli:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -42,7 +41,10 @@ line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B", "SIM"]
+select = ["E", "F", "I", "UP", "B", "SIM", "TID"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"dataclasses".msg = "Use pydantic models instead of dataclasses."
 
 [tool.mypy]
 python_version = "3.12"
