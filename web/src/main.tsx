@@ -4,7 +4,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { installMonitoring } from './lib/monitoring';
 import './styles/global.scss';
+
+installMonitoring();
 
 const queryClient = new QueryClient();
 
