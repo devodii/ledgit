@@ -240,6 +240,7 @@ export interface components {
         };
         /** ClaimSummary */
         ClaimSummary: {
+            caption_source: components["schemas"]["CaptionSource"];
             claim_type: components["schemas"]["ClaimType"];
             /** Event */
             event: string;
@@ -255,13 +256,21 @@ export interface components {
             org_slug: string;
             /** Quote */
             quote: string;
+            /** Scf Awarded Usd */
+            scf_awarded_usd: string | null;
+            /** Scf Found */
+            scf_found: boolean;
             /** Speaker Name */
             speaker_name: string;
             /** Speaker Role */
             speaker_role: string;
+            /** Start Seconds */
+            start_seconds: number;
             status: components["schemas"]["VerdictStatus"];
             /** Summary */
             summary: string;
+            /** Video Id */
+            video_id: string;
             /** Video Url */
             video_url: string;
         };

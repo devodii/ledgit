@@ -6,14 +6,14 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   icon: IconName;
   label: string;
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'secondary' | 'ghost';
+  variant?: 'secondary' | 'subtle';
 }
 
 export function IconButton({
   icon,
   label,
   size = 'md',
-  variant = 'ghost',
+  variant = 'subtle',
   className,
   type = 'button',
   ...rest

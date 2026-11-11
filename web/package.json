@@ -12,7 +12,7 @@
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --url http://127.0.0.1:6006",

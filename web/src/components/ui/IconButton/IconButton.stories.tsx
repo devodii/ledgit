@@ -10,7 +10,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Ghost: Story = {
+export const Subtle: Story = {
   play: async ({ canvasElement, args }) => {
     await userEvent.click(within(canvasElement).getByRole('button', { name: 'Copy address' }));
     await expect(args.onClick).toHaveBeenCalled();

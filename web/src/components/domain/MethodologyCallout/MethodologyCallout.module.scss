@@ -1,0 +1,10 @@
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-accent-subtle);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}

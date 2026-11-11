@@ -19,7 +19,6 @@ export const GITHUB_REPO = import.meta.env.VITE_GITHUB_REPO ?? 'devodii/ledgit';
 export class ApiError extends Error {}
 
 export function unwrap<T>(result: { data?: T; error?: unknown; response: Response }): T {
-  if (result.data === undefined)
-    throw new ApiError(`Request failed with ${result.response.status}`);
+  if (result.data === undefined) throw new ApiError(`Request returned ${result.response.status}`);
   return result.data;
 }

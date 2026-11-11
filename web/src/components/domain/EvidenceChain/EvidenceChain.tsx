@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ChainData, ChainEvidence, ObservationResult } from '@/fixtures/evidenceChain';
 import { Icon, type IconName } from '../../ui/Icon';
 import { HoverCard } from '../../ui/HoverCard';
+import { VideoClip } from '../VideoClip';
 import styles from './EvidenceChain.module.scss';
 
 type Kind = 'claim' | 'org' | 'evidence' | 'verdict';
@@ -22,7 +23,7 @@ type ChainNodeData = {
   label: string;
   icon: IconName;
   tone: string;
-  card: { heading: string; rows: CardRow[]; note?: string };
+  card: { heading: string; rows: CardRow[]; note?: string; video?: ChainData['claim']['video'] };
   vertical: boolean;
 };
 type ChainNode = Node<ChainNodeData, 'chain'>;
@@ -38,7 +39,7 @@ const RESULT_LABEL: Record<ObservationResult | 'none', string> = {
   live: 'Found live',
   testnet_only: 'Testnet only',
   not_found: 'Nothing found',
-  error: 'Check failed',
+  error: 'Check could not run',
   none: 'Not checked',
 };
 const VERDICT_TONE: Record<ChainData['verdict']['status'], string> = {
@@ -95,6 +96,13 @@ function ChainNodeView({ data }: NodeProps<ChainNode>) {
             ))}
           </dl>
           {data.card.note && <p>{data.card.note}</p>}
+          {data.card.video && (
+            <VideoClip
+              videoId={data.card.video.id}
+              startSeconds={data.card.video.startSeconds}
+              title={data.card.video.title}
+            />
+          )}
         </div>
       }
     >
@@ -152,6 +160,7 @@ function layout(chain: ChainData, vertical: boolean) {
           ['Speaker', chain.claim.speaker || 'Not stated'],
           ['Role', chain.claim.role || 'Not stated'],
         ],
+        video: chain.claim.video,
       },
     },
   });

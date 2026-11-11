@@ -12,7 +12,12 @@ export interface ChainEvidence {
 }
 
 export interface ChainData {
-  claim: { quote: string; speaker: string; role: string };
+  claim: {
+    quote: string;
+    speaker: string;
+    role: string;
+    video?: { id: string; startSeconds: number; title: string };
+  };
   org: { name: string; domain: string; country: string };
   evidence: ChainEvidence[];
   verdict: {
@@ -26,6 +31,7 @@ export const SYNTHETIC_LIVE: ChainData = {
     quote: 'SYNTHETIC QUOTE: Example Anchor Ltd will open deposits in Exampleland.',
     speaker: 'Example Speaker One',
     role: 'Chief Example Officer',
+    video: { id: 'ard4j13AnnI', startSeconds: 95, title: 'Meridian 2025 talk (demo clip)' },
   },
   org: { name: 'Example Anchor Ltd', domain: 'anchor.example.com', country: 'Exampleland' },
   evidence: [
@@ -61,6 +67,7 @@ export const SYNTHETIC_MIXED: ChainData = {
     quote: 'SYNTHETIC QUOTE: Example Wallet Inc is shipping a smart contract account.',
     speaker: 'Example Speaker Two',
     role: 'Founder',
+    video: { id: 'ard4j13AnnI', startSeconds: 210, title: 'Meridian 2025 talk (demo clip)' },
   },
   org: { name: 'Example Wallet Inc', domain: 'wallet.example.com', country: 'Examplestan' },
   evidence: [

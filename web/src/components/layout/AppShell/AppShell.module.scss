@@ -1,0 +1,32 @@
+@use '../../../styles/mixins';
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+}
+
+.skip {
+  position: absolute;
+  left: var(--space-2);
+  top: calc(var(--space-12) * -2);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  color: var(--color-text-on-accent);
+
+  &:focus {
+    top: var(--space-2);
+
+    @include mixins.focus-ring;
+  }
+}
