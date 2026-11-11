@@ -90,11 +90,6 @@ tasks:
     cmds:
       - docker compose --profile storybook up storybook
 
-  e2e:
-    desc: Run Playwright end-to-end tests against the stack
-    cmds:
-      - docker compose --profile e2e run --rm e2e
-
   ci:
     desc: Run everything CI runs
     cmds:

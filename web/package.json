@@ -16,7 +16,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --url http://127.0.0.1:6006",
-    "e2e": "playwright test",
     "api:generate": "openapi-typescript ../api/openapi.json -o src/api/generated/schema.ts"
   },
   "dependencies": {

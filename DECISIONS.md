@@ -22,3 +22,4 @@
 - **Corrections:** contributor fixes live in `data/corrections/<event>.yaml`, each with a required public source URL, applied by the write stage. The generated registry is never edited by hand.
 - **Share images:** rendered server side with Pillow so crawlers get a PNG, and a small HTML page at `/share/claims/<id>` carries the Open Graph tags because the app is a client-rendered SPA.
 - **Dependencies added beyond the plan:** yt-dlp (captions and video metadata), Pillow (share images), `@xyflow/react` (flow diagrams), `openapi-fetch` and `openapi-typescript` (typed client).
+- **No end-to-end or unit tests:** the owner asked for none from M1 onward, so the e2e compose profile, the e2e task and the Playwright test job were left out. Correctness is covered by the eval report, the typed API contract check in CI, lint and type checks, and Storybook.

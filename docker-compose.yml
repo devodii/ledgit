@@ -96,17 +96,5 @@ services:
       - ./web/src:/app/web/src
       - ./web/.storybook:/app/web/.storybook
 
-  e2e:
-    image: mcr.microsoft.com/playwright:v1.49.0-noble
-    profiles: [e2e]
-    working_dir: /app/web
-    command: ["pnpm", "e2e"]
-    environment:
-      E2E_BASE_URL: http://web:5173
-    depends_on:
-      - web
-    volumes:
-      - ./web:/app/web
-
 volumes:
   dbdata:
