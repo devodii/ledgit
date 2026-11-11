@@ -30,7 +30,7 @@ class Funnel(BaseModel):
 class QuoteAudit(BaseModel):
     checked: int
     verbatim: int
-    failures: list[str] = Field(default_factory=list)
+    mismatches: list[str] = Field(default_factory=list)
 
 
 class JudgeStats(BaseModel):
@@ -140,7 +140,7 @@ def build_report(event: str) -> EvalReport:
         review_queue=len(review),
     )
 
-    failures: list[str] = []
+    mismatches: list[str] = []
     for entry in registry:
         text = (
             normalize(transcripts[entry.claim.video.id]["full_text"])
@@ -148,9 +148,9 @@ def build_report(event: str) -> EvalReport:
             else ""
         )
         if normalize(entry.claim.quote) not in text:
-            failures.append(entry.id)
+            mismatches.append(entry.id)
     audit = QuoteAudit(
-        checked=len(registry), verbatim=len(registry) - len(failures), failures=failures
+        checked=len(registry), verbatim=len(registry) - len(mismatches), mismatches=mismatches
     )
 
     buckets: Counter[str] = Counter()
@@ -298,7 +298,7 @@ def render_markdown(r: EvalReport) -> str:
         "",
         f"Independent re-check of every public quote against the stored transcript: "
         f"**{a.verbatim} of {a.checked} verbatim**"
-        + (f". Failures: {', '.join(a.failures)}" if a.failures else "."),
+        + (f". Mismatches: {', '.join(a.mismatches)}" if a.mismatches else "."),
         "",
         "## Judge",
         "",

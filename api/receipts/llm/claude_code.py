@@ -34,7 +34,7 @@ class ClaudeCodeProvider(LLMProvider):
         except subprocess.TimeoutExpired as exc:
             raise LLMError("claude -p timed out") from exc
         if run.returncode != 0:
-            raise LLMError(f"claude -p failed: {run.stderr[-300:] or run.stdout[-300:]}")
+            raise LLMError(f"claude -p returned an error: {run.stderr[-300:] or run.stdout[-300:]}")
         try:
             payload = json.loads(run.stdout)
         except json.JSONDecodeError as exc:

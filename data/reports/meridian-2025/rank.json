@@ -1,0 +1,11 @@
+{
+  "stage": "rank",
+  "event": "meridian-2025",
+  "counts_in": 80,
+  "counts_out": 40,
+  "drops": {
+    "over_target": 40
+  },
+  "notes": [],
+  "finished_at": "2026-11-11T19:26:05.431131Z"
+}

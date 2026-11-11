@@ -34,7 +34,7 @@ def compute_verdict(
         )
     ok = [r for r in results if r.result != ObservationResult.error]
     if not ok:
-        reason = "Every check failed to run, so the previous verdict is kept."
+        reason = "Every check could not run, so the previous verdict is kept."
         return previous or VerdictStatus.pending, reason
     lines = "; ".join(f"{r.label}: {r.summary}" for r in results)
     live = [r for r in ok if r.result == ObservationResult.live]

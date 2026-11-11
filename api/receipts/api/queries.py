@@ -12,7 +12,8 @@ CLAIM_SUMMARY_SELECT = f"""
     SELECT c.id, c.event_slug AS event, c.claim_type, {STATUS_EXPR} AS status,
            c.quote, c.summary, c.speaker_name, c.speaker_role,
            o.slug AS org_slug, o.name AS org_name, o.country AS org_country,
-           c.video_url, v.checked_at AS last_checked_at, c.created_at
+           c.video_url, c.video_id, c.start_seconds, c.caption_source,
+           c.scf_found, c.scf_awarded_usd, v.checked_at AS last_checked_at, c.created_at
     FROM claims c
     JOIN orgs o ON o.slug = c.org_slug
     LEFT JOIN verdicts v ON v.claim_id = c.id

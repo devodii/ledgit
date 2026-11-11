@@ -11,7 +11,7 @@
 - **Tests:** owner asked for no new tests from M1 onward, overriding the build plan. Existing api and home page tests stay.
 - **YouTube:** yt-dlp is our scraper for listing videos, metadata and captions (hand-run infrastructure we control). LumenLoop and StellarLight are never used as the source for videos or transcripts.
 - **Secondary sources:** LumenLoop (MCP over HTTP) and StellarLight (public API) enrich org data (website, region, SCF, contract and asset pointers). Every value taken from them is tagged with its source in the registry `sources` list. Our own checks (Horizon, Soroban RPC, stellar.toml, SEP, SCF site) are primary.
-- **DNS fallback:** the system resolver here fails for some hosts (horizon.stellar.org, mcp.lumenloop.com, Docker Hub). The http client retries failed lookups through Cloudflare DNS over HTTPS. Disable with `DNS_FALLBACK=0`.
+- **DNS fallback:** the system resolver here fails for some hosts (horizon.stellar.org, mcp.lumenloop.com, Docker Hub). The http client retries unresolved lookups through Cloudflare DNS over HTTPS. Disable with `DNS_FALLBACK=0`.
 - **Soroban XDR:** the contract instance ledger key is encoded by hand (`connectors/xdr.py`), verified byte for byte against the Stellar SDK, so the SDK is not a dependency.
 - **Horizon:** `horizon.stellar.org` no longer resolves, so the default is the public community Horizon at `horizon.stellar.lobstr.co`, configurable with `HORIZON_URL`.
 - **Stellar Expert:** asset and contract stats return 402 Payment Required, so only its free directory endpoint is used. Holder counts come from Horizon.

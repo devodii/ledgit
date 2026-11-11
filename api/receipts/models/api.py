@@ -39,6 +39,11 @@ class ClaimSummary(BaseModel):
     org_name: str
     org_country: str
     video_url: str
+    video_id: str
+    start_seconds: int
+    caption_source: CaptionSource
+    scf_found: bool
+    scf_awarded_usd: Decimal | None
     last_checked_at: datetime | None
 
 

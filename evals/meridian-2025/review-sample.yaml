@@ -1,0 +1,163 @@
+# Fill human_label with one of: correct, partial, incorrect.
+# Open the watch link, listen to the quote, check org and summary.
+# Then run `receipts eval --event <slug>` to get a precision estimate.
+- id: aztec-983a58
+  org: Aztec
+  claim_type: roadmap
+  quote: But we're also introducing support for noir lang through an RFP we published with Aztec earlier this year.
+  summary: The speaker said Stellar is introducing support for the Noir language through an RFP published with Aztec.
+  watch: https://www.youtube.com/watch?v=j36W1LUGGrs&t=358s
+  human_label: null
+  note: ''
+- id: bridge-84fb37
+  org: Bridge
+  claim_type: partner_launch
+  quote: And you can even accept transfers in including bank transfers through bridge.
+  summary: The latest SDP version can accept incoming transfers, including bank transfers through Bridge.
+  watch: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=107s
+  human_label: null
+  note: ''
+- id: ondo-finance-a8339c
+  org: Ondo Finance
+  claim_type: partner_launch
+  quote: uh USDY our leading tokenized treasury fund is live on Stellar today
+  summary: Ondo Finance's chief strategy officer said its USDY tokenized treasury fund is live on Stellar.
+  watch: https://www.youtube.com/watch?v=54DLQUzORXI&t=50s
+  human_label: null
+  note: ''
+- id: stellar-9d2e98
+  org: Stellar
+  claim_type: protocol_feature
+  quote: as I mentioned we now have parallel execution uh deployed and you know pending a vote of the validators will will actually be used in in practice
+  summary: The speaker said parallel execution is deployed and will be used in practice once the validators vote to enable it.
+  watch: https://www.youtube.com/watch?v=49qaI_g-Qyk&t=480s
+  human_label: null
+  note: ''
+- id: circle-893038
+  org: Circle
+  claim_type: partner_launch
+  quote: this is a perfect cue for me to announce that a CCTP v2 is coming to stellar, right?
+  summary: The speaker announced that Circle's CCTP v2 is coming to Stellar.
+  watch: https://www.youtube.com/watch?v=mvZkTr7rXho&t=620s
+  human_label: null
+  note: ''
+- id: etherfuse-ae1a37
+  org: Etherfuse
+  claim_type: partner_launch
+  quote: by tokenizing treasuries and launching peso denominated stable coin value on stellar.
+  summary: The speaker said the Innovation award winner, Etherfuse, is tokenizing treasuries and launching a peso-denominated stablecoin on Stellar.
+  watch: https://www.youtube.com/watch?v=g4NkRonfiUY&t=301s
+  human_label: null
+  note: ''
+- id: blend-protocol-d319c3
+  org: Blend Protocol
+  claim_type: partner_launch
+  quote: we had our first uh um first integration it was blend protocol.
+  summary: The speaker says Reflector's first integration was with Blend Protocol.
+  watch: https://www.youtube.com/watch?v=KFRF12c-RSU&t=314s
+  human_label: null
+  note: ''
+- id: reflector-e9298f
+  org: Reflector
+  claim_type: roadmap
+  quote: in April uh we launched foreign exchange rates oracle for uh all major cryp uh for major fiat currencies
+  summary: Reflector says it launched a foreign exchange rates oracle for major fiat currencies in April.
+  watch: https://www.youtube.com/watch?v=KFRF12c-RSU&t=631s
+  human_label: null
+  note: ''
+- id: stellar-core-4b4900
+  org: Stellar Core
+  claim_type: protocol_feature
+  quote: So, we rolled out the background transaction dissemination to mainnet, uh which pushed things like uh networking, hashing, decoding, authentication off the main thread into the background.
+  summary: The speaker said background transaction dissemination has been rolled out to mainnet, moving networking, hashing, decoding and authentication off the main thread.
+  watch: https://www.youtube.com/watch?v=MEMGj539ygg&t=332s
+  human_label: null
+  note: ''
+- id: stellar-development-foundation-2bc342
+  org: Stellar Development Foundation
+  claim_type: protocol_feature
+  quote: We have a 10x reduction in rent fees because of the in-memory state uh optimization.
+  summary: The speaker said Protocol 23 reduced rent fees by a factor of ten because of the in-memory state optimization.
+  watch: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1507s
+  human_label: null
+  note: ''
+- id: near-intents-fce120
+  org: NEAR Intents
+  claim_type: partner_launch
+  quote: roughly a month ago, we have integrated stellar into near intents.
+  summary: The speaker said Stellar was integrated into NEAR Intents roughly a month before the talk.
+  watch: https://www.youtube.com/watch?v=JSLrnApWc8k&t=739s
+  human_label: null
+  note: ''
+- id: wisdom-tree-916eb8
+  org: Wisdom Tree
+  claim_type: partner_launch
+  quote: We're making a push towards tokenization with now 14 funds across Stellar and five other blockchains.
+  summary: A Wisdom Tree representative said the firm now has 14 tokenized funds across Stellar and five other blockchains.
+  watch: https://www.youtube.com/watch?v=-TWT38FYJf4&t=69s
+  human_label: null
+  note: ''
+- id: sdf-4e4f85
+  org: SDF
+  claim_type: protocol_feature
+  quote: Uh we finally got Protocol 23 launched on Maynut.
+  summary: The speaker says Protocol 23 has launched on mainnet.
+  watch: https://www.youtube.com/watch?v=yBPxdPtDF1k&t=13s
+  human_label: null
+  note: ''
+- id: stellar-disbursement-platform-cbaf28
+  org: Stellar Disbursement Platform
+  claim_type: roadmap
+  quote: In the latest version, you can send one off payments to individuals and other businesses.
+  summary: The latest SDP version supports one-off payments to individuals and other businesses.
+  watch: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=99s
+  human_label: null
+  note: ''
+- id: paypal-10395a
+  org: PayPal
+  claim_type: partner_launch
+  quote: PayPal announced that they were deploying their stable coin on Stellar
+  summary: The speaker said PayPal announced it was deploying its stablecoin on Stellar.
+  watch: https://www.youtube.com/watch?v=6gDm3AGX8uk&t=138s
+  human_label: null
+  note: ''
+- id: the-aha-company-f1ed7c
+  org: the AHA company
+  claim_type: protocol_feature
+  quote: So that is shipping soon to Sorabon SDK and is part of our work with scaffold stellar.
+  summary: The speaker said composable contract traits (such as administrable and upgradeable) are shipping soon to the Soroban SDK as part of the Scaffold Stellar work.
+  watch: https://www.youtube.com/watch?v=sx77r9qQOeE&t=524s
+  human_label: null
+  note: ''
+- id: stellar-core-f679d1
+  org: Stellar Core
+  claim_type: protocol_feature
+  quote: parallel Soroban execution is already supported in Wasm protocol on mainnet today.
+  summary: The speaker said parallel Soroban execution is already supported on mainnet today.
+  watch: https://www.youtube.com/watch?v=MEMGj539ygg&t=411s
+  human_label: null
+  note: ''
+- id: freighter-4e652d
+  org: Freighter
+  claim_type: roadmap
+  quote: And one of the fast follows at past uh Meridian will be bringing the NFT support that we have into the extension, right?
+  summary: The speaker says NFT support will be brought to the Freighter extension as a fast follow after Meridian.
+  watch: https://www.youtube.com/watch?v=bw_-sDwDQLg&t=816s
+  human_label: null
+  note: ''
+- id: stellar-core-29edb5
+  org: Stellar Core
+  claim_type: roadmap
+  quote: So, that feature is already supported in Stellar Core. It is currently opt-in, so it's enabled on select nodes, but we plan to enable it on by default.
+  summary: The speaker said background block execution is supported in Stellar Core, is currently opt-in on select nodes, and is planned to be enabled by default.
+  watch: https://www.youtube.com/watch?v=MEMGj539ygg&t=393s
+  human_label: null
+  note: ''
+- id: sdf-26cd3e
+  org: SDF
+  claim_type: protocol_feature
+  quote: in a recent uh feature which got uh released in protocol 23, these events are also going to trigger during the stellar classic operations.
+  summary: The speaker said a feature released in protocol 23 makes Stellar classic operations emit events, in addition to smart contract events.
+  watch: https://www.youtube.com/watch?v=iioKD2cRsA0&t=158s
+  human_label: null
+  note: ''

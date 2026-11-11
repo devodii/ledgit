@@ -233,6 +233,9 @@
       },
       "ClaimSummary": {
         "properties": {
+          "caption_source": {
+            "$ref": "#/components/schemas/CaptionSource"
+          },
           "claim_type": {
             "$ref": "#/components/schemas/ClaimType"
           },
@@ -272,6 +275,21 @@
             "title": "Quote",
             "type": "string"
           },
+          "scf_awarded_usd": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scf Awarded Usd"
+          },
+          "scf_found": {
+            "title": "Scf Found",
+            "type": "boolean"
+          },
           "speaker_name": {
             "title": "Speaker Name",
             "type": "string"
@@ -280,11 +298,19 @@
             "title": "Speaker Role",
             "type": "string"
           },
+          "start_seconds": {
+            "title": "Start Seconds",
+            "type": "integer"
+          },
           "status": {
             "$ref": "#/components/schemas/VerdictStatus"
           },
           "summary": {
             "title": "Summary",
+            "type": "string"
+          },
+          "video_id": {
+            "title": "Video Id",
             "type": "string"
           },
           "video_url": {
@@ -305,6 +331,11 @@
           "org_name",
           "org_country",
           "video_url",
+          "video_id",
+          "start_seconds",
+          "caption_source",
+          "scf_found",
+          "scf_awarded_usd",
           "last_checked_at"
         ],
         "title": "ClaimSummary",

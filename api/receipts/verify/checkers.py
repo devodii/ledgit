@@ -153,6 +153,8 @@ class Checkers:
                     return check_anchor(ref, self.toml, self.sep)
                 case EvidenceKind.protocol_upgrade:
                     return check_protocol(ref, self.soroban)
-        except ConnectorError as exc:
-            return Observation(result=ObservationResult.error, summary=f"check failed: {exc}"[:200])
+        except (ConnectorError, ValueError) as exc:
+            return Observation(
+                result=ObservationResult.error, summary=f"check could not run: {exc}"[:200]
+            )
         return Observation(result=ObservationResult.error, summary="unknown evidence kind")

@@ -51,6 +51,7 @@ class Candidate(BaseModel):
     score: float = 0.0
     judge_confidence: float | None = None
     judge_issue: str = ""
+    judge_reason: str = ""
     extractor_model: str
     extracted_at: datetime
 
