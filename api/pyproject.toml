@@ -42,6 +42,9 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "TID"]
 
+[tool.ruff.lint.per-file-ignores]
+"receipts/pipeline/extract.py" = ["E501"]
+
 [tool.ruff.lint.flake8-tidy-imports.banned-api]
 "dataclasses".msg = "Use pydantic models instead of dataclasses."
 

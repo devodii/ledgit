@@ -1,0 +1,17 @@
+slug: meridian-2025
+name: Meridian 2025
+location: Rio de Janeiro, Brazil
+window: { start: "2025-09-17", end: "2025-09-18" }
+discovery:
+  playlists:
+    - PLmr3tp_7-7Gg3deAwuGQEjAMbhAtt8Yi3
+    - PLmr3tp_7-7Gh7c12N0msdEQZ76EKIwfxm
+    - PLmr3tp_7-7GjLJl63fuEv_HO3_stZ8Je9
+  title_must_match: ["meridian\\s*(20)?25"]
+  published_after: "2025-09-17"
+  published_before: "2025-12-31"
+  session_pages: []
+limits:
+  max_videos: 80
+  max_claims_per_talk: 5
+  target_claims: 40

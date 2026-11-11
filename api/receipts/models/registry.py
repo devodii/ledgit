@@ -16,15 +16,27 @@ class EventWindow(StrictModel):
     end: date
 
 
-class EventSeed(BaseModel):
-    model_config = ConfigDict(extra="allow")
+class Discovery(BaseModel):
+    playlists: list[str] = Field(default_factory=list)
+    title_must_match: list[str] = Field(default_factory=list)
+    published_after: date | None = None
+    published_before: date | None = None
+    session_pages: list[str] = Field(default_factory=list)
 
+
+class Limits(BaseModel):
+    max_videos: int = 80
+    max_claims_per_talk: int = 5
+    target_claims: int = 40
+
+
+class EventSeed(BaseModel):
     slug: str
     name: str
     location: str
     window: EventWindow
-    discovery: dict[str, object] = Field(default_factory=dict)
-    limits: dict[str, int] = Field(default_factory=dict)
+    discovery: Discovery = Field(default_factory=Discovery)
+    limits: Limits = Field(default_factory=Limits)
 
 
 class Speaker(StrictModel):
