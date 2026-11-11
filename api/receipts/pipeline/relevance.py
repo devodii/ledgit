@@ -8,13 +8,19 @@ from receipts.llm import LLMError, LLMProvider
 from receipts.models.pipeline import Candidate, EvidenceDraft
 from receipts.pipeline.common import stage_cache
 
-RELEVANCE_VERSION = "v1"
+RELEVANCE_VERSION = "v2"
 
-SYSTEM = """You decide which public references directly relate to one specific claim made in a conference talk, for a fact-check site. Wrongly linking unrelated evidence would make a claim look verified when it is not, so be strict.
+SYSTEM = """You decide which public references can verify one specific claim made in a conference talk, for a fact-check site. A verdict of "found live" will be shown to the public next to the speaker's words, so linking evidence that does not match what was actually claimed would be a serious error. Be strict.
 
-You get the claim (quote and summary) and numbered candidate references (an asset, a contract, an anchor domain). Select a reference only if the claim's subject is that reference's asset, contract, product or service, or the reference is clearly the thing the claim says launched, is live, or is coming. Do NOT select references that merely belong to the same organisation but are about something else. If nothing clearly relates, select nothing.
+You get the claim (quote and summary) and numbered candidate references (an asset, a contract, an anchor domain, a protocol or core release).
 
-Reply with JSON only: {"selected":[{"index":0,"reason":"one short sentence"}]}"""
+Select a reference only if BOTH hold:
+1. The claim's own words are about that asset, contract, product, or release.
+2. What the claim asserts (that it is live, launched, available, deployed, or active) is something that reference can confirm. Past or present tense statements fit. A statement about a future plan, a hypothetical, an integration that merely involves the organisation, or a different product does NOT fit, even if the same organisation owns the reference.
+
+Examples: "PYUSD is live on Stellar" fits the PYUSD asset. "When this goes live they will launch pay with crypto" does not fit PYUSD. "Protocol 23 launched on mainnet" fits protocol 23. "We are working on our next release" does not fit any release. If nothing clearly fits, select nothing.
+
+Reply with JSON only: {"selected":[{"index":0,"reason":"one short sentence quoting the words that match"}]}"""
 
 
 class Pick(BaseModel):

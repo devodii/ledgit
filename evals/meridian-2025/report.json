@@ -1,88 +1,94 @@
 {
   "event": "meridian-2025",
-  "generated_at": "2026-11-11T19:41:05.908147Z",
-  "provider": "provider=claude_code model=claude-sonnet-5-5 prompt=v1",
+  "generated_at": "2026-11-11T20:37:43.487955Z",
+  "provider": "provider=claude_code model=claude-sonnet-5-5 prompt=v3",
   "funnel": {
     "videos_discovered": 61,
     "transcripts_fetched": 61,
     "manual_captions": 0,
     "auto_captions": 61,
-    "candidates_extracted": 231,
-    "judge_accepted": 80,
-    "ranked_kept": 40,
-    "public_registry": 40,
-    "review_queue": 0
+    "candidates_extracted": 445,
+    "judge_accepted": 160,
+    "ranked_kept": 120,
+    "public_registry": 13,
+    "review_queue": 107
   },
   "drops": {
     "resolve": {
-      "no_evidence_found": 20
+      "no_relevant_evidence": 140
+    },
+    "write": {
+      "low_confidence": 61,
+      "nothing_checkable": 46
     },
     "judge": {
-      "judge:not_checkable": 103,
-      "judge:org_incorrect": 2,
-      "judge:summary_not_faithful": 46
+      "judge:not_checkable": 197,
+      "judge:org_incorrect": 10,
+      "judge:summary_not_faithful": 78
     },
     "rank": {
-      "over_target": 40
+      "duplicate": 18,
+      "over_talk_cap": 14,
+      "over_target": 8
     },
     "extract": {
       "llm_output_unusable": 1,
-      "org_not_in_source": 46,
-      "quote_not_verbatim": 23
+      "org_not_in_source": 42,
+      "quote_not_verbatim": 24
     }
   },
   "quote_audit": {
-    "checked": 40,
-    "verbatim": 40,
+    "checked": 13,
+    "verbatim": 13,
     "mismatches": []
   },
   "judge": {
-    "mean_confidence_accepted": 0.734,
+    "mean_confidence_accepted": 0.655,
     "confidence_buckets": {
-      "0.2-0.4": 1,
-      "0.4-0.6": 7,
-      "0.6-0.8": 37,
-      "0.8-1.0": 35
+      "0.2-0.4": 4,
+      "0.4-0.6": 48,
+      "0.6-0.8": 63,
+      "0.8-1.0": 45
     },
-    "extractor_high_score_accepted_rate": 0.552
+    "extractor_high_score_accepted_rate": 0.769
   },
   "coverage": {
-    "claims": 40,
-    "speaker_named": 0.9,
-    "domain_resolved": 0.525,
-    "country_known": 0.45,
-    "scf_found": 0.15,
-    "with_evidence": 0.2,
-    "protocol_evidence": 5,
+    "claims": 13,
+    "speaker_named": 1.0,
+    "domain_resolved": 0.692,
+    "country_known": 0.692,
+    "scf_found": 0.077,
+    "with_evidence": 1.0,
+    "protocol_evidence": 7,
     "claim_types": {
-      "partner_launch": 21,
-      "roadmap": 9,
-      "protocol_feature": 10
+      "partner_launch": 5,
+      "roadmap": 1,
+      "protocol_feature": 7
     },
     "evidence_kinds": {
-      "asset_issuer": 3,
-      "protocol_upgrade": 5
+      "asset_issuer": 6,
+      "protocol_upgrade": 7
     },
     "sources": {
-      "lumenloop": 18,
-      "stellarlight": 30,
-      "homepage": 2,
-      "stellar_expert": 12,
-      "stellar_toml": 11
+      "lumenloop": 9,
+      "stellar_expert": 9,
+      "stellar_toml": 9,
+      "stellarlight": 18,
+      "horizon": 1,
+      "talk": 7
     },
     "caption_source": {
-      "auto": 40
+      "auto": 13
     }
   },
   "verdicts": {
     "verdicts": {
-      "live": 8,
-      "no_trace_found": 32
+      "live": 13
     },
     "observations": {
-      "live": 53
+      "live": 37
     },
-    "changes": 55
+    "changes": 14
   },
   "human_review": {
     "labelled": 0,
@@ -91,205 +97,114 @@
   },
   "per_talk": [
     {
-      "video_id": "MEMGj539ygg",
-      "title": "What We've Built and Where We're Headed: Scaling Stellar Core for the Future | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 5,
-      "public": 4
-    },
-    {
-      "video_id": "qP0tNjYIcI0",
-      "title": "Stellar Disbursement Platform: From a Payouts Tool to a One-Stop-Shop for Enterprises | Meridian 25",
-      "candidates": 6,
-      "judge_accepted": 5,
-      "public": 4
-    },
-    {
-      "video_id": "KFRF12c-RSU",
-      "title": "Reflector: From Concept to DAO Governed Oracle | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 5,
-      "public": 3
-    },
-    {
-      "video_id": "j36W1LUGGrs",
-      "title": "The Roadmap for Privacy on Stellar | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 4,
-      "public": 3
-    },
-    {
       "video_id": "ltymXqzQPDY",
       "title": "Supercharged Smart Contracts: Conflict-Free Parallelism & Protocol Caching | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 4,
-      "public": 3
-    },
-    {
-      "video_id": "bw_-sDwDQLg",
-      "title": "Charting Course With Freighter | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 2,
-      "public": 2
-    },
-    {
-      "video_id": "iioKD2cRsA0",
-      "title": "Building Your Data Stack: Stellar Open Source Tools Meet Goldsky Infrastructure | Meridian 2025",
-      "candidates": 6,
-      "judge_accepted": 4,
-      "public": 2
-    },
-    {
-      "video_id": "-TWT38FYJf4",
-      "title": "We've Tokenized Everything: Now What?! | Meridian 2025",
-      "candidates": 2,
-      "judge_accepted": 1,
-      "public": 1
-    },
-    {
-      "video_id": "49qaI_g-Qyk",
-      "title": "Scalability not Scarcity: Ensuring Long-term Equitable Access to Blockchain Technology | Meridian 25",
-      "candidates": 6,
-      "judge_accepted": 4,
-      "public": 1
-    },
-    {
-      "video_id": "4nedd7Dkkcc",
-      "title": "Local Solutions, Global Impact: Building for Emerging Markets | Meridian 2025",
-      "candidates": 6,
-      "judge_accepted": 1,
-      "public": 1
+      "candidates": 15,
+      "judge_accepted": 11,
+      "public": 5
     },
     {
       "video_id": "54DLQUzORXI",
       "title": "Lightning Talks Featuring Ondo Finance, Etherfuse, Kredete | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 2,
-      "public": 1
+      "candidates": 9,
+      "judge_accepted": 3,
+      "public": 2
     },
     {
-      "video_id": "6gDm3AGX8uk",
-      "title": "Scaling the Rails: Enterprise-Grade Infrastructure on Stellar | Meridian 2025",
-      "candidates": 2,
+      "video_id": "ALNgw51xVZA",
+      "title": "Money on Their Terms: How MoneyGram is Bridging Finance & Crypto for Families | Meridian 2025",
+      "candidates": 4,
       "judge_accepted": 1,
-      "public": 1
-    },
-    {
-      "video_id": "7lqYt_VR7sw",
-      "title": "How Security Changes in the Age of Vibe Coding | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 2,
       "public": 1
     },
     {
       "video_id": "AvVKPWQgyLM",
       "title": "PYUSD, PayFi, and the Future of Accessing Capital | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 1,
+      "candidates": 11,
+      "judge_accepted": 3,
       "public": 1
     },
     {
-      "video_id": "JSLrnApWc8k",
-      "title": "The Intent-Driven Future with NEAR Intents | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 2,
-      "public": 1
-    },
-    {
-      "video_id": "VjgQUw9HZsw",
-      "title": "Welcome to Meridian: A Blueprint for the Future of Finance | Meridian 2025",
-      "candidates": 8,
-      "judge_accepted": 2,
+      "video_id": "KFRF12c-RSU",
+      "title": "Reflector: From Concept to DAO Governed Oracle | Meridian 2025",
+      "candidates": 23,
+      "judge_accepted": 10,
       "public": 1
     },
     {
       "video_id": "ccsXsLVl8Zo",
       "title": "Talks w/ Kredete, 21x, Meru, Cheesecake Labs, Solv Finance, & The Wallet in Telegram | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 3,
+      "candidates": 15,
+      "judge_accepted": 5,
       "public": 1
     },
     {
-      "video_id": "g4NkRonfiUY",
-      "title": "Meridian Closing: The Blueprint Becomes Reality | Meridian 2025",
-      "candidates": 4,
-      "judge_accepted": 2,
-      "public": 1
-    },
-    {
-      "video_id": "gCHJFyWLwO4",
-      "title": "An Eye for the Future: Franklin Templeton's Bold Moves on Blockchain | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 3,
-      "public": 1
-    },
-    {
-      "video_id": "ifv0RTUzuz8",
-      "title": "Open, Modular, Minimalist Infrastructure for Stellar and Beyond | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 1,
-      "public": 1
-    },
-    {
-      "video_id": "j1RkmNpcYRo",
-      "title": "Lightning Talks Featuring Arculus, PwC US, Alfred Pay and Mercado Bitcoin | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 2,
-      "public": 1
-    },
-    {
-      "video_id": "mvZkTr7rXho",
-      "title": "Cracking the Code on Cross‑Chain Simplicity | Meridian 2025",
-      "candidates": 2,
-      "judge_accepted": 1,
-      "public": 1
-    },
-    {
-      "video_id": "rnv3PsvJcpM",
-      "title": "Welcome to Ipanema: Meridian's Innovation Stage | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 2,
-      "public": 1
-    },
-    {
-      "video_id": "sx77r9qQOeE",
-      "title": "Rapid Application Development with Scaffold Stellar | Meridian 2025",
-      "candidates": 6,
-      "judge_accepted": 3,
+      "video_id": "iioKD2cRsA0",
+      "title": "Building Your Data Stack: Stellar Open Source Tools Meet Goldsky Infrastructure | Meridian 2025",
+      "candidates": 11,
+      "judge_accepted": 5,
       "public": 1
     },
     {
       "video_id": "yBPxdPtDF1k",
       "title": "Stellar Analytics on a Shoestring Budget | Meridian 2025",
-      "candidates": 6,
+      "candidates": 13,
       "judge_accepted": 2,
       "public": 1
     },
     {
-      "video_id": "zMjcgV_n5Xg",
-      "title": "The RWA Revolution: How Traditional Assets Are Finding Their Way Onchain | Meridian 2025",
-      "candidates": 5,
-      "judge_accepted": 1,
-      "public": 1
+      "video_id": "-TWT38FYJf4",
+      "title": "We've Tokenized Everything: Now What?! | Meridian 2025",
+      "candidates": 6,
+      "judge_accepted": 0,
+      "public": 0
     },
     {
       "video_id": "3pshswc2Wko",
       "title": "The Future of Purposeful Technology | Meridian 2025",
-      "candidates": 4,
+      "candidates": 9,
+      "judge_accepted": 2,
+      "public": 0
+    },
+    {
+      "video_id": "49qaI_g-Qyk",
+      "title": "Scalability not Scarcity: Ensuring Long-term Equitable Access to Blockchain Technology | Meridian 25",
+      "candidates": 8,
+      "judge_accepted": 3,
+      "public": 0
+    },
+    {
+      "video_id": "4nedd7Dkkcc",
+      "title": "Local Solutions, Global Impact: Building for Emerging Markets | Meridian 2025",
+      "candidates": 8,
       "judge_accepted": 0,
       "public": 0
     },
     {
       "video_id": "6GQjFg7XJ8U",
       "title": "Eliminating Transaction Limits with zk | Meridian 2025",
-      "candidates": 4,
-      "judge_accepted": 2,
+      "candidates": 9,
+      "judge_accepted": 4,
       "public": 0
     },
     {
       "video_id": "6NnDqVQYOHM",
       "title": "Confidential Tokens on Stellar — A Smart-Contract Approach | Meridian 2025",
-      "candidates": 6,
+      "candidates": 5,
+      "judge_accepted": 2,
+      "public": 0
+    },
+    {
+      "video_id": "6gDm3AGX8uk",
+      "title": "Scaling the Rails: Enterprise-Grade Infrastructure on Stellar | Meridian 2025",
+      "candidates": 4,
+      "judge_accepted": 1,
+      "public": 0
+    },
+    {
+      "video_id": "7lqYt_VR7sw",
+      "title": "How Security Changes in the Age of Vibe Coding | Meridian 2025",
+      "candidates": 7,
       "judge_accepted": 2,
       "public": 0
     },
@@ -303,13 +218,6 @@
     {
       "video_id": "A5DgqtjuOQs",
       "title": "From Vision to Vindication: A Decade of Building the Future of Payments | Meridian 2025",
-      "candidates": 0,
-      "judge_accepted": 0,
-      "public": 0
-    },
-    {
-      "video_id": "ALNgw51xVZA",
-      "title": "Money on Their Terms: How MoneyGram is Bridging Finance & Crypto for Families | Meridian 2025",
       "candidates": 0,
       "judge_accepted": 0,
       "public": 0
@@ -331,22 +239,22 @@
     {
       "video_id": "DFPbiondrxc",
       "title": "Designing for Trust: Rethinking UX in Web3 | Meridian 2025",
-      "candidates": 0,
-      "judge_accepted": 0,
+      "candidates": 12,
+      "judge_accepted": 6,
       "public": 0
     },
     {
       "video_id": "DR0z3lTwv70",
       "title": "Inside Stellar: Features That Power Great Developer Tools | Meridian 2025",
-      "candidates": 3,
-      "judge_accepted": 1,
+      "candidates": 18,
+      "judge_accepted": 5,
       "public": 0
     },
     {
       "video_id": "GRqbutJPqnU",
       "title": "Transforming Imagination into Income: A Virtual Fireside Chat with Idris Elba | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 1,
+      "candidates": 6,
+      "judge_accepted": 2,
       "public": 0
     },
     {
@@ -359,49 +267,70 @@
     {
       "video_id": "JFgDnMBTwAE",
       "title": "Private Transactions for Stellar | Meridian 2025",
-      "candidates": 0,
-      "judge_accepted": 0,
+      "candidates": 5,
+      "judge_accepted": 1,
+      "public": 0
+    },
+    {
+      "video_id": "JSLrnApWc8k",
+      "title": "The Intent-Driven Future with NEAR Intents | Meridian 2025",
+      "candidates": 6,
+      "judge_accepted": 5,
+      "public": 0
+    },
+    {
+      "video_id": "MEMGj539ygg",
+      "title": "What We've Built and Where We're Headed: Scaling Stellar Core for the Future | Meridian 2025",
+      "candidates": 9,
+      "judge_accepted": 3,
       "public": 0
     },
     {
       "video_id": "MKS8hcJkQj4",
       "title": "Optimizing High Speed Through Research | Meridian 2025",
-      "candidates": 0,
+      "candidates": 5,
       "judge_accepted": 0,
       "public": 0
     },
     {
       "video_id": "O4nj9Zguon0",
       "title": "Around the World: Hot Topics in Regional Crypto Regulation | Meridian 2025",
-      "candidates": 0,
+      "candidates": 1,
       "judge_accepted": 0,
       "public": 0
     },
     {
       "video_id": "PxY39vahsHU",
       "title": "Mapping the Stellar Network: A Live Look with Messari and Artemis | Meridian 2025",
-      "candidates": 6,
-      "judge_accepted": 0,
+      "candidates": 15,
+      "judge_accepted": 8,
       "public": 0
     },
     {
       "video_id": "SFyhS_Ojirk",
       "title": "The Security Mindset: Building Vulnerability-Free Soroban Smart Contracts | Meridian 2025",
-      "candidates": 0,
+      "candidates": 4,
       "judge_accepted": 0,
       "public": 0
     },
     {
       "video_id": "TnwA-XVUYpc",
       "title": "The Convergence of Global Finance and Web3 | Meridian 2025",
-      "candidates": 0,
+      "candidates": 4,
       "judge_accepted": 0,
+      "public": 0
+    },
+    {
+      "video_id": "VjgQUw9HZsw",
+      "title": "Welcome to Meridian: A Blueprint for the Future of Finance | Meridian 2025",
+      "candidates": 11,
+      "judge_accepted": 3,
       "public": 0
     },
     {
       "video_id": "XiiemDCvv2s",
       "title": "Restoring Dignity and Empowering Communities Through Digital Identity Solutions | Meridian 2025",
-      "candidates": 2,
+      "candidates": 3,
       "judge_accepted": 0,
       "public": 0
     },
@@ -415,15 +344,22 @@
     {
       "video_id": "_njv_r5hwNA",
       "title": "Colonizing Mars: The Journey of Building a Smart Wallet | Meridian 2025",
-      "candidates": 0,
-      "judge_accepted": 0,
+      "candidates": 3,
+      "judge_accepted": 1,
       "public": 0
     },
     {
       "video_id": "ard4j13AnnI",
       "title": "It's Never Been Better to Build On Stellar | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 1,
+      "candidates": 12,
+      "judge_accepted": 7,
+      "public": 0
+    },
+    {
+      "video_id": "bw_-sDwDQLg",
+      "title": "Charting Course With Freighter | Meridian 2025",
+      "candidates": 10,
+      "judge_accepted": 5,
       "public": 0
     },
     {
@@ -436,29 +372,71 @@
     {
       "video_id": "g4K8d9eBUpQ",
       "title": "Stellar Shark Tank | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 2,
+      "candidates": 17,
+      "judge_accepted": 6,
+      "public": 0
+    },
+    {
+      "video_id": "g4NkRonfiUY",
+      "title": "Meridian Closing: The Blueprint Becomes Reality | Meridian 2025",
+      "candidates": 10,
+      "judge_accepted": 1,
+      "public": 0
+    },
+    {
+      "video_id": "gCHJFyWLwO4",
+      "title": "An Eye for the Future: Franklin Templeton's Bold Moves on Blockchain | Meridian 2025",
+      "candidates": 11,
+      "judge_accepted": 4,
       "public": 0
     },
     {
       "video_id": "hBDBT7uXcIs",
       "title": "Engineering Stellar Smart Wallets for Real-World Activation | Meridian 2025",
-      "candidates": 6,
-      "judge_accepted": 2,
+      "candidates": 9,
+      "judge_accepted": 6,
       "public": 0
     },
     {
       "video_id": "i-a6Tp1dhEs",
       "title": "The Machines Can Code and Stellar is Ready | Meridian 2025",
-      "candidates": 4,
-      "judge_accepted": 1,
+      "candidates": 2,
+      "judge_accepted": 0,
+      "public": 0
+    },
+    {
+      "video_id": "ifv0RTUzuz8",
+      "title": "Open, Modular, Minimalist Infrastructure for Stellar and Beyond | Meridian 2025",
+      "candidates": 12,
+      "judge_accepted": 4,
+      "public": 0
+    },
+    {
+      "video_id": "j1RkmNpcYRo",
+      "title": "Lightning Talks Featuring Arculus, PwC US, Alfred Pay and Mercado Bitcoin | Meridian 2025",
+      "candidates": 9,
+      "judge_accepted": 3,
+      "public": 0
+    },
+    {
+      "video_id": "j36W1LUGGrs",
+      "title": "The Roadmap for Privacy on Stellar | Meridian 2025",
+      "candidates": 19,
+      "judge_accepted": 7,
       "public": 0
     },
     {
       "video_id": "jl6IM7N4hQk",
       "title": "Leveraging the Malicious Mindset | Meridian 2025",
-      "candidates": 3,
+      "candidates": 2,
       "judge_accepted": 0,
+      "public": 0
+    },
+    {
+      "video_id": "mvZkTr7rXho",
+      "title": "Cracking the Code on Cross‑Chain Simplicity | Meridian 2025",
+      "candidates": 3,
+      "judge_accepted": 1,
       "public": 0
     },
     {
@@ -471,50 +449,78 @@
     {
       "video_id": "ppKavSKkwxM",
       "title": "Bringing Innovation to Public Projects: Lessons Learned | Meridian 2025",
-      "candidates": 0,
+      "candidates": 3,
       "judge_accepted": 0,
+      "public": 0
+    },
+    {
+      "video_id": "qP0tNjYIcI0",
+      "title": "Stellar Disbursement Platform: From a Payouts Tool to a One-Stop-Shop for Enterprises | Meridian 25",
+      "candidates": 4,
+      "judge_accepted": 4,
       "public": 0
     },
     {
       "video_id": "rie38Rkg25s",
       "title": "How Beans Delivers Optimized Yield Using Defindex and Blend | Meridian 2025",
-      "candidates": 7,
-      "judge_accepted": 2,
+      "candidates": 17,
+      "judge_accepted": 6,
+      "public": 0
+    },
+    {
+      "video_id": "rnv3PsvJcpM",
+      "title": "Welcome to Ipanema: Meridian's Innovation Stage | Meridian 2025",
+      "candidates": 6,
+      "judge_accepted": 1,
       "public": 0
     },
     {
       "video_id": "sQKrORMVljs",
       "title": "Crypto Doesn't Have to Be Hard | Meridian 2025",
-      "candidates": 2,
+      "candidates": 0,
       "judge_accepted": 0,
+      "public": 0
+    },
+    {
+      "video_id": "sx77r9qQOeE",
+      "title": "Rapid Application Development with Scaffold Stellar | Meridian 2025",
+      "candidates": 10,
+      "judge_accepted": 6,
       "public": 0
     },
     {
       "video_id": "tlX-2ZaU_S8",
       "title": "Innovation AMA | Meridian 2025",
-      "candidates": 1,
+      "candidates": 4,
       "judge_accepted": 1,
       "public": 0
     },
     {
       "video_id": "v8JgyMmPkXk",
       "title": "The Innovation Imperative: Building Cities That Shape Tomorrow | Meridian 2025",
-      "candidates": 0,
-      "judge_accepted": 0,
+      "candidates": 3,
+      "judge_accepted": 1,
       "public": 0
     },
     {
       "video_id": "vjMjjALNjgc",
       "title": "A Vision for Universal Interoperability | Meridian 2025",
-      "candidates": 4,
-      "judge_accepted": 0,
+      "candidates": 7,
+      "judge_accepted": 4,
       "public": 0
     },
     {
       "video_id": "vurxNf-Wrbo",
       "title": "Operationalizing Blockchain in Banking: How Institutions are Making it Work | Meridian 2025",
-      "candidates": 3,
-      "judge_accepted": 0,
+      "candidates": 5,
+      "judge_accepted": 2,
+      "public": 0
+    },
+    {
+      "video_id": "zMjcgV_n5Xg",
+      "title": "The RWA Revolution: How Traditional Assets Are Finding Their Way Onchain | Meridian 2025",
+      "candidates": 7,
+      "judge_accepted": 3,
       "public": 0
     }
   ]

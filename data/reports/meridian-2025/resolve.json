@@ -1,13 +1,14 @@
 {
   "stage": "resolve",
   "event": "meridian-2025",
-  "counts_in": 40,
-  "counts_out": 29,
+  "counts_in": 160,
+  "counts_out": 20,
   "drops": {
-    "no_evidence_found": 20
+    "no_relevant_evidence": 140
   },
   "notes": [
-    "counts are new orgs resolved"
+    "new organisations resolved: 0",
+    "counts_out is claims with evidence"
   ],
-  "finished_at": "2026-11-11T19:41:02.566272Z"
+  "finished_at": "2026-11-11T20:37:37.267056Z"
 }

@@ -218,10 +218,16 @@ def resolve_claim_extras(candidate: Candidate, org_domain: str) -> OrgResolution
     horizon = HorizonConnector()
     seen: set[str] = set()
     sources: dict[str, SourceDraft] = {}
+    claim_text = f"{candidate.quote} {candidate.summary}"
     tickers = [
         t
         for t in dict.fromkeys(
-            candidate.asset_codes + TICKER_RE.findall(f"{candidate.quote} {candidate.summary}")
+            [
+                c
+                for c in candidate.asset_codes
+                if re.search(rf"\b{re.escape(c)}\b", claim_text, re.I)
+            ]
+            + TICKER_RE.findall(claim_text)
         )
         if t not in NOT_TICKERS
     ]
@@ -284,6 +290,15 @@ def resolve_claim_extras(candidate: Candidate, org_domain: str) -> OrgResolution
             "talk",
             "core version",
         )
+    if candidate.protocol_version:
+        add(
+            "protocol_upgrade",
+            f"protocol-{candidate.protocol_version}",
+            f"protocol {candidate.protocol_version} named in the talk",
+            f"https://www.youtube.com/watch?v={candidate.video_id}&t={candidate.start_seconds}s",
+            "talk",
+            "protocol version",
+        )
     result.sources = list(sources.values())
     return result
 
@@ -323,8 +338,9 @@ def run_resolve(seed: EventSeed) -> int:
                 if candidate.claim_type == ClaimType.protocol_feature
                 else list(resolution.evidence)
             )
-            chosen = select_relevant(provider, candidate, org_level, claim_key(candidate))
-            extras.evidence = extras.evidence + chosen
+            pool = extras.evidence + org_level
+            chosen = select_relevant(provider, candidate, pool, claim_key(candidate))
+            extras.evidence = chosen
             extras_path.write_text(extras.model_dump_json(indent=1))
         if not json.loads(extras_path.read_text())["evidence"]:
             drops["no_relevant_evidence"] = drops.get("no_relevant_evidence", 0) + 1

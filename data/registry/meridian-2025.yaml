@@ -1,275 +1,22 @@
-- id: 21x-d124ff
+- id: moneygram-8a0d93
   event: meridian-2025
   claim:
     type: partner_launch
-    quote: we decided for stellar to be the first protocol we integrate uh in our multi-chain strategy
-    summary: 21X said Stellar is the first protocol it is integrating as part of its multi-chain strategy, after starting on Polygon.
+    quote: the users can receive the cash um and hold the cash in uh USDC uh through our partnership with on a stellar blockchain as well as uh circle.
+    summary: The speaker said users of the new MoneyGram app can receive cash and hold it as USDC on the Stellar blockchain, through a partnership with Circle.
     speaker:
-      name: Marc Hegen
-      role: CTO
-    org:
-      name: 21X
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: ccsXsLVl8Zo
-      url_at_timestamp: https://www.youtube.com/watch?v=ccsXsLVl8Zo&t=235s
-      start_seconds: 235
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:23.925742Z'
-    confidence: 0.83
-    transcript_sha256: e963da9a9da7f494c487160720a16a9b7fe7f5f6633622f8640e496b1008e4c1
-- id: abroad-ed55b5
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: They're projects like abroad, right, which is open source infrastructure that allows wallets to connect and actually make payouts through picks.
-    summary: The speaker said Abroad is open source infrastructure that lets Stellar wallets make payouts through Pix.
-    speaker:
-      name: Justin Rice
-      role: VP of Ecosystem
-    org:
-      name: Abroad
-      domain: abroad.finance
-      country: United Kingdom
-      domain_source: stellarlight https://stellarlight.xyz/project/abroad
-      country_source: lumenloop https://lumenloop.com/directory/abroad
-    video:
-      id: rnv3PsvJcpM
-      url_at_timestamp: https://www.youtube.com/watch?v=rnv3PsvJcpM&t=154s
-      start_seconds: 154
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/abroad-lxb
-      awarded_usd: '149820.0'
-      source: stellarlight https://communityfund.stellar.org/project/abroad-lxb
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/abroad
-    retrieved_at: '2026-11-11T19:40:25.820631Z'
-    provides:
-    - region
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/abroad-lxb
-    retrieved_at: '2026-11-11T19:40:28.474134Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/abroad
-    retrieved_at: '2026-11-11T19:40:24.332194Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:22.037685Z'
-    confidence: 0.8
-    transcript_sha256: 40221f671333de84f0cc8b858210fc6c2eef2d375a94e155371468f784705983
-- id: almanex-d325bf
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: And so today also like happy to announce that uh we are live in the Sorban audit bank.
-    summary: The speaker announced that Almanax is now live in the Soroban audit bank.
-    speaker:
-      name: Francesco Piccoli
-      role: Co-founder and CEO
-    org:
-      name: Almanex
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: 7lqYt_VR7sw
-      url_at_timestamp: https://www.youtube.com/watch?v=7lqYt_VR7sw&t=982s
-      start_seconds: 982
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:00.569819Z'
-    confidence: 0.87
-    transcript_sha256: 7364274139b99cf62acb858000bdb5e32f835c10d944c22b17ec1083984262f0
-- id: aztec-983a58
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: But we're also introducing support for noir lang through an RFP we published with Aztec earlier this year.
-    summary: The speaker said Stellar is introducing support for the Noir language through an RFP published with Aztec.
-    speaker:
-      name: Tomer Weller
+      name: Anthony Soohoo
       role: ''
     org:
-      name: Aztec
-      domain: aztec.network
-      country: ''
-      domain_source: 'proposed by the extraction model, verified: homepage title names the organisation (https://aztec.network/)'
-      country_source: ''
-    video:
-      id: j36W1LUGGrs
-      url_at_timestamp: https://www.youtube.com/watch?v=j36W1LUGGrs&t=358s
-      start_seconds: 358
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: homepage
-    url: https://aztec.network/
-    retrieved_at: '2026-11-11T19:40:47.418602Z'
-    provides:
-    - domain verification
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:48.924057Z'
-    confidence: 0.78
-    transcript_sha256: 3f81337615f38338c1c8358ff80b4ceb17b2c3fdefba57c06c7a24dfdfe0d34d
-- id: blend-protocol-d319c3
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: we had our first uh um first integration it was blend protocol.
-    summary: The speaker says Reflector's first integration was with Blend Protocol.
-    speaker:
-      name: ''
-      role: ''
-    org:
-      name: Blend Protocol
-      domain: blend.capital
-      country: ''
-      domain_source: stellarlight https://stellarlight.xyz/project/blend
-      country_source: ''
-    video:
-      id: KFRF12c-RSU
-      url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=314s
-      start_seconds: 314
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/blend-mfy
-      awarded_usd: '50000.0'
-      source: stellarlight https://communityfund.stellar.org/project/blend-mfy
-  evidence: []
-  sources:
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:40:02.392502Z'
-    provides:
-    - directory address
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/blend-mfy
-    retrieved_at: '2026-11-11T19:40:02.379957Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellar.expert/explorer/public/contract/CAJJZSGMMM3PD7N33TAPHGBUGTB43OC73HVIK2L2G6BNGGGYOSSYBXBD
-    retrieved_at: '2026-11-11T19:40:02.379896Z'
-    provides:
-    - contract
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/blend
-    retrieved_at: '2026-11-11T19:40:00.456761Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:34.946158Z'
-    confidence: 0.83
-    transcript_sha256: cc31cdf809c4891decb2d10d4d848b2043be5f0527a8b2f8380a54388b205c31
-- id: bridge-84fb37
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: And you can even accept transfers in including bank transfers through bridge.
-    summary: The latest SDP version can accept incoming transfers, including bank transfers through Bridge.
-    speaker:
-      name: Tori Samples
-      role: ''
-    org:
-      name: Bridge
-      domain: bridge.xyz
+      name: MoneyGram
+      domain: moneygram.com
       country: United States
-      domain_source: stellarlight https://stellarlight.xyz/project/bridge
-      country_source: lumenloop https://lumenloop.com/directory/bridge
+      domain_source: stellarlight https://stellarlight.xyz/project/moneygram
+      country_source: lumenloop https://lumenloop.com/directory/moneygram
     video:
-      id: qP0tNjYIcI0
-      url_at_timestamp: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=107s
-      start_seconds: 107
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
-      awarded_usd: '95000.0'
-      source: stellarlight https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/bridge
-    retrieved_at: '2026-11-11T19:40:56.021938Z'
-    provides:
-    - region
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
-    retrieved_at: '2026-11-11T19:40:58.790152Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/bridge
-    retrieved_at: '2026-11-11T19:40:55.042121Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:12.032167Z'
-    confidence: 0.75
-    transcript_sha256: a86e583e52f6826d1e82f1ff23a8931c2e2c186c080492fe478ad61b7e011057
-- id: centrifuge-a914e4
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: some exciting announcements coming soon in terms of how we're going to be enabling uh open access for everybody who wants to get access to RWA yield via some centuge products that will launch um on stellar this week.
-    summary: A Centrifuge speaker said Centrifuge products giving open access to RWA yield would launch on Stellar that week.
-    speaker:
-      name: Graham Nelson
-      role: ''
-    org:
-      name: Centrifuge
-      domain: centrifuge.io
-      country: Italy
-      domain_source: stellarlight https://stellarlight.xyz/project/centrifuge
-      country_source: lumenloop https://lumenloop.com/directory/centrifuge
-    video:
-      id: zMjcgV_n5Xg
-      url_at_timestamp: https://www.youtube.com/watch?v=zMjcgV_n5Xg&t=83s
-      start_seconds: 83
+      id: ALNgw51xVZA
+      url_at_timestamp: https://www.youtube.com/watch?v=ALNgw51xVZA&t=160s
+      start_seconds: 160
     caption_source: auto
   backing:
     scf:
@@ -277,461 +24,48 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+    found_via: 'ticker USDC named in the claim; stellarlight project usdc: https://stellarlight.xyz/project/usdc (pointer: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN) | relevance: The claim says users can "hold the cash in USDC ... on a stellar blockchain", and this is the USDC asset on Stellar, which can confirm it is live.'
   sources:
   - name: lumenloop
-    url: https://lumenloop.com/directory/centrifuge
-    retrieved_at: '2026-11-11T19:40:07.631580Z'
+    url: https://lumenloop.com/directory/moneygram
+    retrieved_at: '2026-11-11T20:03:21.955140Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:40:07.697524Z'
+    retrieved_at: '2026-11-11T20:03:26.762422Z'
     provides:
     - directory address
   - name: stellar_toml
-    url: https://centrifuge.io/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:40:07.639538Z'
+    url: https://moneygram.com/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T20:03:24.694584Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
-    url: https://stellarlight.xyz/project/centrifuge
-    retrieved_at: '2026-11-11T19:40:06.625696Z'
+    url: https://stellarlight.xyz/project/moneygram
+    retrieved_at: '2026-11-11T20:03:19.931345Z'
     provides:
     - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:52.981891Z'
-    confidence: 0.81
-    transcript_sha256: 9eccdcf61964c3204b2c7f06211e87afc2e9f7002e21706a3b8a47de15f47288
-- id: cheesecake-labs-415140
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: The first ever Stellar smart wallet built by SDF and Cheesecake Labs to be show showcase what's possible on Stellar.
-    summary: The speaker announced the first Stellar smart wallet, built by SDF and Cheesecake Labs, as a showcase of what is possible on Stellar.
-    speaker:
-      name: Denelle Dixon
-      role: Stellar Development Foundation CEO
-    org:
-      name: Cheesecake Labs
-      domain: cheesecakelabs.com
-      country: Brazil
-      domain_source: stellarlight https://stellarlight.xyz/project/cheesecake-labs
-      country_source: lumenloop https://lumenloop.com/directory/cheesecake-labs
-    video:
-      id: VjgQUw9HZsw
-      url_at_timestamp: https://www.youtube.com/watch?v=VjgQUw9HZsw&t=762s
-      start_seconds: 762
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/cheesecake-labs
-    retrieved_at: '2026-11-11T19:40:50.394458Z'
-    provides:
-    - region
   - name: stellarlight
-    url: https://stellarlight.xyz/project/cheesecake-labs
-    retrieved_at: '2026-11-11T19:40:49.464109Z'
+    url: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+    retrieved_at: '2026-11-11T20:30:40.266714Z'
     provides:
-    - website
+    - asset USDC
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:58.202024Z'
-    confidence: 0.77
-    transcript_sha256: b3dc64a8e4926cbd61bd472dfa3aad19350ff042e7e8d9e9b3e376981d0a51b5
-- id: circle-893038
+    extracted_at: '2026-11-11T19:56:51.477350Z'
+    confidence: 0.93
+    transcript_sha256: 42a63f45cf7367b49371e460ed191299d8a991634f32577e2a3496ab9611f31d
+- id: ondo-finance-6a0681
   event: meridian-2025
   claim:
     type: partner_launch
-    quote: this is a perfect cue for me to announce that a CCTP v2 is coming to stellar, right?
-    summary: The speaker announced that Circle's CCTP v2 is coming to Stellar.
-    speaker:
-      name: Daniel Mangabeira
-      role: ''
-    org:
-      name: Circle
-      domain: circle.com
-      country: United States
-      domain_source: stellarlight https://stellarlight.xyz/project/circle
-      country_source: lumenloop https://lumenloop.com/directory/circle
-    video:
-      id: mvZkTr7rXho
-      url_at_timestamp: https://www.youtube.com/watch?v=mvZkTr7rXho&t=620s
-      start_seconds: 620
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/circle
-    retrieved_at: '2026-11-11T19:39:57.328754Z'
-    provides:
-    - region
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:39:57.354027Z'
-    provides:
-    - directory address
-  - name: stellar_toml
-    url: https://circle.com/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:39:57.338196Z'
-    provides:
-    - accounts, currencies, sep endpoints
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/circle
-    retrieved_at: '2026-11-11T19:39:56.067392Z'
-    provides:
-    - website
-    - asset
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:56.678671Z'
-    confidence: 0.868
-    transcript_sha256: e6106ac53e2b92f94a457077c7209811e2922d34669a484b02f46d4b50da7d4f
-- id: etherfuse-ae1a37
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: by tokenizing treasuries and launching peso denominated stable coin value on stellar.
-    summary: The speaker said the Innovation award winner, Etherfuse, is tokenizing treasuries and launching a peso-denominated stablecoin on Stellar.
-    speaker:
-      name: Denelle Dixon
-      role: ''
-    org:
-      name: Etherfuse
-      domain: etherfuse.com
-      country: United States
-      domain_source: stellarlight https://stellarlight.xyz/project/etherfuse
-      country_source: lumenloop https://lumenloop.com/directory/etherfuse
-    video:
-      id: g4NkRonfiUY
-      url_at_timestamp: https://www.youtube.com/watch?v=g4NkRonfiUY&t=301s
-      start_seconds: 301
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/etherfuse
-    retrieved_at: '2026-11-11T19:40:51.918350Z'
-    provides:
-    - region
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:40:51.935414Z'
-    provides:
-    - directory address
-  - name: stellar_toml
-    url: https://etherfuse.com/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:40:51.924898Z'
-    provides:
-    - accounts, currencies, sep endpoints
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/etherfuse
-    retrieved_at: '2026-11-11T19:40:51.006350Z'
-    provides:
-    - website
-    - asset
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:25.981564Z'
-    confidence: 0.77
-    transcript_sha256: e4725a7ac1e2191097ad755174d5af3f85cb477ba02ee63575e8d0614a25f799
-- id: franklin-templeton-0501cf
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: we we ultimately chose Stellar because it enabled us to meet these certain token level controls that met the SEC's strict criteria of operating a mutual fund on chain.
-    summary: The speaker said Franklin Templeton chose Stellar because its token-level controls met SEC criteria for operating a mutual fund on chain.
-    speaker:
-      name: Ric Golubov
-      role: ''
-    org:
-      name: Franklin Templeton
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: gCHJFyWLwO4
-      url_at_timestamp: https://www.youtube.com/watch?v=gCHJFyWLwO4&t=254s
-      start_seconds: 254
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:28.620585Z'
-    confidence: 0.74
-    transcript_sha256: 7feebe56509884b0a756a6151ad2fcbc778c39708080886a80d48ea3ae8bf311
-- id: freighter-4e652d
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: And one of the fast follows at past uh Meridian will be bringing the NFT support that we have into the extension, right?
-    summary: The speaker says NFT support will be brought to the Freighter extension as a fast follow after Meridian.
-    speaker:
-      name: Okiki Famutimi
-      role: ''
-    org:
-      name: Freighter
-      domain: ''
-      country: United States
-      domain_source: ''
-      country_source: lumenloop https://lumenloop.com/directory/freighter
-    video:
-      id: bw_-sDwDQLg
-      url_at_timestamp: https://www.youtube.com/watch?v=bw_-sDwDQLg&t=816s
-      start_seconds: 816
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:40:04.785767Z'
-    provides:
-    - region
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:09.176346Z'
-    confidence: 0.81
-    transcript_sha256: b59c7158958f7beaa54b369f0778b5476104b39bd6786605dc18c7ccb57c3e3e
-- id: freighter-db3a16
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: Freigher Mobile is a best-in-class way to discover the best in in Stellar and it's live right now on the App Store and the Google Play Store.
-    summary: The speaker states that Freighter Mobile is live on the App Store and Google Play Store.
-    speaker:
-      name: Okiki Famutimi
-      role: ''
-    org:
-      name: Freighter
-      domain: ''
-      country: United States
-      domain_source: ''
-      country_source: lumenloop https://lumenloop.com/directory/freighter
-    video:
-      id: bw_-sDwDQLg
-      url_at_timestamp: https://www.youtube.com/watch?v=bw_-sDwDQLg&t=207s
-      start_seconds: 207
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:40:04.785767Z'
-    provides:
-    - region
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:09.169157Z'
-    confidence: 0.79
-    transcript_sha256: b59c7158958f7beaa54b369f0778b5476104b39bd6786605dc18c7ccb57c3e3e
-- id: goldsky-cb12b3
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: we are running a public instance of galaxy and backfilling data into an open S3 bucket for everyone to access completely for free.
-    summary: The speaker said Goldsky runs a public instance of the ledger exporter and backfills data into an open S3 bucket that is free to access.
-    speaker:
-      name: Hemanth Soni
-      role: ''
-    org:
-      name: Goldsky
-      domain: goldsky.com
-      country: Canada
-      domain_source: stellarlight https://stellarlight.xyz/project/goldsky
-      country_source: lumenloop https://lumenloop.com/directory/goldsky
-    video:
-      id: iioKD2cRsA0
-      url_at_timestamp: https://www.youtube.com/watch?v=iioKD2cRsA0&t=545s
-      start_seconds: 545
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/goldsky-c3b
-      awarded_usd: '128000.0'
-      source: stellarlight https://communityfund.stellar.org/project/goldsky-c3b
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/goldsky
-    retrieved_at: '2026-11-11T19:40:43.457928Z'
-    provides:
-    - region
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/goldsky-c3b
-    retrieved_at: '2026-11-11T19:40:44.361509Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/goldsky
-    retrieved_at: '2026-11-11T19:40:42.525875Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:46.047233Z'
-    confidence: 0.78
-    transcript_sha256: d73fde8ce9b4a9bc0125cc76de146318b9834359180bf7fe3340eb74730b9e56
-- id: mercado-bitcoin-9da15c
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: that's why we have partnered and we are announcing it on first hand uh with stellar to issue uh 1 billion Brazilian eyes barely 200 million US dollars on stellar chain you know of different and new ises of WA
-    summary: Mercado Bitcoin announced a partnership with Stellar to issue 1 billion Brazilian reais (about 200 million US dollars) of new real-world asset issuances on the Stellar chain.
-    speaker:
-      name: Fabricio Tota
-      role: SVP
-    org:
-      name: Mercado Bitcoin
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: j1RkmNpcYRo
-      url_at_timestamp: https://www.youtube.com/watch?v=j1RkmNpcYRo&t=1641s
-      start_seconds: 1641
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:05.123429Z'
-    confidence: 0.89
-    transcript_sha256: 10a57f6ca501a25801ab3da93c5ede5a3a379d824e45375f0197cd0d9fc708d8
-- id: near-intents-fce120
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: roughly a month ago, we have integrated stellar into near intents.
-    summary: The speaker said Stellar was integrated into NEAR Intents roughly a month before the talk.
-    speaker:
-      name: Dejan Radic
-      role: technical program manager
-    org:
-      name: NEAR Intents
-      domain: near-intents.org
-      country: ''
-      domain_source: 'proposed by the extraction model, verified: homepage title names the organisation (https://near-intents.org/)'
-      country_source: ''
-    video:
-      id: JSLrnApWc8k
-      url_at_timestamp: https://www.youtube.com/watch?v=JSLrnApWc8k&t=739s
-      start_seconds: 739
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: homepage
-    url: https://near-intents.org/
-    retrieved_at: '2026-11-11T19:40:00.418627Z'
-    provides:
-    - domain verification
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:34.482675Z'
-    confidence: 0.84
-    transcript_sha256: b8508120fd67c21d112b8e1e2dfcddda663d991b7003e069e82081d3cb73c95c
-- id: nethermind-9c2570
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: At FDF, we're building a confidential token uh implementation and together with Nethermind, we're working towards an identity preserving private payments protocol.
-    summary: The speaker said SDF is building a confidential token implementation and working with Nethermind on an identity-preserving private payments protocol.
-    speaker:
-      name: Tomer Weller
-      role: ''
-    org:
-      name: Nethermind
-      domain: nethermind.io
-      country: United Kingdom
-      domain_source: stellarlight https://stellarlight.xyz/project/nethermind
-      country_source: lumenloop https://lumenloop.com/directory/nethermind
-    video:
-      id: j36W1LUGGrs
-      url_at_timestamp: https://www.youtube.com/watch?v=j36W1LUGGrs&t=473s
-      start_seconds: 473
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/nethermind
-    retrieved_at: '2026-11-11T19:40:09.781297Z'
-    provides:
-    - region
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/nethermind
-    retrieved_at: '2026-11-11T19:40:08.828517Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:48.926856Z'
-    confidence: 0.8
-    transcript_sha256: 3f81337615f38338c1c8358ff80b4ceb17b2c3fdefba57c06c7a24dfdfe0d34d
-- id: ondo-finance-a8339c
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: uh USDY our leading tokenized treasury fund is live on Stellar today
-    summary: Ondo Finance's chief strategy officer said its USDY tokenized treasury fund is live on Stellar.
+    quote: USDY our leading tokenized treasury fund is live on Stellar today
+    summary: Ondo Finance's chief strategy officer said its tokenized treasury fund USDY is live on Stellar.
     speaker:
       name: Ian de Bode
       role: chief strategy officer
@@ -756,7 +90,7 @@
   - kind: asset_issuer
     network: pubnet
     ref: USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
-    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy (pointer: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6)'
+    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy (pointer: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6) | relevance: Claim says ''USDY ... is live on Stellar today'', matching the USDY asset on Stellar, which this reference can confirm exists on-chain.'
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/ondo
@@ -785,33 +119,33 @@
     - asset
   - name: stellarlight
     url: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
-    retrieved_at: '2026-11-11T19:39:41.827296Z'
+    retrieved_at: '2026-11-11T20:30:12.006878Z'
     provides:
     - asset USDY
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:13:44.091950Z'
-    confidence: 0.92
+    extracted_at: '2026-11-11T20:12:03.298163Z'
+    confidence: 1.0
     transcript_sha256: 11f9c9a2335698719e09ba5ec76135829dbf9b4e7239723105d954e54e0bfdb6
-- id: paypal-10395a
+- id: ondo-finance-9c17d0
   event: meridian-2025
   claim:
     type: partner_launch
-    quote: PayPal announced that they were deploying their stable coin on Stellar
-    summary: The speaker said PayPal announced it was deploying its stablecoin on Stellar.
+    quote: USDY is now live and available across stellar leading wallets and applications.
+    summary: The speaker said USDY is available across leading Stellar wallets and applications.
     speaker:
-      name: Jose Fernandez da Ponte
-      role: ''
+      name: Ian de Bode
+      role: chief strategy officer
     org:
-      name: PayPal
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
+      name: Ondo Finance
+      domain: ondo.finance
+      country: United States
+      domain_source: stellarlight https://stellarlight.xyz/project/ondo
+      country_source: lumenloop https://lumenloop.com/directory/ondo
     video:
-      id: 6gDm3AGX8uk
-      url_at_timestamp: https://www.youtube.com/watch?v=6gDm3AGX8uk&t=138s
-      start_seconds: 138
+      id: 54DLQUzORXI
+      url_at_timestamp: https://www.youtube.com/watch?v=54DLQUzORXI&t=305s
+      start_seconds: 305
     caption_source: auto
   backing:
     scf:
@@ -819,19 +153,53 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
-  sources: []
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
+    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy (pointer: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6) | relevance: The claim ''USDY is now live and available'' names the USDY asset, and this Stellar asset record can confirm it exists/is live on Stellar.'
+  sources:
+  - name: lumenloop
+    url: https://lumenloop.com/directory/ondo
+    retrieved_at: '2026-11-11T19:39:43.136531Z'
+    provides:
+    - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:39:43.153186Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://ondo.finance/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:39:43.142605Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/ondo
+    retrieved_at: '2026-11-11T19:39:41.835576Z'
+    provides:
+    - website
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/usdy
+    retrieved_at: '2026-11-11T19:39:43.143412Z'
+    provides:
+    - asset
+  - name: stellarlight
+    url: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
+    retrieved_at: '2026-11-11T20:30:26.493687Z'
+    provides:
+    - asset USDY
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:13:54.675415Z'
-    confidence: 0.82
-    transcript_sha256: 3b2f10bd3831919b599a251002a4c085bcb043d45455e3a6e34846a9ccbcc324
+    extracted_at: '2026-11-11T20:12:03.300173Z'
+    confidence: 0.72
+    transcript_sha256: 11f9c9a2335698719e09ba5ec76135829dbf9b4e7239723105d954e54e0bfdb6
 - id: paypal-aeb5e7
   event: meridian-2025
   claim:
     type: partner_launch
     quote: Officially announcing PYUSD is live on Stellar.
-    summary: A PayPal speaker announced that PYUSD is officially live on Stellar.
+    summary: The speaker announced that PYUSD is now live on the Stellar network.
     speaker:
       name: Larry Wade
       role: ''
@@ -856,196 +224,37 @@
   - kind: asset_issuer
     network: pubnet
     ref: PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
-    found_via: 'ticker PYUSD named in the claim; stellarlight project pyusd: https://stellarlight.xyz/project/pyusd (pointer: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5)'
+    found_via: 'ticker PYUSD named in the claim; stellarlight project pyusd: https://stellarlight.xyz/project/pyusd (pointer: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5) | relevance: The claim says "PYUSD is live on Stellar", and the PYUSD asset issuer on Stellar (with an issuer home-domain/explorer pointer) can confirm the asset is live.'
   sources:
   - name: stellarlight
     url: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
-    retrieved_at: '2026-11-11T19:39:43.170134Z'
+    retrieved_at: '2026-11-11T20:30:49.407986Z'
     provides:
     - asset PYUSD
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:12.296480Z'
-    confidence: 0.918
+    extracted_at: '2026-11-11T20:12:55.207137Z'
+    confidence: 1.0
     transcript_sha256: d49cf5bbcfcbf698f93a335e94fd358eb929fea5d935270f5b26bfa3e9a31ed8
-- id: reflector-7178d1
+- id: paypal-ea12b3
   event: meridian-2025
   claim:
-    type: roadmap
-    quote: in October 2024, we launched a subscription service uh um which provided more fine grained um data access with userdefined customizable triggering conditions um and up to 1 minute sampling interval.
-    summary: Reflector says it launched a subscription service in October 2024 with user-defined triggers and sampling as frequent as one minute.
+    type: partner_launch
+    quote: And today it was just announced that PYUSD is also on stellar.
+    summary: The speaker said it was announced that day that PYUSD is also available on Stellar.
     speaker:
-      name: ''
-      role: ''
+      name: Marcelo Gracietti
+      role: CEO of Cheesecake Labs
     org:
-      name: Reflector
-      domain: reflector.network
-      country: Portugal
-      domain_source: stellarlight https://stellarlight.xyz/project/reflector
-      country_source: lumenloop https://lumenloop.com/directory/reflector
-    video:
-      id: KFRF12c-RSU
-      url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=380s
-      start_seconds: 380
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/reflector-5w2
-      awarded_usd: '444840.0'
-      source: stellarlight https://communityfund.stellar.org/project/reflector-5w2
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:39:50.435097Z'
-    provides:
-    - region
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:39:50.460708Z'
-    provides:
-    - directory address
-  - name: stellar_toml
-    url: https://reflector.network/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:39:50.445806Z'
-    provides:
-    - accounts, currencies, sep endpoints
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:39:50.446962Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:39:50.446916Z'
-    provides:
-    - contract
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/reflector
-    retrieved_at: '2026-11-11T19:39:49.400335Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:34.946403Z'
-    confidence: 0.89
-    transcript_sha256: cc31cdf809c4891decb2d10d4d848b2043be5f0527a8b2f8380a54388b205c31
-- id: reflector-e9298f
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: in April uh we launched foreign exchange rates oracle for uh all major cryp uh for major fiat currencies
-    summary: Reflector says it launched a foreign exchange rates oracle for major fiat currencies in April.
-    speaker:
-      name: ''
-      role: ''
-    org:
-      name: Reflector
-      domain: reflector.network
-      country: Portugal
-      domain_source: stellarlight https://stellarlight.xyz/project/reflector
-      country_source: lumenloop https://lumenloop.com/directory/reflector
-    video:
-      id: KFRF12c-RSU
-      url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=631s
-      start_seconds: 631
-    caption_source: auto
-  backing:
-    scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/reflector-5w2
-      awarded_usd: '444840.0'
-      source: stellarlight https://communityfund.stellar.org/project/reflector-5w2
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:39:50.435097Z'
-    provides:
-    - region
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:39:50.460708Z'
-    provides:
-    - directory address
-  - name: stellar_toml
-    url: https://reflector.network/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:39:50.445806Z'
-    provides:
-    - accounts, currencies, sep endpoints
-  - name: stellarlight
-    url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:39:50.446962Z'
-    provides:
-    - scf award
-  - name: stellarlight
-    url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:39:50.446916Z'
-    provides:
-    - contract
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/reflector
-    retrieved_at: '2026-11-11T19:39:49.400335Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:34.947330Z'
-    confidence: 0.77
-    transcript_sha256: cc31cdf809c4891decb2d10d4d848b2043be5f0527a8b2f8380a54388b205c31
-- id: risk-zero-74eb83
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: We're starting with bringing the Risk Zero ZKVM distiller.
-    summary: The speaker said SDF is starting by bringing the RISC Zero ZKVM to Stellar.
-    speaker:
-      name: Tomer Weller
-      role: ''
-    org:
-      name: Risk Zero
+      name: PayPal
       domain: ''
       country: ''
       domain_source: ''
       country_source: ''
     video:
-      id: j36W1LUGGrs
-      url_at_timestamp: https://www.youtube.com/watch?v=j36W1LUGGrs&t=379s
-      start_seconds: 379
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:48.921729Z'
-    confidence: 0.74
-    transcript_sha256: 3f81337615f38338c1c8358ff80b4ceb17b2c3fdefba57c06c7a24dfdfe0d34d
-- id: sdf-26cd3e
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: in a recent uh feature which got uh released in protocol 23, these events are also going to trigger during the stellar classic operations.
-    summary: The speaker said a feature released in protocol 23 makes Stellar classic operations emit events, in addition to smart contract events.
-    speaker:
-      name: Tamir Sen
-      role: ''
-    org:
-      name: SDF
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: iioKD2cRsA0
-      url_at_timestamp: https://www.youtube.com/watch?v=iioKD2cRsA0&t=158s
-      start_seconds: 158
+      id: ccsXsLVl8Zo
+      url_at_timestamp: https://www.youtube.com/watch?v=ccsXsLVl8Zo&t=697s
+      start_seconds: 697
     caption_source: auto
   backing:
     scf:
@@ -1054,24 +263,101 @@
       awarded_usd: null
       source: ''
   evidence:
-  - kind: protocol_upgrade
+  - kind: asset_issuer
     network: pubnet
-    ref: protocol-23
-    found_via: named in the talk, video iioKD2cRsA0 at 158s
-  sources: []
+    ref: PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
+    found_via: 'ticker PYUSD named in the claim; stellarlight project pyusd: https://stellarlight.xyz/project/pyusd (pointer: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5) | relevance: The claim ''PYUSD is also on stellar'' names the PYUSD asset, and this reference is the PYUSD asset issued on Stellar, which can confirm it is live there.'
+  sources:
+  - name: stellarlight
+    url: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
+    retrieved_at: '2026-11-11T20:33:39.787630Z'
+    provides:
+    - asset PYUSD
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:46.045688Z'
-    confidence: 0.918
-    transcript_sha256: d73fde8ce9b4a9bc0125cc76de146318b9834359180bf7fe3340eb74730b9e56
-- id: sdf-4e4f85
+    extracted_at: '2026-11-11T20:15:20.380596Z'
+    confidence: 0.95
+    transcript_sha256: e963da9a9da7f494c487160720a16a9b7fe7f5f6633622f8640e496b1008e4c1
+- id: reflector-5ee502
+  event: meridian-2025
+  claim:
+    type: roadmap
+    quote: powered by the XRF uh protocol utility token
+    summary: The speaker says Reflector governance is powered by a protocol utility token called XRF.
+    speaker:
+      name: OrbitLens
+      role: ''
+    org:
+      name: Reflector
+      domain: reflector.network
+      country: Portugal
+      domain_source: stellarlight https://stellarlight.xyz/project/reflector
+      country_source: lumenloop https://lumenloop.com/directory/reflector
+    video:
+      id: KFRF12c-RSU
+      url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=518s
+      start_seconds: 518
+    caption_source: auto
+  backing:
+    scf:
+      found: true
+      project_url: https://communityfund.stellar.org/project/reflector-5w2
+      awarded_usd: '444840.0'
+      source: stellarlight https://communityfund.stellar.org/project/reflector-5w2
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: XRF-GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF
+    found_via: 'ticker XRF named in the claim; issuer account home_domain is reflector.network (horizon https://horizon.stellar.lobstr.co/assets?asset_code=XRF) | relevance: The claim names ''the XRF ... protocol utility token'', and this is the XRF asset whose issuer home_domain is reflector.network, so it can confirm the token exists.'
+  sources:
+  - name: lumenloop
+    url: https://lumenloop.com/directory/reflector
+    retrieved_at: '2026-11-11T19:39:50.435097Z'
+    provides:
+    - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:39:50.460708Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://reflector.network/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:39:50.445806Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://communityfund.stellar.org/project/reflector-5w2
+    retrieved_at: '2026-11-11T19:39:50.446962Z'
+    provides:
+    - scf award
+  - name: stellarlight
+    url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
+    retrieved_at: '2026-11-11T19:39:50.446916Z'
+    provides:
+    - contract
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/reflector
+    retrieved_at: '2026-11-11T19:39:49.400335Z'
+    provides:
+    - website
+  - name: horizon
+    url: https://horizon.stellar.lobstr.co/assets?asset_code=XRF
+    retrieved_at: '2026-11-11T20:32:29.035730Z'
+    provides:
+    - issuer of XRF
+  provenance:
+    extractor_model: claude-sonnet-5-5
+    extracted_at: '2026-11-11T20:13:49.974901Z'
+    confidence: 0.83
+    transcript_sha256: cc31cdf809c4891decb2d10d4d848b2043be5f0527a8b2f8380a54388b205c31
+- id: sdf-67adff
   event: meridian-2025
   claim:
     type: protocol_feature
-    quote: Uh we finally got Protocol 23 launched on Maynut.
-    summary: The speaker says Protocol 23 has launched on mainnet.
+    quote: we finally got Protocol 23 launched on Maynut.
+    summary: The speaker says Protocol 23 has launched on Stellar mainnet.
     speaker:
-      name: ''
+      name: Sydney Wiseman
       role: ''
     org:
       name: SDF
@@ -1094,208 +380,37 @@
   - kind: protocol_upgrade
     network: pubnet
     ref: protocol-23
-    found_via: named in the talk, video yBPxdPtDF1k at 13s
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:38.066282Z'
-    confidence: 0.9
-    transcript_sha256: 228e72da20f6cdc3d72b7ab3db48ad281be6e1ef91673caee1e6fcdee16fdb84
-- id: stellar-9d2e98
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: as I mentioned we now have parallel execution uh deployed and you know pending a vote of the validators will will actually be used in in practice
-    summary: The speaker said parallel execution is deployed and will be used in practice once the validators vote to enable it.
-    speaker:
-      name: David Mazières
-      role: Co-Founder & Chief Scientist
-    org:
-      name: Stellar
-      domain: stellar.org
-      country: ''
-      domain_source: 'proposed by the extraction model, verified: stellar.toml DOCUMENTATION names the organisation (https://stellar.org/.well-known/stellar.toml)'
-      country_source: ''
-    video:
-      id: 49qaI_g-Qyk
-      url_at_timestamp: https://www.youtube.com/watch?v=49qaI_g-Qyk&t=480s
-      start_seconds: 480
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
+    found_via: 'protocol 23 named in the talk | relevance: The claim ''we finally got Protocol 23 launched'' and its summary state Protocol 23 has launched on mainnet, which the protocol-23 upgrade reference can confirm.'
   sources:
-  - name: stellar_expert
-    url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:40:29.515756Z'
+  - name: talk
+    url: https://www.youtube.com/watch?v=yBPxdPtDF1k&t=13s
+    retrieved_at: '2026-11-11T20:37:10.696726Z'
     provides:
-    - directory address
-  - name: stellar_toml
-    url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:40:29.506147Z'
-    provides:
-    - domain verification
-    - accounts, currencies, sep endpoints
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:13:37.939302Z'
-    confidence: 0.792
-    transcript_sha256: 3a8b2bf88223d73a12a2f214481eeeb4be0f4f2ff2bb4c48e96a8718692a9aea
-- id: stellar-core-29edb5
+    extracted_at: '2026-11-11T20:18:45.853256Z'
+    confidence: 1.0
+    transcript_sha256: 228e72da20f6cdc3d72b7ab3db48ad281be6e1ef91673caee1e6fcdee16fdb84
+- id: sdf-cf5a5c
   event: meridian-2025
   claim:
-    type: roadmap
-    quote: So, that feature is already supported in Stellar Core. It is currently opt-in, so it's enabled on select nodes, but we plan to enable it on by default.
-    summary: The speaker said background block execution is supported in Stellar Core, is currently opt-in on select nodes, and is planned to be enabled by default.
+    type: protocol_feature
+    quote: So when you do a a stellar payment outside of a smart contract from proto call 23 onwards, you will get events.
+    summary: The speaker said that from protocol 23 onwards, a Stellar payment made outside a smart contract emits events.
     speaker:
-      name: Marta Lokhava
-      role: software engineer on the Stellar core team
+      name: Tamir Sen
+      role: ''
     org:
-      name: Stellar Core
+      name: SDF
       domain: ''
       country: ''
       domain_source: ''
       country_source: ''
     video:
-      id: MEMGj539ygg
-      url_at_timestamp: https://www.youtube.com/watch?v=MEMGj539ygg&t=393s
-      start_seconds: 393
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:42.122315Z'
-    confidence: 0.76
-    transcript_sha256: cada27ca08a7ce75ec183d96d73a880ec4f87584248a01a33f65023e0c3a38a3
-- id: stellar-core-4706f4
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: Uh specifically, we released the version uh 22.3.0 of Stellar Core, which nearly doubled our throughput.
-    summary: The speaker said Stellar Core version 22.3.0 nearly doubled theoretical throughput.
-    speaker:
-      name: Marta Lokhava
-      role: software engineer on the Stellar core team
-    org:
-      name: Stellar Core
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: MEMGj539ygg
-      url_at_timestamp: https://www.youtube.com/watch?v=MEMGj539ygg&t=732s
-      start_seconds: 732
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:42.128349Z'
-    confidence: 0.752
-    transcript_sha256: cada27ca08a7ce75ec183d96d73a880ec4f87584248a01a33f65023e0c3a38a3
-- id: stellar-core-4b4900
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: So, we rolled out the background transaction dissemination to mainnet, uh which pushed things like uh networking, hashing, decoding, authentication off the main thread into the background.
-    summary: The speaker said background transaction dissemination has been rolled out to mainnet, moving networking, hashing, decoding and authentication off the main thread.
-    speaker:
-      name: Marta Lokhava
-      role: software engineer on the Stellar core team
-    org:
-      name: Stellar Core
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: MEMGj539ygg
-      url_at_timestamp: https://www.youtube.com/watch?v=MEMGj539ygg&t=332s
-      start_seconds: 332
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:42.119637Z'
-    confidence: 0.808
-    transcript_sha256: cada27ca08a7ce75ec183d96d73a880ec4f87584248a01a33f65023e0c3a38a3
-- id: stellar-core-f679d1
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: parallel Soroban execution is already supported in Wasm protocol on mainnet today.
-    summary: The speaker said parallel Soroban execution is already supported on mainnet today.
-    speaker:
-      name: Marta Lokhava
-      role: software engineer on the Stellar core team
-    org:
-      name: Stellar Core
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: MEMGj539ygg
-      url_at_timestamp: https://www.youtube.com/watch?v=MEMGj539ygg&t=411s
-      start_seconds: 411
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:14:42.125155Z'
-    confidence: 0.748
-    transcript_sha256: cada27ca08a7ce75ec183d96d73a880ec4f87584248a01a33f65023e0c3a38a3
-- id: stellar-development-foundation-2bc342
-  event: meridian-2025
-  claim:
-    type: protocol_feature
-    quote: We have a 10x reduction in rent fees because of the in-memory state uh optimization.
-    summary: The speaker said Protocol 23 reduced rent fees by a factor of ten because of the in-memory state optimization.
-    speaker:
-      name: Garand Tyson
-      role: Core engineer
-    org:
-      name: Stellar Development Foundation
-      domain: stellar.org
-      country: United States
-      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
-      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
-    video:
-      id: ltymXqzQPDY
-      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1507s
-      start_seconds: 1507
+      id: iioKD2cRsA0
+      url_at_timestamp: https://www.youtube.com/watch?v=iioKD2cRsA0&t=167s
+      start_seconds: 167
     caption_source: auto
   backing:
     scf:
@@ -1307,7 +422,49 @@
   - kind: protocol_upgrade
     network: pubnet
     ref: protocol-23
-    found_via: named in the talk, video ltymXqzQPDY at 1507s
+    found_via: 'protocol 23 named in the talk | relevance: The claim says "from proto call 23 onwards" Stellar payments outside smart contracts emit events, which is a behavior of the Protocol 23 upgrade.'
+  sources:
+  - name: talk
+    url: https://www.youtube.com/watch?v=iioKD2cRsA0&t=167s
+    retrieved_at: '2026-11-11T20:34:40.478478Z'
+    provides:
+    - protocol version
+  provenance:
+    extractor_model: claude-sonnet-5-5
+    extracted_at: '2026-11-11T20:16:45.283141Z'
+    confidence: 0.96
+    transcript_sha256: d73fde8ce9b4a9bc0125cc76de146318b9834359180bf7fe3340eb74730b9e56
+- id: stellar-development-foundation-76a59c
+  event: meridian-2025
+  claim:
+    type: protocol_feature
+    quote: And finally, we have the reusable module cache via cap 65.
+    summary: The speaker says Protocol 23 introduced a reusable module cache through CAP-65.
+    speaker:
+      name: Garand Tyson
+      role: ''
+    org:
+      name: Stellar Development Foundation
+      domain: stellar.org
+      country: United States
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
+    video:
+      id: ltymXqzQPDY
+      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=159s
+      start_seconds: 159
+    caption_source: auto
+  backing:
+    scf:
+      found: false
+      project_url: ''
+      awarded_usd: null
+      source: ''
+  evidence:
+  - kind: protocol_upgrade
+    network: pubnet
+    ref: protocol-23
+    found_via: 'protocol 23 named in the talk | relevance: The claim says Protocol 23 introduced a reusable module cache via CAP-65, which is a statement about Protocol 23 and a protocol upgrade reference can confirm it.'
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
@@ -1329,20 +486,25 @@
     retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
+  - name: talk
+    url: https://www.youtube.com/watch?v=ltymXqzQPDY&t=159s
+    retrieved_at: '2026-11-11T20:35:14.749276Z'
+    provides:
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:05.368934Z'
-    confidence: 0.78
+    extracted_at: '2026-11-11T20:17:01.271862Z'
+    confidence: 0.97
     transcript_sha256: e627ae50cfdfc451ec071c95041cc2ef35d2e9d2819f1479df23f914cbb36adc
 - id: stellar-development-foundation-7f8136
   event: meridian-2025
   claim:
     type: protocol_feature
     quote: Instruction cost of every transaction reduced by up to 80% because of we removed that expensive setup step via module caching.
-    summary: The speaker said module caching in Protocol 23 reduced the instruction cost of transactions by up to 80%.
+    summary: The speaker states Protocol 23 reduced instruction cost of transactions by up to 80% through module caching.
     speaker:
       name: Garand Tyson
-      role: Core engineer
+      role: ''
     org:
       name: Stellar Development Foundation
       domain: stellar.org
@@ -1364,7 +526,7 @@
   - kind: protocol_upgrade
     network: pubnet
     ref: protocol-23
-    found_via: named in the talk, video ltymXqzQPDY at 1499s
+    found_via: 'protocol 23 named in the talk | relevance: The claim says "Protocol 23 reduced instruction cost of transactions by up to 80% through module caching", which is about the Protocol 23 release, and the past-tense statement is something the protocol 23 upgrade reference can confirm.'
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
@@ -1386,20 +548,25 @@
     retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
+  - name: talk
+    url: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1499s
+    retrieved_at: '2026-11-11T20:35:51.567907Z'
+    provides:
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:05.371533Z'
-    confidence: 0.77
+    extracted_at: '2026-11-11T20:17:01.288486Z'
+    confidence: 0.868
     transcript_sha256: e627ae50cfdfc451ec071c95041cc2ef35d2e9d2819f1479df23f914cbb36adc
-- id: stellar-development-foundation-c3333f
+- id: stellar-development-foundation-a6eae0
   event: meridian-2025
   claim:
     type: protocol_feature
-    quote: We have completely removed the read bytes limit for smart contract state and for most invocations that don't require a store because we store everything in memory.
-    summary: The speaker said the read bytes limit has been removed for smart contract state in most invocations because live state is kept in memory.
+    quote: It had some scalability features such as cap 70 that changed the way we do SCP timing.
+    summary: The speaker says Protocol 23 included CAP-70, which changed SCP timing.
     speaker:
       name: Garand Tyson
-      role: Core engineer
+      role: ''
     org:
       name: Stellar Development Foundation
       domain: stellar.org
@@ -1408,8 +575,8 @@
       country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
       id: ltymXqzQPDY
-      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1511s
-      start_seconds: 1511
+      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=87s
+      start_seconds: 87
     caption_source: auto
   backing:
     scf:
@@ -1421,7 +588,7 @@
   - kind: protocol_upgrade
     network: pubnet
     ref: protocol-23
-    found_via: named in the talk, video ltymXqzQPDY at 1511s
+    found_via: 'protocol 23 named in the talk | relevance: The claim says "Protocol 23 included CAP-70, which changed SCP timing," which is about the protocol 23 release, and its mainnet upgrade record can confirm it shipped.'
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
@@ -1443,63 +610,35 @@
     retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
+  - name: talk
+    url: https://www.youtube.com/watch?v=ltymXqzQPDY&t=87s
+    retrieved_at: '2026-11-11T20:34:55.575767Z'
+    provides:
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:05.374109Z'
-    confidence: 0.77
+    extracted_at: '2026-11-11T20:17:01.274860Z'
+    confidence: 0.95
     transcript_sha256: e627ae50cfdfc451ec071c95041cc2ef35d2e9d2819f1479df23f914cbb36adc
-- id: stellar-disbursement-platform-25ff83
+- id: stellar-development-foundation-f8ca86
   event: meridian-2025
   claim:
-    type: roadmap
-    quote: You've all also seen over the last two days that we have added support for smart wallets.
-    summary: SDP has added support for smart wallets.
+    type: protocol_feature
+    quote: We accomplished this first by introducing parallel transaction execution with cap 63.
+    summary: The speaker says Protocol 23 introduced parallel transaction execution via CAP-63.
     speaker:
-      name: Tori Samples
+      name: Garand Tyson
       role: ''
     org:
-      name: Stellar Disbursement Platform
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
+      name: Stellar Development Foundation
+      domain: stellar.org
+      country: United States
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
-      id: qP0tNjYIcI0
-      url_at_timestamp: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=122s
-      start_seconds: 122
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:12.032964Z'
-    confidence: 0.78
-    transcript_sha256: a86e583e52f6826d1e82f1ff23a8931c2e2c186c080492fe478ad61b7e011057
-- id: stellar-disbursement-platform-9d1420
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: You can purchase USDC directly in the dashboard without having to on separately.
-    summary: The latest SDP version lets users purchase USDC directly in the dashboard.
-    speaker:
-      name: Tori Samples
-      role: ''
-    org:
-      name: Stellar Disbursement Platform
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: qP0tNjYIcI0
-      url_at_timestamp: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=103s
-      start_seconds: 103
+      id: ltymXqzQPDY
+      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=117s
+      start_seconds: 117
     caption_source: auto
   backing:
     scf:
@@ -1508,193 +647,60 @@
       awarded_usd: null
       source: ''
   evidence:
-  - kind: asset_issuer
+  - kind: protocol_upgrade
     network: pubnet
-    ref: USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
-    found_via: 'ticker USDC named in the claim; stellarlight project usdc: https://stellarlight.xyz/project/usdc (pointer: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN)'
+    ref: protocol-23
+    found_via: 'protocol 23 named in the talk | relevance: The claim says "Protocol 23 introduced parallel transaction execution via CAP-63", which is about protocol 23 and a release that reference can confirm as live.'
   sources:
-  - name: stellarlight
-    url: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
-    retrieved_at: '2026-11-11T19:40:53.084099Z'
+  - name: lumenloop
+    url: https://lumenloop.com/directory/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:40:48.409451Z'
     provides:
-    - asset USDC
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:12.031246Z'
-    confidence: 0.76
-    transcript_sha256: a86e583e52f6826d1e82f1ff23a8931c2e2c186c080492fe478ad61b7e011057
-- id: stellar-disbursement-platform-cbaf28
-  event: meridian-2025
-  claim:
-    type: roadmap
-    quote: In the latest version, you can send one off payments to individuals and other businesses.
-    summary: The latest SDP version supports one-off payments to individuals and other businesses.
-    speaker:
-      name: Tori Samples
-      role: ''
-    org:
-      name: Stellar Disbursement Platform
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: qP0tNjYIcI0
-      url_at_timestamp: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=99s
-      start_seconds: 99
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:12.030306Z'
-    confidence: 0.78
-    transcript_sha256: a86e583e52f6826d1e82f1ff23a8931c2e2c186c080492fe478ad61b7e011057
-- id: stellar-foundation-53484b
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: And by the way uh the stellar foundation they are going to host instance of uh the relayer very soon.
-    summary: The speaker says the Stellar Foundation will soon host an instance of the OpenZeppelin relayer for the community to sponsor transactions.
-    speaker:
-      name: Boyan Barakov
-      role: ''
-    org:
-      name: Stellar Foundation
-      domain: stellar.org
-      country: ''
-      domain_source: 'proposed by the extraction model, verified: stellar.toml DOCUMENTATION names the organisation (https://stellar.org/.well-known/stellar.toml)'
-      country_source: ''
-    video:
-      id: ifv0RTUzuz8
-      url_at_timestamp: https://www.youtube.com/watch?v=ifv0RTUzuz8&t=902s
-      start_seconds: 902
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
+    - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:40:53.064695Z'
+    retrieved_at: '2026-11-11T19:40:48.433963Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:40:53.049840Z'
+    retrieved_at: '2026-11-11T19:40:48.418706Z'
     provides:
-    - domain verification
     - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:40:47.449115Z'
+    provides:
+    - website
+  - name: talk
+    url: https://www.youtube.com/watch?v=ltymXqzQPDY&t=117s
+    retrieved_at: '2026-11-11T20:35:08.262095Z'
+    provides:
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:15:37.473138Z'
-    confidence: 0.76
-    transcript_sha256: 28d0583b5d47fd6afe7814b212b9f9f219cf3127e1b2358d54d8b535e774cbc4
-- id: the-aha-company-f1ed7c
+    extracted_at: '2026-11-11T20:17:01.268884Z'
+    confidence: 0.97
+    transcript_sha256: e627ae50cfdfc451ec071c95041cc2ef35d2e9d2819f1479df23f914cbb36adc
+- id: stellar-development-foundation-fa9217
   event: meridian-2025
   claim:
     type: protocol_feature
-    quote: So that is shipping soon to Sorabon SDK and is part of our work with scaffold stellar.
-    summary: The speaker said composable contract traits (such as administrable and upgradeable) are shipping soon to the Soroban SDK as part of the Scaffold Stellar work.
+    quote: However uh these are relatively rare and in protocol 23 they're also automatic thanks to auto restore.
+    summary: The speaker said restores of archived entries became automatic in Protocol 23 through auto restore.
     speaker:
-      name: Chad O
-      role: co-founder and CEO of the AHA company
+      name: Garand Tyson
+      role: core engineer
     org:
-      name: the AHA company
-      domain: theaha.co
-      country: France
-      domain_source: stellarlight https://stellarlight.xyz/project/the-aha-company
-      country_source: lumenloop https://lumenloop.com/directory/aha-labs
-    video:
-      id: sx77r9qQOeE
-      url_at_timestamp: https://www.youtube.com/watch?v=sx77r9qQOeE&t=524s
-      start_seconds: 524
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources:
-  - name: lumenloop
-    url: https://lumenloop.com/directory/aha-labs
-    retrieved_at: '2026-11-11T19:40:54.315674Z'
-    provides:
-    - region
-  - name: stellarlight
-    url: https://stellarlight.xyz/project/the-aha-company
-    retrieved_at: '2026-11-11T19:40:53.097710Z'
-    provides:
-    - website
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:16:22.719687Z'
-    confidence: 0.76
-    transcript_sha256: a79457db45f3b74d6d79fab491612e0e7ced278f6e29668e527d088b419282da
-- id: vesio-d0e8ad
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: in a couple of weeks we are going to be the very first wallet under Stella. uh allowing people to use card converting crypto to fiat at the sales point.
-    summary: Sebastian Siseles said Vesio would, within a couple of weeks, be the first wallet on Stellar to let people use a card that converts crypto to fiat at the point of sale.
-    speaker:
-      name: Sebastian Siseles
-      role: CEO of Vesio
-    org:
-      name: Vesio
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
-    video:
-      id: 4nedd7Dkkcc
-      url_at_timestamp: https://www.youtube.com/watch?v=4nedd7Dkkcc&t=642s
-      start_seconds: 642
-    caption_source: auto
-  backing:
-    scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
-  evidence: []
-  sources: []
-  provenance:
-    extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:13:33.500024Z'
-    confidence: 0.78
-    transcript_sha256: d2582116d5c95a3ec7e451221271c76e78ac7b6a3584156067723c73d616c136
-- id: wisdom-tree-916eb8
-  event: meridian-2025
-  claim:
-    type: partner_launch
-    quote: We're making a push towards tokenization with now 14 funds across Stellar and five other blockchains.
-    summary: A Wisdom Tree representative said the firm now has 14 tokenized funds across Stellar and five other blockchains.
-    speaker:
-      name: Vinh Tran
-      role: associate director of business development
-    org:
-      name: Wisdom Tree
-      domain: wisdomtreeprime.com
+      name: Stellar Development Foundation
+      domain: stellar.org
       country: United States
-      domain_source: stellarlight https://stellarlight.xyz/project/wisdomtree
-      country_source: lumenloop https://lumenloop.com/directory/wisdomtree
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
-      id: -TWT38FYJf4
-      url_at_timestamp: https://www.youtube.com/watch?v=-TWT38FYJf4&t=69s
-      start_seconds: 69
+      id: ltymXqzQPDY
+      url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=880s
+      start_seconds: 880
     caption_source: auto
   backing:
     scf:
@@ -1702,20 +708,39 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
+  evidence:
+  - kind: protocol_upgrade
+    network: pubnet
+    ref: protocol-23
+    found_via: 'protocol 23 named in the talk | relevance: The claim says "in protocol 23 they''re also automatic thanks to auto restore", which is about Protocol 23, and a protocol upgrade reference can confirm that this release is live.'
   sources:
   - name: lumenloop
-    url: https://lumenloop.com/directory/wisdomtree
-    retrieved_at: '2026-11-11T19:40:30.560498Z'
+    url: https://lumenloop.com/directory/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:40:48.409451Z'
     provides:
     - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:40:48.433963Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:40:48.418706Z'
+    provides:
+    - accounts, currencies, sep endpoints
   - name: stellarlight
-    url: https://stellarlight.xyz/project/wisdomtree
-    retrieved_at: '2026-11-11T19:40:29.542963Z'
+    url: https://stellarlight.xyz/project/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
+  - name: talk
+    url: https://www.youtube.com/watch?v=ltymXqzQPDY&t=880s
+    retrieved_at: '2026-11-11T20:35:45.537437Z'
+    provides:
+    - protocol version
   provenance:
     extractor_model: claude-sonnet-5-5
-    extracted_at: '2026-11-11T19:13:42.284511Z'
-    confidence: 0.78
-    transcript_sha256: fd0df98b189cb7593bbbd94307c9cbc9aef920f772f459776a3cd9ca0484f6ca
+    extracted_at: '2026-11-11T20:17:24.943422Z'
+    confidence: 0.902
+    transcript_sha256: e627ae50cfdfc451ec071c95041cc2ef35d2e9d2819f1479df23f914cbb36adc

@@ -41,7 +41,7 @@ def run_rank(seed: EventSeed) -> int:
         candidate.score = score(candidate)
         extras = stage_cache("resolve-claims") / f"{claim_key(candidate)}.json"
         has_evidence = extras.is_file() and bool(json.loads(extras.read_text())["evidence"])
-        if has_evidence or candidate.protocol_version or candidate.core_version:
+        if has_evidence:
             candidate.score = round(min(candidate.score + 0.12, 1.0), 3)
     ranked = sorted(candidates, key=lambda c: (-c.score, c.video_id, c.start_seconds))
     drops: dict[str, int] = {}
@@ -54,7 +54,7 @@ def run_rank(seed: EventSeed) -> int:
         if per_talk.get(candidate.video_id, 0) >= seed.limits.max_claims_per_talk:
             drops["over_talk_cap"] = drops.get("over_talk_cap", 0) + 1
             continue
-        if len(kept) >= seed.limits.target_claims:
+        if len(kept) >= seed.limits.target_claims * 3:
             drops["over_target"] = drops.get("over_target", 0) + 1
             continue
         per_talk[candidate.video_id] = per_talk.get(candidate.video_id, 0) + 1

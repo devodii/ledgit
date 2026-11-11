@@ -17,7 +17,7 @@ from receipts.models.registry import EventSeed
 from receipts.models.talks import Segment
 from receipts.pipeline.common import stage_cache, write_report
 
-PROMPT_VERSION = "v2"
+PROMPT_VERSION = "v3"
 MAX_CHARS = 60000
 
 SYSTEM = """You extract checkable claims from conference talk transcripts for a public fact-check site about the Stellar network.
@@ -42,6 +42,11 @@ Rules you must follow:
 
 Reply with JSON only, no prose, in this shape:
 {"claims":[{"quote":"","summary":"","claim_type":"","speaker_name":"","speaker_role":"","org_name":"","org_domain":"","protocol_version":null,"core_version":null,"asset_codes":[],"specificity":0.0,"verifiability":0.0}]}"""
+
+
+ARTIFACT_FOCUS = """
+
+THIS PASS IS ARTIFACT FIRST. Find every statement where the speaker names a specific asset or stablecoin ticker, token, contract, anchor or SEP, protocol release, Stellar Core release, or a named product, and says it is live, has launched, is shipping, or is coming on Stellar. Include one claim per distinct artifact, even if several come from the same talk. Fill "asset_codes", "protocol_version" and "core_version" whenever they apply. Skip general statements."""
 
 
 def build_prompt(title: str, description: str, text: str, limit: int) -> str:
@@ -108,12 +113,14 @@ def extract_talk(
     windows = [text[i : i + MAX_CHARS] for i in range(0, len(text), MAX_CHARS)] or [""]
     context = f"{talk['title']}\n{talk['description']}\n{text}"
     out: list[Candidate] = []
-    for window in windows:
-        prompt = build_prompt(talk["title"], talk["description"], window, limit)
+    passes = [(SYSTEM, limit), (SYSTEM + ARTIFACT_FOCUS, limit + 4)]
+    seen_quotes: set[str] = set()
+    for window, (system, per_pass) in [(w, p) for w in windows for p in passes]:
+        prompt = build_prompt(talk["title"], talk["description"], window, per_pass)
         batch: RawClaimBatch | None = None
         for _ in range(2):
             try:
-                batch = parse_batch(provider.complete(SYSTEM, prompt))
+                batch = parse_batch(provider.complete(system, prompt))
                 break
             except (ValueError, ValidationError, LLMError):
                 continue
@@ -121,6 +128,9 @@ def extract_talk(
             drop("llm_output_unusable")
             continue
         for claim in batch.claims:
+            if normalize(claim.quote) in seen_quotes:
+                continue
+            seen_quotes.add(normalize(claim.quote))
             start = verify_quote(locator, claim.quote)
             if start is None:
                 drop("quote_not_verbatim")

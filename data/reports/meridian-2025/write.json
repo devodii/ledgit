@@ -1,11 +1,14 @@
 {
   "stage": "write",
   "event": "meridian-2025",
-  "counts_in": 40,
-  "counts_out": 40,
-  "drops": {},
+  "counts_in": 120,
+  "counts_out": 13,
+  "drops": {
+    "low_confidence": 61,
+    "nothing_checkable": 46
+  },
   "notes": [
-    "review items: 0"
+    "review items: 107"
   ],
-  "finished_at": "2026-11-11T19:41:03.032341Z"
+  "finished_at": "2026-11-11T20:37:40.232602Z"
 }

@@ -5,7 +5,7 @@ import yaml
 from pydantic import TypeAdapter
 
 from receipts.db.connection import connect
-from receipts.models.enums import CaptionSource, EvidenceKind, Network
+from receipts.models.enums import CaptionSource, ClaimType, EvidenceKind, Network
 from receipts.models.pipeline import Candidate, OrgResolution
 from receipts.models.registry import (
     Backing,
@@ -56,17 +56,6 @@ def build_entry(
         SourceRef.model_validate(s.model_dump())
         for s in list(org.sources) + (list(extras.sources) if extras else [])
     ]
-    if candidate.protocol_version:
-        evidence.append(
-            EvidenceItem(
-                kind=EvidenceKind.protocol_upgrade,
-                network=Network.pubnet,
-                ref=f"protocol-{candidate.protocol_version}",
-                found_via=(
-                    f"named in the talk, video {candidate.video_id} at {candidate.start_seconds}s"
-                ),
-            )
-        )
     video_url = f"https://www.youtube.com/watch?v={candidate.video_id}&t={candidate.start_seconds}s"
     return RegistryEntry(
         id=claim_id(candidate),
@@ -178,6 +167,9 @@ def run_write(seed: EventSeed) -> int:
         if entry.provenance.confidence < settings.pipeline_min_confidence:
             review.append(entry)
             drops["low_confidence"] = drops.get("low_confidence", 0) + 1
+        elif not entry.evidence and entry.claim.type != ClaimType.open_ask:
+            review.append(entry)
+            drops["nothing_checkable"] = drops.get("nothing_checkable", 0) + 1
         else:
             public.append(entry)
     corrections = load_corrections(seed.slug)
@@ -191,6 +183,11 @@ def run_write(seed: EventSeed) -> int:
     with connect() as conn:
         sync_event(conn, seed)
         sync_registry(conn, public)
+        conn.execute(
+            "DELETE FROM claims WHERE event_slug = %s AND NOT (id = ANY(%s))",
+            (seed.slug, [e.id for e in public]),
+        )
+        conn.execute("DELETE FROM orgs WHERE slug NOT IN (SELECT org_slug FROM claims)")
         conn.commit()
     write_report(
         "write", seed.slug, len(ranked), len(public), drops, [f"review items: {len(review)}"]
