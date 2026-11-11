@@ -2,6 +2,7 @@ import argparse
 import importlib
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 
 from receipts.connectors.errors import HumanActionRequired
 from receipts.seed import seed_fixtures
@@ -22,7 +23,7 @@ CONNECTORS = {
     "lumenloop": ("receipts.connectors.lumenloop", "LumenLoopConnector"),
     "stellarlight": ("receipts.connectors.stellarlight", "StellarLightConnector"),
 }
-STAGES = ["discover", "transcripts", "extract", "rank", "resolve", "write", "build"]
+STAGES = ["discover", "transcripts", "extract", "judge", "rank", "resolve", "write", "build"]
 
 
 def cmd_check(_: argparse.Namespace) -> int:
@@ -95,6 +96,26 @@ def cmd_sync_registry(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_eval(args: argparse.Namespace) -> int:
+    from receipts.evals.report import run_eval
+
+    print(run_eval(args.event))
+    return 0
+
+
+def cmd_openapi(args: argparse.Namespace) -> int:
+    import json
+
+    from receipts.main import create_app
+
+    schema = json.dumps(create_app().openapi(), indent=2, sort_keys=True) + "\n"
+    if args.out:
+        Path(args.out).write_text(schema)
+    else:
+        sys.stdout.write(schema)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="receipts", description="Ledgit command line")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -114,6 +135,12 @@ def build_parser() -> argparse.ArgumentParser:
     pipeline.add_argument("--event", required=True)
     pipeline.set_defaults(func=cmd_pipeline)
     sub.add_parser("verify", help="run the verification engine").set_defaults(func=cmd_verify)
+    openapi = sub.add_parser("openapi", help="print the OpenAPI schema")
+    openapi.add_argument("--out")
+    openapi.set_defaults(func=cmd_openapi)
+    evals = sub.add_parser("eval", help="write the eval report for an event")
+    evals.add_argument("--event", required=True)
+    evals.set_defaults(func=cmd_eval)
     sync = sub.add_parser("sync-registry", help="load the registry yaml into the database")
     sync.add_argument("--event", required=True)
     sync.set_defaults(func=cmd_sync_registry)

@@ -14,6 +14,8 @@ SPECIFIC_RE = re.compile(
 
 def score(candidate: Candidate) -> float:
     base = 0.5 * candidate.specificity + 0.5 * candidate.verifiability
+    if candidate.judge_confidence is not None:
+        base = 0.6 * candidate.judge_confidence + 0.4 * base
     bonus = 0.0
     if candidate.org_domain:
         bonus += 0.05
@@ -32,7 +34,7 @@ def is_duplicate(a: Candidate, b: Candidate) -> bool:
 
 
 def run_rank(seed: EventSeed) -> int:
-    path = stage_cache("candidates") / f"{seed.slug}.json"
+    path = stage_cache("judged") / f"{seed.slug}.json"
     candidates = [Candidate.model_validate(c) for c in json.loads(path.read_text())]
     for candidate in candidates:
         candidate.score = score(candidate)

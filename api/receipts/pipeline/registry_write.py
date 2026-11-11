@@ -46,7 +46,9 @@ def build_entry(event: str, candidate: Candidate, org: OrgResolution) -> Registr
                 kind=EvidenceKind.protocol_upgrade,
                 network=Network.pubnet,
                 ref=f"protocol-{candidate.protocol_version}",
-                found_via=f"named in the talk, video {candidate.video_id} at {candidate.start_seconds}s",
+                found_via=(
+                    f"named in the talk, video {candidate.video_id} at {candidate.start_seconds}s"
+                ),
             )
         )
     video_url = f"https://www.youtube.com/watch?v={candidate.video_id}&t={candidate.start_seconds}s"

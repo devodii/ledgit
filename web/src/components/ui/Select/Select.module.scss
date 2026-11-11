@@ -1,0 +1,41 @@
+@use '../../../styles/mixins';
+
+.trigger {
+  @include mixins.control-base;
+  @include mixins.focus-visible;
+
+  justify-content: space-between;
+  min-width: 10rem;
+  min-height: var(--size-control-md);
+  padding: 0 var(--space-3);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+}
+
+.content {
+  z-index: var(--z-dropdown);
+  min-width: var(--radix-select-trigger-width);
+  max-height: 20rem;
+  background: var(--color-surface-raised);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text);
+  cursor: pointer;
+  outline: none;
+
+  &[data-highlighted] {
+    background: var(--color-surface-hover);
+  }
+}

@@ -1,0 +1,21 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-12) var(--space-4);
+  background: var(--color-danger-subtle);
+  border: var(--border-width) solid var(--color-danger);
+  border-radius: var(--radius-lg);
+  color: var(--color-danger);
+  text-align: center;
+
+  h3 {
+    color: var(--color-text);
+    font-size: var(--text-lg);
+  }
+
+  p {
+    color: var(--color-text-muted);
+  }
+}

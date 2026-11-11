@@ -1,0 +1,29 @@
+@use '../../../styles/mixins';
+
+.chip {
+  @include mixins.control-base;
+  @include mixins.focus-visible;
+
+  min-height: var(--size-control-sm);
+  padding: 0 var(--space-3);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+
+  &:hover {
+    background: var(--color-surface-hover);
+  }
+}
+
+.active {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.count {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}

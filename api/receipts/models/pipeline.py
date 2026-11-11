@@ -49,6 +49,8 @@ class Candidate(BaseModel):
     specificity: float
     verifiability: float
     score: float = 0.0
+    judge_confidence: float | None = None
+    judge_issue: str = ""
     extractor_model: str
     extracted_at: datetime
 
@@ -83,3 +85,18 @@ class SourceDraft(BaseModel):
 
 
 OrgResolution.model_rebuild()
+
+
+class JudgeVerdict(BaseModel):
+    index: int
+    checkable: bool
+    summary_faithful: bool
+    org_correct: bool
+    type_correct: bool
+    speaker_correct: bool | None = None
+    confidence: float = Field(ge=0, le=1)
+    issue: str = ""
+
+
+class JudgeBatch(BaseModel):
+    verdicts: list[JudgeVerdict] = Field(default_factory=list)

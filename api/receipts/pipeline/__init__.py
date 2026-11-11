@@ -7,6 +7,7 @@ from receipts.settings import get_settings
 def run_stage(stage: str, event: str) -> None:
     from receipts.pipeline.discover import run_discover
     from receipts.pipeline.extract import run_extract
+    from receipts.pipeline.judge import run_judge
     from receipts.pipeline.rank import run_rank
     from receipts.pipeline.registry_write import run_write
     from receipts.pipeline.resolve import run_resolve
@@ -17,6 +18,7 @@ def run_stage(stage: str, event: str) -> None:
         "discover": lambda: run_discover(seed),
         "transcripts": lambda: run_transcripts(event),
         "extract": lambda: run_extract(seed),
+        "judge": lambda: run_judge(seed),
         "rank": lambda: run_rank(seed),
         "resolve": lambda: run_resolve(seed),
         "write": lambda: run_write(seed),

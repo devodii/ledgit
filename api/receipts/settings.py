@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     tasks_dir: Path = REPO_ROOT / "data" / "tasks"
     data_dir: Path = REPO_ROOT / "data"
     fixtures_dir: Path = REPO_ROOT / "fixtures"
+    evals_dir: Path = REPO_ROOT / "evals"
 
     horizon_url: str = "https://horizon.stellar.lobstr.co"
     horizon_testnet_url: str = "https://horizon-testnet.stellar.org"

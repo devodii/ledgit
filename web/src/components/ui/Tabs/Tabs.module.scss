@@ -1,0 +1,30 @@
+@use '../../../styles/mixins';
+
+.list {
+  display: flex;
+  gap: var(--space-1);
+  border-bottom: var(--border);
+}
+
+.trigger {
+  @include mixins.control-base;
+  @include mixins.focus-visible;
+
+  min-height: var(--size-control-md);
+  padding: 0 var(--space-4);
+  background: transparent;
+  border: 0;
+  border-bottom: var(--border-width-focus) solid transparent;
+  color: var(--color-text-muted);
+
+  &[data-state='active'] {
+    border-bottom-color: var(--color-accent);
+    color: var(--color-text);
+  }
+}
+
+.content {
+  padding-top: var(--space-5);
+
+  @include mixins.focus-visible;
+}

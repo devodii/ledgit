@@ -1,0 +1,15 @@
+{
+  "stage": "extract",
+  "event": "meridian-2025",
+  "counts_in": 61,
+  "counts_out": 231,
+  "drops": {
+    "llm_output_unusable": 1,
+    "org_not_in_source": 46,
+    "quote_not_verbatim": 23
+  },
+  "notes": [
+    "provider=claude_code model=claude-sonnet-5-5 prompt=v1"
+  ],
+  "finished_at": "2026-11-11T19:16:52.998415Z"
+}

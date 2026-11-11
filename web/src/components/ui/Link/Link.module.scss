@@ -1,0 +1,13 @@
+@use '../../../styles/mixins';
+
+.link {
+  @include mixins.focus-visible;
+
+  color: var(--color-accent);
+  text-underline-offset: var(--space-1);
+
+  &:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+}
