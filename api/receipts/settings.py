@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     cache_dir: str = "data/cache"
     tasks_dir: str = "data/tasks"
     data_dir: str = "data"
+    fixtures_dir: str = "../fixtures"
 
     horizon_url: str = "https://horizon.stellar.org"
     horizon_testnet_url: str = "https://horizon-testnet.stellar.org"

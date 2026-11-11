@@ -1,0 +1,103 @@
+- id: example-anchor-sep24
+  event: synthetic-event
+  claim:
+    type: partner_launch
+    quote: "SYNTHETIC QUOTE: Example Anchor Ltd will open deposits in Exampleland."
+    summary: "Example Anchor Ltd said it will open deposits in Exampleland."
+    speaker: { name: Example Speaker One, role: Chief Example Officer }
+    org: { name: Example Anchor Ltd, domain: anchor.example.com, country: Exampleland }
+    video: { id: SYNTHETIC01, url_at_timestamp: "https://example.com/video/SYNTHETIC01?t=42", start_seconds: 42 }
+    caption_source: manual
+  backing:
+    scf: { found: true, project_url: "https://example.com/scf/example-anchor", awarded_usd: 50000 }
+  evidence:
+    - { kind: anchor, network: pubnet, ref: anchor.example.com, found_via: "synthetic fixture" }
+    - { kind: asset_issuer, network: pubnet, ref: GEXAMPLEISSUERSYNTHETIC000000000000000000000000000000000, found_via: "synthetic fixture" }
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.95
+    transcript_sha256: ""
+- id: example-wallet-contract
+  event: synthetic-event
+  claim:
+    type: roadmap
+    quote: "SYNTHETIC QUOTE: Example Wallet Inc is shipping a smart contract account."
+    summary: "Example Wallet Inc said it is shipping a smart contract account."
+    speaker: { name: Example Speaker Two, role: Founder }
+    org: { name: Example Wallet Inc, domain: wallet.example.com, country: Examplestan }
+    video: { id: SYNTHETIC02, url_at_timestamp: "https://example.com/video/SYNTHETIC02?t=120", start_seconds: 120 }
+    caption_source: auto
+  evidence:
+    - { kind: soroban_contract, network: testnet, ref: CEXAMPLECONTRACTSYNTHETIC00000000000000000000000000000000, found_via: "synthetic fixture" }
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.8
+    transcript_sha256: ""
+- id: example-remit-corridor
+  event: synthetic-event
+  claim:
+    type: partner_launch
+    quote: "SYNTHETIC QUOTE: Example Remit Co is launching a corridor to Exampleland."
+    summary: "Example Remit Co said it is launching a corridor to Exampleland."
+    speaker: { name: Example Speaker Three, role: Head of Payments }
+    org: { name: Example Remit Co, domain: remit.example.com, country: Exampleland }
+    video: { id: SYNTHETIC03, url_at_timestamp: "https://example.com/video/SYNTHETIC03?t=300", start_seconds: 300 }
+    caption_source: manual
+  evidence:
+    - { kind: anchor, network: pubnet, ref: remit.example.com, found_via: "synthetic fixture" }
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.9
+    transcript_sha256: ""
+- id: example-new-protocol
+  event: synthetic-event
+  claim:
+    type: protocol_feature
+    quote: "SYNTHETIC QUOTE: The next protocol upgrade adds an example feature."
+    summary: "The speaker said the next protocol upgrade adds an example feature."
+    speaker: { name: Example Speaker Four, role: Protocol Engineer }
+    org: { name: Example Foundation, domain: foundation.example.com, country: Exampleland }
+    video: { id: SYNTHETIC04, url_at_timestamp: "https://example.com/video/SYNTHETIC04?t=15", start_seconds: 15 }
+    caption_source: manual
+  evidence:
+    - { kind: protocol_upgrade, network: pubnet, ref: CAP-9999, found_via: "synthetic fixture" }
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.85
+    transcript_sha256: ""
+- id: example-open-ask
+  event: synthetic-event
+  claim:
+    type: open_ask
+    quote: "SYNTHETIC QUOTE: We need someone to build an example indexer."
+    summary: "The speaker asked for a builder of an example indexer."
+    speaker: { name: Example Speaker Five, role: Ecosystem Lead }
+    org: { name: Example Foundation, domain: foundation.example.com, country: Exampleland }
+    video: { id: SYNTHETIC05, url_at_timestamp: "https://example.com/video/SYNTHETIC05?t=600", start_seconds: 600 }
+    caption_source: auto
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.75
+    transcript_sha256: ""
+- id: example-recent-launch
+  event: synthetic-event
+  claim:
+    type: roadmap
+    quote: "SYNTHETIC QUOTE: Example Lend Labs will go live next month."
+    summary: "Example Lend Labs said it will go live next month."
+    speaker: { name: Example Speaker Six, role: CEO }
+    org: { name: Example Lend Labs, domain: lend.example.com, country: Examplestan }
+    video: { id: SYNTHETIC06, url_at_timestamp: "https://example.com/video/SYNTHETIC06?t=75", start_seconds: 75 }
+    caption_source: manual
+  evidence:
+    - { kind: soroban_contract, network: pubnet, ref: CEXAMPLELENDSYNTHETIC0000000000000000000000000000000000, found_via: "synthetic fixture" }
+  provenance:
+    extractor_model: synthetic
+    extracted_at: "2025-01-03T00:00:00Z"
+    confidence: 0.82
+    transcript_sha256: ""

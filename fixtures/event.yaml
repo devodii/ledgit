@@ -1,0 +1,4 @@
+slug: synthetic-event
+name: Synthetic Event (fixtures)
+location: Exampleland
+window: { start: "2025-01-01", end: "2025-01-02" }

@@ -1,0 +1,24 @@
+- claim: example-anchor-sep24
+  status: live
+  reason: "SYNTHETIC: stellar.toml reachable and a SEP endpoint responded; asset has holders."
+  observations:
+    - { evidence: anchor.example.com, result: live, detail: { sep24: true } }
+    - { evidence: GEXAMPLEISSUERSYNTHETIC000000000000000000000000000000000, result: live, detail: { holders: 120 } }
+- claim: example-wallet-contract
+  status: testnet_only
+  reason: "SYNTHETIC: contract found on testnet, not on mainnet."
+  observations:
+    - { evidence: CEXAMPLECONTRACTSYNTHETIC00000000000000000000000000000000, result: testnet_only, detail: {} }
+- claim: example-remit-corridor
+  status: no_trace_found
+  reason: "SYNTHETIC: stellar.toml not reachable."
+  observations:
+    - { evidence: remit.example.com, result: not_found, detail: { toml: false } }
+  history:
+    - { from: null, to: pending }
+    - { from: pending, to: no_trace_found }
+- claim: example-new-protocol
+  status: live
+  reason: "SYNTHETIC: referenced CAP is active."
+  observations:
+    - { evidence: CAP-9999, result: live, detail: {} }

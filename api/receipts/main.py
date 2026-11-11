@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from receipts.api.health import router as health_router
+from receipts.api import admin, changes, claims, events, meta, orgs
 from receipts.settings import check_settings, get_settings
 
 
@@ -23,7 +23,10 @@ def create_app() -> FastAPI:
         allow_methods=["GET"],
         allow_headers=["*"],
     )
-    app.include_router(health_router, prefix="/api/v1")
+    for module in (meta, claims, orgs, events, changes):
+        app.include_router(module.router, prefix="/api/v1")
+    if settings.env == "local":
+        app.include_router(admin.router, prefix="/api/v1")
     return app
 
 
