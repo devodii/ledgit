@@ -1,6 +1,6 @@
 {
   "event": "meridian-2025",
-  "generated_at": "2026-11-11T19:28:31.469780Z",
+  "generated_at": "2026-11-11T19:38:45.354053Z",
   "provider": "provider=claude_code model=claude-sonnet-5-5 prompt=v1",
   "funnel": {
     "videos_discovered": 61,
@@ -14,9 +14,6 @@
     "review_queue": 0
   },
   "drops": {
-    "resolve": {
-      "no_evidence_found": 23
-    },
     "judge": {
       "judge:not_checkable": 103,
       "judge:org_incorrect": 2,
@@ -49,10 +46,10 @@
   "coverage": {
     "claims": 40,
     "speaker_named": 0.9,
-    "domain_resolved": 0.0,
-    "country_known": 0.4,
+    "domain_resolved": 0.525,
+    "country_known": 0.45,
     "scf_found": 0.15,
-    "with_evidence": 0.225,
+    "with_evidence": 0.175,
     "protocol_evidence": 5,
     "claim_types": {
       "partner_launch": 21,
@@ -61,13 +58,14 @@
     },
     "evidence_kinds": {
       "asset_issuer": 2,
-      "soroban_contract": 4,
       "protocol_upgrade": 5
     },
     "sources": {
-      "lumenloop": 16,
-      "scf": 4,
-      "stellarlight": 6
+      "lumenloop": 18,
+      "stellarlight": 29,
+      "homepage": 2,
+      "stellar_expert": 12,
+      "stellar_toml": 11
     },
     "caption_source": {
       "auto": 40
@@ -75,13 +73,13 @@
   },
   "verdicts": {
     "verdicts": {
-      "live": 9,
-      "no_trace_found": 31
+      "live": 7,
+      "no_trace_found": 33
     },
     "observations": {
-      "live": 11
+      "live": 37
     },
-    "changes": 40
+    "changes": 54
   },
   "human_review": {
     "labelled": 0,

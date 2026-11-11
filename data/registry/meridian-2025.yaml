@@ -42,10 +42,10 @@
       role: VP of Ecosystem
     org:
       name: Abroad
-      domain: ''
+      domain: abroad.finance
       country: United Kingdom
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/abroad
+      domain_source: stellarlight https://stellarlight.xyz/project/abroad
+      country_source: lumenloop https://lumenloop.com/directory/abroad
     video:
       id: rnv3PsvJcpM
       url_at_timestamp: https://www.youtube.com/watch?v=rnv3PsvJcpM&t=154s
@@ -55,20 +55,25 @@
     scf:
       found: true
       project_url: https://communityfund.stellar.org/project/abroad-lxb
-      awarded_usd: '149800.0'
-      source: https://communityfund.stellar.org/project/abroad-lxb
+      awarded_usd: '149820.0'
+      source: stellarlight https://communityfund.stellar.org/project/abroad-lxb
   evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/abroad
-    retrieved_at: '2026-11-11T19:26:41.358192Z'
+    retrieved_at: '2026-11-11T19:31:50.887690Z'
     provides:
     - region
-  - name: scf
+  - name: stellarlight
     url: https://communityfund.stellar.org/project/abroad-lxb
-    retrieved_at: '2026-11-11T19:26:39.508204Z'
+    retrieved_at: '2026-11-11T19:31:55.156857Z'
     provides:
     - scf award
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/abroad
+    retrieved_at: '2026-11-11T19:31:49.907922Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:22.037685Z'
@@ -118,9 +123,9 @@
       role: ''
     org:
       name: Aztec
-      domain: ''
+      domain: aztec.network
       country: ''
-      domain_source: ''
+      domain_source: 'proposed by the extraction model, verified: homepage title names the organisation (https://aztec.network/)'
       country_source: ''
     video:
       id: j36W1LUGGrs
@@ -134,7 +139,12 @@
       awarded_usd: null
       source: ''
   evidence: []
-  sources: []
+  sources:
+  - name: homepage
+    url: https://aztec.network/
+    retrieved_at: '2026-11-11T19:32:54.899298Z'
+    provides:
+    - domain verification
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:15:48.924057Z'
@@ -151,9 +161,9 @@
       role: ''
     org:
       name: Blend Protocol
-      domain: ''
+      domain: blend.capital
       country: ''
-      domain_source: ''
+      domain_source: stellarlight https://stellarlight.xyz/project/blend
       country_source: ''
     video:
       id: KFRF12c-RSU
@@ -162,12 +172,32 @@
     caption_source: auto
   backing:
     scf:
-      found: false
-      project_url: ''
-      awarded_usd: null
-      source: ''
+      found: true
+      project_url: https://communityfund.stellar.org/project/blend-mfy
+      awarded_usd: '50000.0'
+      source: stellarlight https://communityfund.stellar.org/project/blend-mfy
   evidence: []
-  sources: []
+  sources:
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:31:02.699466Z'
+    provides:
+    - directory address
+  - name: stellarlight
+    url: https://communityfund.stellar.org/project/blend-mfy
+    retrieved_at: '2026-11-11T19:31:01.485037Z'
+    provides:
+    - scf award
+  - name: stellarlight
+    url: https://stellar.expert/explorer/public/contract/CAJJZSGMMM3PD7N33TAPHGBUGTB43OC73HVIK2L2G6BNGGGYOSSYBXBD
+    retrieved_at: '2026-11-11T19:31:01.485016Z'
+    provides:
+    - contract
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/blend
+    retrieved_at: '2026-11-11T19:30:54.847723Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:34.946158Z'
@@ -184,10 +214,10 @@
       role: ''
     org:
       name: Bridge
-      domain: ''
+      domain: bridge.xyz
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/bridge
+      domain_source: stellarlight https://stellarlight.xyz/project/bridge
+      country_source: lumenloop https://lumenloop.com/directory/bridge
     video:
       id: qP0tNjYIcI0
       url_at_timestamp: https://www.youtube.com/watch?v=qP0tNjYIcI0&t=107s
@@ -198,19 +228,24 @@
       found: true
       project_url: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
       awarded_usd: '95000.0'
-      source: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
+      source: stellarlight https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
   evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/bridge
-    retrieved_at: '2026-11-11T19:27:19.606833Z'
+    retrieved_at: '2026-11-11T19:33:27.862267Z'
     provides:
     - region
   - name: stellarlight
     url: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
-    retrieved_at: '2026-11-11T19:27:21.113073Z'
+    retrieved_at: '2026-11-11T19:33:30.327652Z'
     provides:
     - scf award
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/bridge
+    retrieved_at: '2026-11-11T19:33:26.664278Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:12.032167Z'
@@ -227,10 +262,10 @@
       role: ''
     org:
       name: Centrifuge
-      domain: ''
+      domain: centrifuge.io
       country: Italy
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/centrifuge
+      domain_source: stellarlight https://stellarlight.xyz/project/centrifuge
+      country_source: lumenloop https://lumenloop.com/directory/centrifuge
     video:
       id: zMjcgV_n5Xg
       url_at_timestamp: https://www.youtube.com/watch?v=zMjcgV_n5Xg&t=83s
@@ -246,9 +281,24 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/centrifuge
-    retrieved_at: '2026-11-11T19:26:30.385657Z'
+    retrieved_at: '2026-11-11T19:31:26.907152Z'
     provides:
     - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:31:31.608228Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://centrifuge.io/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:31:28.634481Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/centrifuge
+    retrieved_at: '2026-11-11T19:31:25.707421Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:52.981891Z'
@@ -265,10 +315,10 @@
       role: Stellar Development Foundation CEO
     org:
       name: Cheesecake Labs
-      domain: ''
+      domain: cheesecakelabs.com
       country: Brazil
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/cheesecake-labs
+      domain_source: stellarlight https://stellarlight.xyz/project/cheesecake-labs
+      country_source: lumenloop https://lumenloop.com/directory/cheesecake-labs
     video:
       id: VjgQUw9HZsw
       url_at_timestamp: https://www.youtube.com/watch?v=VjgQUw9HZsw&t=762s
@@ -284,9 +334,14 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/cheesecake-labs
-    retrieved_at: '2026-11-11T19:27:07.725237Z'
+    retrieved_at: '2026-11-11T19:33:04.939975Z'
     provides:
     - region
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/cheesecake-labs
+    retrieved_at: '2026-11-11T19:33:03.827202Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:58.202024Z'
@@ -303,10 +358,10 @@
       role: ''
     org:
       name: Circle
-      domain: ''
+      domain: circle.com
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/circle
+      domain_source: stellarlight https://stellarlight.xyz/project/circle
+      country_source: lumenloop https://lumenloop.com/directory/circle
     video:
       id: mvZkTr7rXho
       url_at_timestamp: https://www.youtube.com/watch?v=mvZkTr7rXho&t=620s
@@ -318,21 +373,28 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence:
-  - kind: asset_issuer
-    network: pubnet
-    ref: USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
-    found_via: 'stellarlight project circle: https://stellarlight.xyz/api/projects/search?q=Circle'
+  evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/circle
-    retrieved_at: '2026-11-11T19:26:15.946666Z'
+    retrieved_at: '2026-11-11T19:30:39.846507Z'
     provides:
     - region
-  - name: stellarlight
-    url: https://stellarlight.xyz/api/projects/search?q=Circle
-    retrieved_at: '2026-11-11T19:26:17.037441Z'
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:30:42.956668Z'
     provides:
+    - directory address
+  - name: stellar_toml
+    url: https://circle.com/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:30:39.859183Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/circle
+    retrieved_at: '2026-11-11T19:30:38.808843Z'
+    provides:
+    - website
     - asset
   provenance:
     extractor_model: claude-sonnet-5-5
@@ -350,10 +412,10 @@
       role: ''
     org:
       name: Etherfuse
-      domain: ''
+      domain: etherfuse.com
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/etherfuse
+      domain_source: stellarlight https://stellarlight.xyz/project/etherfuse
+      country_source: lumenloop https://lumenloop.com/directory/etherfuse
     video:
       id: g4NkRonfiUY
       url_at_timestamp: https://www.youtube.com/watch?v=g4NkRonfiUY&t=301s
@@ -365,21 +427,28 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence:
-  - kind: asset_issuer
-    network: pubnet
-    ref: CETES-GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC
-    found_via: 'stellarlight project etherfuse: https://stellarlight.xyz/api/projects/search?q=Etherfuse'
+  evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/etherfuse
-    retrieved_at: '2026-11-11T19:27:10.811379Z'
+    retrieved_at: '2026-11-11T19:33:11.140677Z'
     provides:
     - region
-  - name: stellarlight
-    url: https://stellarlight.xyz/api/projects/search?q=Etherfuse
-    retrieved_at: '2026-11-11T19:27:11.819291Z'
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:33:15.900106Z'
     provides:
+    - directory address
+  - name: stellar_toml
+    url: https://etherfuse.com/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:33:13.629180Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/etherfuse
+    retrieved_at: '2026-11-11T19:33:09.997095Z'
+    provides:
+    - website
     - asset
   provenance:
     extractor_model: claude-sonnet-5-5
@@ -433,7 +502,7 @@
       domain: ''
       country: United States
       domain_source: ''
-      country_source: https://lumenloop.com/directory/freighter
+      country_source: lumenloop https://lumenloop.com/directory/freighter
     video:
       id: bw_-sDwDQLg
       url_at_timestamp: https://www.youtube.com/watch?v=bw_-sDwDQLg&t=816s
@@ -449,7 +518,7 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:26:27.033250Z'
+    retrieved_at: '2026-11-11T19:31:13.380524Z'
     provides:
     - region
   provenance:
@@ -471,7 +540,7 @@
       domain: ''
       country: United States
       domain_source: ''
-      country_source: https://lumenloop.com/directory/freighter
+      country_source: lumenloop https://lumenloop.com/directory/freighter
     video:
       id: bw_-sDwDQLg
       url_at_timestamp: https://www.youtube.com/watch?v=bw_-sDwDQLg&t=207s
@@ -487,7 +556,7 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:26:27.033250Z'
+    retrieved_at: '2026-11-11T19:31:13.380524Z'
     provides:
     - region
   provenance:
@@ -506,10 +575,10 @@
       role: ''
     org:
       name: Goldsky
-      domain: ''
+      domain: goldsky.com
       country: Canada
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/goldsky
+      domain_source: stellarlight https://stellarlight.xyz/project/goldsky
+      country_source: lumenloop https://lumenloop.com/directory/goldsky
     video:
       id: iioKD2cRsA0
       url_at_timestamp: https://www.youtube.com/watch?v=iioKD2cRsA0&t=545s
@@ -520,19 +589,24 @@
       found: true
       project_url: https://communityfund.stellar.org/project/goldsky-c3b
       awarded_usd: '128000.0'
-      source: https://communityfund.stellar.org/project/goldsky-c3b
+      source: stellarlight https://communityfund.stellar.org/project/goldsky-c3b
   evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/goldsky
-    retrieved_at: '2026-11-11T19:26:56.216991Z'
+    retrieved_at: '2026-11-11T19:32:35.211656Z'
     provides:
     - region
-  - name: scf
+  - name: stellarlight
     url: https://communityfund.stellar.org/project/goldsky-c3b
-    retrieved_at: '2026-11-11T19:26:54.388695Z'
+    retrieved_at: '2026-11-11T19:32:38.243458Z'
     provides:
     - scf award
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/goldsky
+    retrieved_at: '2026-11-11T19:32:34.259711Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:15:46.047233Z'
@@ -582,9 +656,9 @@
       role: technical program manager
     org:
       name: NEAR Intents
-      domain: ''
+      domain: near-intents.org
       country: ''
-      domain_source: ''
+      domain_source: 'proposed by the extraction model, verified: homepage title names the organisation (https://near-intents.org/)'
       country_source: ''
     video:
       id: JSLrnApWc8k
@@ -598,7 +672,12 @@
       awarded_usd: null
       source: ''
   evidence: []
-  sources: []
+  sources:
+  - name: homepage
+    url: https://near-intents.org/
+    retrieved_at: '2026-11-11T19:30:52.541309Z'
+    provides:
+    - domain verification
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:34.482675Z'
@@ -615,10 +694,10 @@
       role: ''
     org:
       name: Nethermind
-      domain: ''
+      domain: nethermind.io
       country: United Kingdom
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/nethermind
+      domain_source: stellarlight https://stellarlight.xyz/project/nethermind
+      country_source: lumenloop https://lumenloop.com/directory/nethermind
     video:
       id: j36W1LUGGrs
       url_at_timestamp: https://www.youtube.com/watch?v=j36W1LUGGrs&t=473s
@@ -634,9 +713,14 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/nethermind
-    retrieved_at: '2026-11-11T19:26:36.086481Z'
+    retrieved_at: '2026-11-11T19:31:40.477964Z'
     provides:
     - region
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/nethermind
+    retrieved_at: '2026-11-11T19:31:39.407245Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:15:48.926856Z'
@@ -653,10 +737,10 @@
       role: chief strategy officer
     org:
       name: Ondo Finance
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
+      domain: ondo.finance
+      country: United States
+      domain_source: stellarlight https://stellarlight.xyz/project/ondo
+      country_source: lumenloop https://lumenloop.com/directory/ondo
     video:
       id: 54DLQUzORXI
       url_at_timestamp: https://www.youtube.com/watch?v=54DLQUzORXI&t=50s
@@ -668,8 +752,42 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
-  sources: []
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
+    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy'
+  sources:
+  - name: lumenloop
+    url: https://lumenloop.com/directory/ondo
+    retrieved_at: '2026-11-11T19:29:46.757402Z'
+    provides:
+    - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:29:55.049762Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://ondo.finance/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:29:49.993184Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/ondo
+    retrieved_at: '2026-11-11T19:29:45.446400Z'
+    provides:
+    - website
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/usdy
+    retrieved_at: '2026-11-11T19:29:51.078967Z'
+    provides:
+    - asset
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/usdy
+    retrieved_at: '2026-11-11T19:38:42.291260Z'
+    provides:
+    - asset USDY
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:13:44.091950Z'
@@ -752,10 +870,10 @@
       role: ''
     org:
       name: Reflector
-      domain: ''
+      domain: reflector.network
       country: Portugal
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/reflector
+      domain_source: stellarlight https://stellarlight.xyz/project/reflector
+      country_source: lumenloop https://lumenloop.com/directory/reflector
     video:
       id: KFRF12c-RSU
       url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=380s
@@ -765,33 +883,40 @@
     scf:
       found: true
       project_url: https://communityfund.stellar.org/project/reflector-5w2
-      awarded_usd: '444800.0'
-      source: https://communityfund.stellar.org/project/reflector-5w2
-  evidence:
-  - kind: soroban_contract
-    network: pubnet
-    ref: CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    found_via: 'stellarlight project reflector: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN'
-  - kind: soroban_contract
-    network: pubnet
-    ref: CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA
-    found_via: 'stellarlight project reflector: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN'
+      awarded_usd: '444840.0'
+      source: stellarlight https://communityfund.stellar.org/project/reflector-5w2
+  evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:26:07.041126Z'
+    retrieved_at: '2026-11-11T19:30:16.668641Z'
     provides:
     - region
-  - name: scf
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:30:20.487752Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://reflector.network/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:30:18.387139Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
     url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:26:05.720882Z'
+    retrieved_at: '2026-11-11T19:30:19.778066Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:26:08.195762Z'
+    retrieved_at: '2026-11-11T19:30:19.778014Z'
     provides:
     - contract
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/reflector
+    retrieved_at: '2026-11-11T19:30:15.714560Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:34.946403Z'
@@ -808,10 +933,10 @@
       role: ''
     org:
       name: Reflector
-      domain: ''
+      domain: reflector.network
       country: Portugal
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/reflector
+      domain_source: stellarlight https://stellarlight.xyz/project/reflector
+      country_source: lumenloop https://lumenloop.com/directory/reflector
     video:
       id: KFRF12c-RSU
       url_at_timestamp: https://www.youtube.com/watch?v=KFRF12c-RSU&t=631s
@@ -821,33 +946,40 @@
     scf:
       found: true
       project_url: https://communityfund.stellar.org/project/reflector-5w2
-      awarded_usd: '444800.0'
-      source: https://communityfund.stellar.org/project/reflector-5w2
-  evidence:
-  - kind: soroban_contract
-    network: pubnet
-    ref: CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    found_via: 'stellarlight project reflector: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN'
-  - kind: soroban_contract
-    network: pubnet
-    ref: CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA
-    found_via: 'stellarlight project reflector: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN'
+      awarded_usd: '444840.0'
+      source: stellarlight https://communityfund.stellar.org/project/reflector-5w2
+  evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:26:07.041126Z'
+    retrieved_at: '2026-11-11T19:30:16.668641Z'
     provides:
     - region
-  - name: scf
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:30:20.487752Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://reflector.network/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:30:18.387139Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
     url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:26:05.720882Z'
+    retrieved_at: '2026-11-11T19:30:19.778066Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:26:08.195762Z'
+    retrieved_at: '2026-11-11T19:30:19.778014Z'
     provides:
     - contract
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/reflector
+    retrieved_at: '2026-11-11T19:30:15.714560Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:34.947330Z'
@@ -971,9 +1103,9 @@
       role: Co-Founder & Chief Scientist
     org:
       name: Stellar
-      domain: ''
+      domain: stellar.org
       country: ''
-      domain_source: ''
+      domain_source: 'proposed by the extraction model, verified: stellar.toml DOCUMENTATION names the organisation (https://stellar.org/.well-known/stellar.toml)'
       country_source: ''
     video:
       id: 49qaI_g-Qyk
@@ -987,7 +1119,18 @@
       awarded_usd: null
       source: ''
   evidence: []
-  sources: []
+  sources:
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:32:12.107569Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:32:08.388434Z'
+    provides:
+    - domain verification
+    - accounts, currencies, sep endpoints
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:13:37.939302Z'
@@ -1136,10 +1279,10 @@
       role: Core engineer
     org:
       name: Stellar Development Foundation
-      domain: ''
+      domain: stellar.org
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/stellar-development-foundation
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
       id: ltymXqzQPDY
       url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1507s
@@ -1159,9 +1302,24 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:27:01.865899Z'
+    retrieved_at: '2026-11-11T19:32:57.600570Z'
     provides:
     - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:05.368934Z'
@@ -1178,10 +1336,10 @@
       role: Core engineer
     org:
       name: Stellar Development Foundation
-      domain: ''
+      domain: stellar.org
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/stellar-development-foundation
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
       id: ltymXqzQPDY
       url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1499s
@@ -1201,9 +1359,24 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:27:01.865899Z'
+    retrieved_at: '2026-11-11T19:32:57.600570Z'
     provides:
     - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:05.371533Z'
@@ -1220,10 +1393,10 @@
       role: Core engineer
     org:
       name: Stellar Development Foundation
-      domain: ''
+      domain: stellar.org
       country: United States
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/stellar-development-foundation
+      domain_source: stellarlight https://stellarlight.xyz/project/stellar-development-foundation
+      country_source: lumenloop https://lumenloop.com/directory/stellar-development-foundation
     video:
       id: ltymXqzQPDY
       url_at_timestamp: https://www.youtube.com/watch?v=ltymXqzQPDY&t=1511s
@@ -1243,9 +1416,24 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:27:01.865899Z'
+    retrieved_at: '2026-11-11T19:32:57.600570Z'
     provides:
     - region
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    provides:
+    - accounts, currencies, sep endpoints
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/stellar-development-foundation
+    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:05.374109Z'
@@ -1310,8 +1498,17 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
-  sources: []
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+    found_via: 'ticker USDC named in the claim; stellarlight project usdc: https://stellarlight.xyz/project/usdc'
+  sources:
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/usdc
+    retrieved_at: '2026-11-11T19:38:42.427238Z'
+    provides:
+    - asset USDC
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:12.031246Z'
@@ -1361,9 +1558,9 @@
       role: ''
     org:
       name: Stellar Foundation
-      domain: ''
+      domain: stellar.org
       country: ''
-      domain_source: ''
+      domain_source: 'proposed by the extraction model, verified: stellar.toml DOCUMENTATION names the organisation (https://stellar.org/.well-known/stellar.toml)'
       country_source: ''
     video:
       id: ifv0RTUzuz8
@@ -1377,7 +1574,18 @@
       awarded_usd: null
       source: ''
   evidence: []
-  sources: []
+  sources:
+  - name: stellar_expert
+    url: https://api.stellar.expert/explorer/directory
+    retrieved_at: '2026-11-11T19:33:22.299513Z'
+    provides:
+    - directory address
+  - name: stellar_toml
+    url: https://stellar.org/.well-known/stellar.toml
+    retrieved_at: '2026-11-11T19:33:22.285927Z'
+    provides:
+    - domain verification
+    - accounts, currencies, sep endpoints
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:15:37.473138Z'
@@ -1394,10 +1602,10 @@
       role: co-founder and CEO of the AHA company
     org:
       name: the AHA company
-      domain: ''
+      domain: theaha.co
       country: France
-      domain_source: ''
-      country_source: https://lumenloop.com/directory/aha-labs
+      domain_source: stellarlight https://stellarlight.xyz/project/the-aha-company
+      country_source: lumenloop https://lumenloop.com/directory/aha-labs
     video:
       id: sx77r9qQOeE
       url_at_timestamp: https://www.youtube.com/watch?v=sx77r9qQOeE&t=524s
@@ -1405,22 +1613,22 @@
     caption_source: auto
   backing:
     scf:
-      found: true
-      project_url: https://communityfund.stellar.org/project/smart-account-onboarding-8yr
-      awarded_usd: '150000.0'
-      source: https://communityfund.stellar.org/project/smart-account-onboarding-8yr
+      found: false
+      project_url: ''
+      awarded_usd: null
+      source: ''
   evidence: []
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/aha-labs
-    retrieved_at: '2026-11-11T19:27:16.359128Z'
+    retrieved_at: '2026-11-11T19:33:23.227540Z'
     provides:
     - region
   - name: stellarlight
-    url: https://communityfund.stellar.org/project/smart-account-onboarding-8yr
-    retrieved_at: '2026-11-11T19:27:17.550315Z'
+    url: https://stellarlight.xyz/project/the-aha-company
+    retrieved_at: '2026-11-11T19:33:22.322858Z'
     provides:
-    - scf award
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:16:22.719687Z'
@@ -1470,10 +1678,10 @@
       role: associate director of business development
     org:
       name: Wisdom Tree
-      domain: ''
-      country: ''
-      domain_source: ''
-      country_source: ''
+      domain: wisdomtreeprime.com
+      country: United States
+      domain_source: stellarlight https://stellarlight.xyz/project/wisdomtree
+      country_source: lumenloop https://lumenloop.com/directory/wisdomtree
     video:
       id: -TWT38FYJf4
       url_at_timestamp: https://www.youtube.com/watch?v=-TWT38FYJf4&t=69s
@@ -1486,7 +1694,17 @@
       awarded_usd: null
       source: ''
   evidence: []
-  sources: []
+  sources:
+  - name: lumenloop
+    url: https://lumenloop.com/directory/wisdomtree
+    retrieved_at: '2026-11-11T19:32:16.337695Z'
+    provides:
+    - region
+  - name: stellarlight
+    url: https://stellarlight.xyz/project/wisdomtree
+    retrieved_at: '2026-11-11T19:32:15.108278Z'
+    provides:
+    - website
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:13:42.284511Z'

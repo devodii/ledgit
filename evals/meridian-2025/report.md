@@ -1,6 +1,6 @@
 # Eval report: meridian-2025
 
-Generated 2026-11-11 19:28 UTC. Extraction and judging: `provider=claude_code model=claude-sonnet-5-5 prompt=v1`.
+Generated 2026-11-11 19:38 UTC. Extraction and judging: `provider=claude_code model=claude-sonnet-5-5 prompt=v1`.
 
 ## Funnel
 
@@ -35,7 +35,6 @@ Of candidates the extractor scored 0.8 or higher on both specificity and verifia
 
 | Stage | Reason | Count |
 | --- | --- | ---: |
-| resolve | no_evidence_found | 23 |
 | judge | judge:not_checkable | 103 |
 | judge | judge:org_incorrect | 2 |
 | judge | judge:summary_not_faithful | 46 |
@@ -49,26 +48,26 @@ Of candidates the extractor scored 0.8 or higher on both specificity and verifia
 | Measure | Value |
 | --- | ---: |
 | Speaker named | 90% |
-| Domain resolved | 0% |
-| Country known | 40% |
+| Domain resolved | 52% |
+| Country known | 45% |
 | SCF award found | 15% |
-| At least one evidence item | 22% |
+| At least one evidence item | 18% |
 
 Claim types: partner_launch 21, protocol_feature 10, roadmap 9
 
-Evidence kinds: asset_issuer 2, protocol_upgrade 5, soroban_contract 4
+Evidence kinds: asset_issuer 2, protocol_upgrade 5
 
-Where facts came from (claims citing each source): lumenloop 16, scf 4, stellarlight 6
+Where facts came from (claims citing each source): homepage 2, lumenloop 18, stellar_expert 12, stellar_toml 11, stellarlight 29
 
 Caption source: auto 40
 
 ## Verification
 
-Verdicts: live 9, no_trace_found 31
+Verdicts: live 7, no_trace_found 33
 
-Check outcomes: live 11
+Check outcomes: live 37
 
-Verdict changes recorded: 40
+Verdict changes recorded: 54
 
 ## Human review
 

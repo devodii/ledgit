@@ -1,3 +1,4 @@
+import re
 from typing import Any, ClassVar
 
 from pydantic import BaseModel
@@ -56,15 +57,8 @@ class SorobanConnector(Connector):
         latest, oldest = health["latestLedger"], health["oldestLedger"]
         retention_days = (latest - oldest) / self.LEDGERS_PER_DAY
         window = min(activity_days * self.LEDGERS_PER_DAY, latest - oldest)
-        events = self._rpc(
-            network,
-            "getEvents",
-            {
-                "startLedger": latest - window,
-                "filters": [{"type": "contract", "contractIds": [contract_id]}],
-                "pagination": {"limit": 100},
-            },
-        )
+        start = max(latest - window, oldest) + 600
+        events = self._events(network, contract_id, start)
         return ContractStatus(
             exists=True,
             contract_id=contract_id,
@@ -73,6 +67,21 @@ class SorobanConnector(Connector):
             window_ledgers=window,
             retention_days=round(retention_days, 1),
         )
+
+    def _events(self, network: Network, contract_id: str, start: int) -> Any:
+        params = {
+            "filters": [{"type": "contract", "contractIds": [contract_id]}],
+            "pagination": {"limit": 100},
+        }
+        try:
+            return self._rpc(network, "getEvents", {"startLedger": start, **params})
+        except ConnectorError as exc:
+            match = re.search(r"ledger range: (\d+) - (\d+)", str(exc))
+            if not match:
+                raise
+            return self._rpc(
+                network, "getEvents", {"startLedger": int(match.group(1)) + 600, **params}
+            )
 
     def protocol_version(self, network: Network) -> int:
         return int(self._rpc(network, "getLatestLedger")["protocolVersion"])

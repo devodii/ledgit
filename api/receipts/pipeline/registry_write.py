@@ -22,7 +22,7 @@ from receipts.models.registry import (
     VideoRef,
 )
 from receipts.pipeline.common import stage_cache, write_report
-from receipts.pipeline.resolve import valid_ref
+from receipts.pipeline.resolve import claim_key, valid_ref
 from receipts.registry.loader import sync_event, sync_registry
 from receipts.settings import get_settings
 
@@ -34,15 +34,28 @@ def claim_id(candidate: Candidate) -> str:
     return f"{OrgRef(name=candidate.org_name).slug}-{digest}"
 
 
-def build_entry(event: str, candidate: Candidate, org: OrgResolution) -> RegistryEntry:
+def build_entry(
+    event: str, candidate: Candidate, org: OrgResolution, extras: OrgResolution | None = None
+) -> RegistryEntry:
+    drafts = list(extras.evidence) if extras else []
+    seen: set[tuple[str, str, str]] = set()
+    unique = []
+    for draft in drafts:
+        key = (draft.kind, draft.network, draft.ref)
+        if key not in seen:
+            seen.add(key)
+            unique.append(draft)
     evidence = [
         EvidenceItem(
             kind=EvidenceKind(e.kind), network=Network(e.network), ref=e.ref, found_via=e.found_via
         )
-        for e in org.evidence
+        for e in unique
         if valid_ref(e.kind, e.ref)
     ]
-    sources = [SourceRef.model_validate(s.model_dump()) for s in org.sources]
+    sources = [
+        SourceRef.model_validate(s.model_dump())
+        for s in list(org.sources) + (list(extras.sources) if extras else [])
+    ]
     if candidate.protocol_version:
         evidence.append(
             EvidenceItem(
@@ -155,7 +168,13 @@ def run_write(seed: EventSeed) -> int:
     for candidate in ranked:
         resolution_path = stage_cache("resolve") / f"{OrgRef(name=candidate.org_name).slug}.json"
         org = OrgResolution.model_validate_json(resolution_path.read_text())
-        entry = build_entry(seed.slug, candidate, org)
+        extras_path = stage_cache("resolve-claims") / f"{claim_key(candidate)}.json"
+        extras = (
+            OrgResolution.model_validate_json(extras_path.read_text())
+            if extras_path.is_file()
+            else None
+        )
+        entry = build_entry(seed.slug, candidate, org, extras)
         if entry.provenance.confidence < settings.pipeline_min_confidence:
             review.append(entry)
             drops["low_confidence"] = drops.get("low_confidence", 0) + 1

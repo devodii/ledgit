@@ -202,6 +202,51 @@ def resolve_org(name: str, hint_domain: str, quote: str, provider: LLMProvider) 
     return result
 
 
+TICKER_RE = re.compile(r"\b[A-Z][A-Z0-9]{2,7}\b")
+NOT_TICKERS = {
+    "SDF", "SEC", "USD", "API", "SDK", "RPC", "CAP", "SEP", "DAO", "NFT", "AMM", "DEX", "EVM",
+    "RWA", "CEO", "CTO", "CFO", "AI", "UX", "KYC", "AML", "ZK", "SCF", "FAQ", "URL", "JSON",
+}  # fmt: skip
+
+
+def resolve_claim_extras(candidate: Candidate) -> OrgResolution:
+    """Evidence tied to this specific claim: asset tickers named in the quote or summary."""
+    result = OrgResolution(org_name=candidate.org_name, slug=claim_key(candidate))
+    light = StellarLightConnector()
+    seen: set[str] = set()
+    sources: dict[str, SourceDraft] = {}
+    for ticker in TICKER_RE.findall(f"{candidate.quote} {candidate.summary}"):
+        if ticker in NOT_TICKERS or ticker in seen:
+            continue
+        seen.add(ticker)
+        try:
+            hits = [p for p in light.search_projects(ticker, limit=10) if p.name.upper() == ticker]
+        except ConnectorError:
+            continue
+        for project in hits:
+            if not (project.asset_code and valid_ref("asset_issuer", f"x-{project.asset_issuer}")):
+                continue
+            url = f"https://stellarlight.xyz/project/{project.slug}"
+            result.evidence.append(
+                EvidenceDraft(
+                    kind="asset_issuer",
+                    ref=f"{project.asset_code}-{project.asset_issuer}",
+                    found_via=f"ticker {ticker} named in the claim; stellarlight project {project.slug}: {url}",
+                )
+            )
+            sources[url] = SourceDraft(
+                name="stellarlight", url=url, retrieved_at=now(), provides=[f"asset {ticker}"]
+            )
+    result.sources = list(sources.values())
+    return result
+
+
+def claim_key(candidate: Candidate) -> str:
+    import hashlib
+
+    return hashlib.sha256(f"{candidate.video_id}|{candidate.quote}".encode()).hexdigest()[:12]
+
+
 def run_resolve(seed: EventSeed) -> int:
     ranked = [
         Candidate.model_validate(c)
@@ -212,6 +257,9 @@ def run_resolve(seed: EventSeed) -> int:
     resolved = 0
     drops: dict[str, int] = {}
     for candidate in ranked:
+        extras_path = stage_cache("resolve-claims") / f"{claim_key(candidate)}.json"
+        if not extras_path.is_file():
+            extras_path.write_text(resolve_claim_extras(candidate).model_dump_json(indent=1))
         slug = OrgRef(name=candidate.org_name).slug
         path = cache / f"{slug}.json"
         if path.is_file():

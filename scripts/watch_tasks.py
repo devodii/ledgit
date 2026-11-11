@@ -27,13 +27,13 @@ def play_sound() -> None:
 def main() -> None:
     LOG.parent.mkdir(parents=True, exist_ok=True)
     LOG.touch()
-    print(f"watching {LOG} for new human tasks (Ctrl+C to stop)")
+    print(f"watching {LOG} for new human tasks (Ctrl+C to stop)", flush=True)
     with LOG.open() as handle:
         handle.seek(0, os.SEEK_END)
         while True:
             line = handle.readline()
             if line:
-                print(f"NEEDS YOU: {line.strip()}")
+                print(f"NEEDS YOU: {line.strip()}", flush=True)
                 play_sound()
             else:
                 time.sleep(1)
