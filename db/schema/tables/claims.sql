@@ -1,0 +1,22 @@
+CREATE TABLE claims (
+    id TEXT PRIMARY KEY,
+    event_slug TEXT NOT NULL REFERENCES events (slug),
+    org_slug TEXT NOT NULL REFERENCES orgs (slug),
+    claim_type claim_type NOT NULL,
+    quote TEXT NOT NULL,
+    summary TEXT NOT NULL,
+    speaker_name TEXT NOT NULL DEFAULT '',
+    speaker_role TEXT NOT NULL DEFAULT '',
+    video_id TEXT NOT NULL,
+    video_url TEXT NOT NULL,
+    start_seconds INTEGER NOT NULL DEFAULT 0,
+    caption_source caption_source NOT NULL,
+    scf_found BOOLEAN NOT NULL DEFAULT FALSE,
+    scf_project_url TEXT NOT NULL DEFAULT '',
+    scf_awarded_usd NUMERIC,
+    extractor_model TEXT NOT NULL DEFAULT '',
+    extracted_at TIMESTAMPTZ,
+    confidence REAL NOT NULL DEFAULT 0,
+    transcript_sha256 TEXT NOT NULL DEFAULT '',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);

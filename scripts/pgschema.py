@@ -75,6 +75,9 @@ def next_migration_path() -> Path:
 
 def run_pgschema(command: str, *extra: str) -> int:
     env = load_env()
+    local_bin = env.get("PGSCHEMA_BIN")
+    if local_bin:
+        return run_local(local_bin, env, command, *extra)
     image = env.get("PGSCHEMA_IMAGE", "pgplex/pgschema:latest")
     cmd = [
         "docker", "run", "--rm", "-i", "--network", "host",
@@ -90,6 +93,21 @@ def run_pgschema(command: str, *extra: str) -> int:
         *extra,
     ]  # fmt: skip
     return subprocess.run(cmd, check=False).returncode
+
+
+def run_local(binary: str, env: dict[str, str], command: str, *extra: str) -> int:
+    translated = [a.replace("/db/", f"{DB_DIR}/") for a in extra]
+    cmd = [
+        binary, command,
+        "--host", env.get("PGHOST", "localhost"),
+        "--port", env.get("POSTGRES_PORT", "5432"),
+        "--db", env["POSTGRES_DB"],
+        "--user", env["POSTGRES_USER"],
+        "--schema", "public",
+        "--sslmode", "disable",
+        *translated,
+    ]  # fmt: skip
+    return subprocess.run(cmd, check=False, env={**os.environ, "PGPASSWORD": env["POSTGRES_PASSWORD"]}, cwd=DB_DIR).returncode
 
 
 def plan() -> int:
