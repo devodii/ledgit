@@ -1,7 +1,6 @@
 import argparse
 import sys
 from collections.abc import Sequence
-from pathlib import Path
 
 from receipts.seed import seed_fixtures
 from receipts.settings import ConfigError, check_settings, get_settings
@@ -22,7 +21,7 @@ def cmd_seed_fixtures(_: argparse.Namespace) -> int:
     if settings.env != "local":
         print("seed-fixtures only runs when ENV=local", file=sys.stderr)
         return 1
-    counts = seed_fixtures(Path(settings.fixtures_dir))
+    counts = seed_fixtures(settings.fixtures_dir)
     print(f"seeded synthetic fixtures: {counts}")
     return 0
 

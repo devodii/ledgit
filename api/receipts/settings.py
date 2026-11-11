@@ -1,8 +1,11 @@
 from functools import lru_cache
+from pathlib import Path
 from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 class ConfigError(Exception):
@@ -20,12 +23,12 @@ class Settings(BaseSettings):
     http_contact_url: str = "https://github.com/devodii/ledgit"
     http_rate_limit_rps: float = 1.0
     http_timeout_seconds: float = 20.0
-    cache_dir: str = "data/cache"
-    tasks_dir: str = "data/tasks"
-    data_dir: str = "data"
-    fixtures_dir: str = "../fixtures"
+    cache_dir: Path = REPO_ROOT / "data" / "cache"
+    tasks_dir: Path = REPO_ROOT / "data" / "tasks"
+    data_dir: Path = REPO_ROOT / "data"
+    fixtures_dir: Path = REPO_ROOT / "fixtures"
 
-    horizon_url: str = "https://horizon.stellar.org"
+    horizon_url: str = "https://horizon.stellar.lobstr.co"
     horizon_testnet_url: str = "https://horizon-testnet.stellar.org"
     soroban_rpc_url: str = "https://mainnet.sorobanrpc.com"
     soroban_rpc_testnet_url: str = "https://soroban-testnet.stellar.org"
@@ -43,7 +46,7 @@ class Settings(BaseSettings):
     youtube_api_key: str = ""
 
     browser_headful: bool = False
-    browser_profile_dir: str = "data/cache/browser"
+    browser_profile_dir: Path = REPO_ROOT / "data" / "cache" / "browser"
     browser_timeout_ms: int = 30000
 
     scheduler_enabled: bool = True

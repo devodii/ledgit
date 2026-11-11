@@ -13,6 +13,8 @@ dependencies = [
   "apscheduler>=3.10",
   "playwright>=1.48",
   "pyyaml>=6.0",
+  "yt-dlp>=2026.10.26",
+  "stellar-sdk>=17.0.1",
 ]
 
 [dependency-groups]
@@ -51,3 +53,7 @@ plugins = ["pydantic.mypy"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[[tool.mypy.overrides]]
+module = ["yt_dlp", "yt_dlp.*"]
+ignore_missing_imports = true
