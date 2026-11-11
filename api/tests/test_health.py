@@ -6,7 +6,7 @@ from receipts.settings import ConfigError, Settings, check_settings, get_setting
 
 
 def test_health_returns_ok(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://x:x@localhost/x")
+    monkeypatch.setenv("DATABASE_URL", "postgresql://x:x@localhost/x")
     get_settings.cache_clear()
     with TestClient(create_app()) as client:
         response = client.get("/api/v1/health")

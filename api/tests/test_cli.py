@@ -14,6 +14,6 @@ def test_check_fails_naming_missing_variable(
 
 
 def test_check_passes_with_database_url(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://x:x@localhost/x")
+    monkeypatch.setenv("DATABASE_URL", "postgresql://x:x@localhost/x")
     get_settings.cache_clear()
     assert main(["check"]) == 0
