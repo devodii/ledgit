@@ -756,7 +756,7 @@
   - kind: asset_issuer
     network: pubnet
     ref: USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
-    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy'
+    found_via: 'ticker USDY named in the claim; stellarlight project usdy: https://stellarlight.xyz/project/usdy (pointer: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6)'
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/ondo
@@ -784,8 +784,8 @@
     provides:
     - asset
   - name: stellarlight
-    url: https://stellarlight.xyz/project/usdy
-    retrieved_at: '2026-11-11T19:38:42.291260Z'
+    url: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
+    retrieved_at: '2026-11-11T19:39:35.999455Z'
     provides:
     - asset USDY
   provenance:
@@ -852,8 +852,17 @@
       project_url: ''
       awarded_usd: null
       source: ''
-  evidence: []
-  sources: []
+  evidence:
+  - kind: asset_issuer
+    network: pubnet
+    ref: PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
+    found_via: 'ticker PYUSD named in the claim; stellarlight project pyusd: https://stellarlight.xyz/project/pyusd (pointer: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5)'
+  sources:
+  - name: stellarlight
+    url: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
+    retrieved_at: '2026-11-11T19:39:36.003926Z'
+    provides:
+    - asset PYUSD
   provenance:
     extractor_model: claude-sonnet-5-5
     extracted_at: '2026-11-11T19:14:12.296480Z'
@@ -1502,11 +1511,11 @@
   - kind: asset_issuer
     network: pubnet
     ref: USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
-    found_via: 'ticker USDC named in the claim; stellarlight project usdc: https://stellarlight.xyz/project/usdc'
+    found_via: 'ticker USDC named in the claim; stellarlight project usdc: https://stellarlight.xyz/project/usdc (pointer: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN)'
   sources:
   - name: stellarlight
-    url: https://stellarlight.xyz/project/usdc
-    retrieved_at: '2026-11-11T19:38:42.427238Z'
+    url: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+    retrieved_at: '2026-11-11T19:39:36.120096Z'
     provides:
     - asset USDC
   provenance:

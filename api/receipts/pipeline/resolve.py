@@ -224,19 +224,24 @@ def resolve_claim_extras(candidate: Candidate) -> OrgResolution:
         except ConnectorError:
             continue
         for project in hits:
-            if not (project.asset_code and valid_ref("asset_issuer", f"x-{project.asset_issuer}")):
-                continue
             url = f"https://stellarlight.xyz/project/{project.slug}"
-            result.evidence.append(
-                EvidenceDraft(
-                    kind="asset_issuer",
-                    ref=f"{project.asset_code}-{project.asset_issuer}",
-                    found_via=f"ticker {ticker} named in the claim; stellarlight project {project.slug}: {url}",
+            via = f"ticker {ticker} named in the claim; stellarlight project {project.slug}: {url}"
+            pointers = [(ref.kind, ref.ref, ref.source_url) for ref in project.refs]
+            if project.asset_code and valid_ref("asset_issuer", f"x-{project.asset_issuer}"):
+                pointers.append(
+                    ("asset_issuer", f"{project.asset_code}-{project.asset_issuer}", url)
                 )
-            )
-            sources[url] = SourceDraft(
-                name="stellarlight", url=url, retrieved_at=now(), provides=[f"asset {ticker}"]
-            )
+            for kind, ref, origin in pointers:
+                if valid_ref(kind, ref) and not any(e.ref == ref for e in result.evidence):
+                    result.evidence.append(
+                        EvidenceDraft(kind=kind, ref=ref, found_via=f"{via} (pointer: {origin})")
+                    )
+                    sources[origin] = SourceDraft(
+                        name="stellarlight",
+                        url=origin,
+                        retrieved_at=now(),
+                        provides=[f"asset {ticker}"],
+                    )
     result.sources = list(sources.values())
     return result
 

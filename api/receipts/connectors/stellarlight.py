@@ -1,3 +1,4 @@
+import re
 from typing import Any, ClassVar
 
 from pydantic import BaseModel, Field
@@ -11,6 +12,28 @@ BASE = "https://stellarlight.xyz"
 class OnchainContract(BaseModel):
     address: str
     label: str = ""
+
+
+ASSET_URL_RE = re.compile(r"/asset/([A-Za-z0-9]{1,12})-(G[A-Z2-7]{55})")
+CONTRACT_URL_RE = re.compile(r"/contract/(C[A-Z2-7]{55})")
+
+
+class ChainRef(BaseModel):
+    kind: str
+    ref: str
+    source_url: str
+
+
+def refs_from_url(url: str) -> list[ChainRef]:
+    found = [
+        ChainRef(kind="asset_issuer", ref=f"{c}-{i}", source_url=url)
+        for c, i in ASSET_URL_RE.findall(url)
+    ]
+    found += [
+        ChainRef(kind="soroban_contract", ref=c, source_url=url)
+        for c in CONTRACT_URL_RE.findall(url)
+    ]
+    return found
 
 
 class StellarLightProject(BaseModel):
@@ -27,6 +50,7 @@ class StellarLightProject(BaseModel):
     scf_source_url: str = ""
     page_url: str = ""
     website: str = ""
+    refs: list[ChainRef] = Field(default_factory=list)
 
 
 class StellarLightConnector(Connector):
@@ -43,7 +67,15 @@ class StellarLightConnector(Connector):
     @staticmethod
     def _project(raw: dict[str, Any]) -> StellarLightProject:
         onchain = raw.get("onchain") or {}
+        refs: list[ChainRef] = []
+        for url in (
+            (raw.get("deployment") or {}).get("sourceUrl"),
+            raw.get("statusSourceUrl"),
+        ):
+            if url:
+                refs.extend(refs_from_url(str(url)))
         return StellarLightProject(
+            refs=refs,
             slug=raw["slug"],
             name=raw.get("name", ""),
             category=raw.get("category") or "",
