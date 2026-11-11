@@ -1,0 +1,105 @@
+version: "3"
+
+dotenv: [".env"]
+
+tasks:
+  up:
+    desc: Start the stack (db, migrations, api, web)
+    cmds:
+      - test -f .env || cp .env.example .env
+      - docker compose up -d --build --wait
+
+  down:
+    desc: Stop the stack
+    cmds:
+      - docker compose down
+
+  logs:
+    desc: Tail all service logs
+    cmds:
+      - docker compose logs -f
+
+  schema:plan:
+    desc: Write pending DDL to the next db/migrations/NNNNNN.sql for review
+    cmds:
+      - python3 scripts/pgschema.py plan
+
+  schema:apply:
+    desc: Apply db/schema/ to the local database
+    cmds:
+      - python3 scripts/pgschema.py apply
+
+  schema:dump:
+    desc: Regenerate db/schema/ from the live database (overwrites local edits)
+    cmds:
+      - python3 scripts/pgschema.py dump
+
+  schema:manifest:
+    desc: Rebuild db/schema/manifest.sql
+    cmds:
+      - python3 scripts/pgschema.py manifest
+
+  watch-tasks:
+    desc: Play a sound when a new human task is logged
+    cmds:
+      - python3 scripts/watch_tasks.py
+
+  seed-fixtures:
+    desc: Load clearly labelled synthetic data for local UI work
+    cmds:
+      - docker compose exec api python -m receipts.cli seed-fixtures
+
+  pipeline:
+    desc: "Run the claim pipeline: task pipeline EVENT=meridian-2025"
+    requires:
+      vars: [EVENT]
+    cmds:
+      - docker compose --profile pipeline run --rm worker python -m receipts.cli pipeline build --event {{.EVENT}}
+
+  verify:
+    desc: Run the verification engine once
+    cmds:
+      - docker compose --profile pipeline run --rm worker python -m receipts.cli verify
+
+  test:
+    desc: Run api and web unit tests
+    cmds:
+      - cd api && uv run pytest
+      - cd web && pnpm test
+
+  lint:
+    desc: Run all linters and format checks
+    cmds:
+      - cd api && uv run ruff format --check . && uv run ruff check .
+      - cd web && pnpm format:check && pnpm lint && pnpm lint:styles
+
+  format:
+    desc: Format api and web
+    cmds:
+      - cd api && uv run ruff format . && uv run ruff check . --fix
+      - cd web && pnpm format
+
+  typecheck:
+    desc: Run mypy and tsc
+    cmds:
+      - cd api && uv run mypy receipts
+      - cd web && pnpm typecheck
+
+  storybook:
+    desc: Start Storybook
+    cmds:
+      - docker compose --profile storybook up storybook
+
+  e2e:
+    desc: Run Playwright end-to-end tests against the stack
+    cmds:
+      - docker compose --profile e2e run --rm e2e
+
+  ci:
+    desc: Run everything CI runs
+    cmds:
+      - task: lint
+      - task: typecheck
+      - task: test
+      - cd web && pnpm build
+      - docker compose build
