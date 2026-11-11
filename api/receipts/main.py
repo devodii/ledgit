@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from receipts.api import admin, changes, claims, events, meta, orgs
+from receipts.api import admin, changes, claims, events, meta, orgs, seo
 from receipts.settings import check_settings, get_settings
 
 
@@ -25,6 +25,7 @@ def create_app() -> FastAPI:
     )
     for module in (meta, claims, orgs, events, changes):
         app.include_router(module.router, prefix="/api/v1")
+    app.include_router(seo.router)
     if settings.env == "local":
         app.include_router(admin.router, prefix="/api/v1")
     return app

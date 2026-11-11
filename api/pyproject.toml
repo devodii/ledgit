@@ -14,6 +14,7 @@ dependencies = [
   "playwright>=1.48",
   "pyyaml>=6.0",
   "yt-dlp>=2026.10.26",
+  "pillow>=13.0.0",
 ]
 
 [dependency-groups]
@@ -45,6 +46,7 @@ select = ["E", "F", "I", "UP", "B", "SIM", "TID"]
 [tool.ruff.lint.per-file-ignores]
 "receipts/pipeline/resolve.py" = ["E501", "SIM105"]
 "receipts/pipeline/domain.py" = ["E501"]
+"receipts/api/seo.py" = ["E501"]
 "receipts/pipeline/extract.py" = ["E501"]
 "receipts/pipeline/judge.py" = ["E501"]
 "receipts/evals/report.py" = ["E501"]

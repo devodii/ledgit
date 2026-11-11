@@ -19,6 +19,8 @@ class Settings(BaseSettings):
     database_url: str = ""
     api_cors_origins: str = "http://localhost:5173"
     log_level: str = "INFO"
+    site_url: str = "http://localhost:5173"
+    error_log_path: str = ""
 
     http_contact_url: str = "https://github.com/devodii/ledgit"
     http_rate_limit_rps: float = 1.0

@@ -10,6 +10,7 @@ from receipts.models.pipeline import Candidate, OrgResolution
 from receipts.models.registry import (
     Backing,
     ClaimBody,
+    Correction,
     EventSeed,
     EvidenceItem,
     OrgRef,
@@ -95,6 +96,48 @@ def build_entry(event: str, candidate: Candidate, org: OrgResolution) -> Registr
     )
 
 
+def apply_corrections(
+    entries: list[RegistryEntry], corrections: list[Correction]
+) -> list[RegistryEntry]:
+    by_id = {e.id: e for e in entries}
+    for correction in corrections:
+        entry = by_id.get(correction.claim_id)
+        if entry is None:
+            continue
+        label = f"correction {correction.source_url}"
+        if correction.org:
+            if correction.org.domain is not None:
+                entry.claim.org.domain = correction.org.domain
+                entry.claim.org.domain_source = label
+            if correction.org.country is not None:
+                entry.claim.org.country = correction.org.country
+                entry.claim.org.country_source = label
+        removed = {(k.kind, k.network, k.ref) for k in correction.remove_evidence}
+        entry.evidence = [e for e in entry.evidence if (e.kind, e.network, e.ref) not in removed]
+        known = {(e.kind, e.network, e.ref) for e in entry.evidence}
+        for item in correction.add_evidence:
+            if (item.kind, item.network, item.ref) not in known:
+                entry.evidence.append(
+                    item.model_copy(update={"found_via": f"{item.found_via} ({label})"})
+                )
+        entry.sources.append(
+            SourceRef(
+                name="correction",
+                url=correction.source_url,
+                retrieved_at=entry.provenance.extracted_at,
+                provides=[correction.note or "manual correction"],
+            )
+        )
+    return entries
+
+
+def load_corrections(event: str) -> list[Correction]:
+    path = get_settings().data_dir / "corrections" / f"{event}.yaml"
+    if not path.is_file():
+        return []
+    return TypeAdapter(list[Correction]).validate_python(yaml.safe_load(path.read_text()) or [])
+
+
 def dump(entries: list[RegistryEntry]) -> str:
     data = _entries.dump_python(entries, mode="json")
     return yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=1000)
@@ -118,6 +161,8 @@ def run_write(seed: EventSeed) -> int:
             drops["low_confidence"] = drops.get("low_confidence", 0) + 1
         else:
             public.append(entry)
+    corrections = load_corrections(seed.slug)
+    public = apply_corrections(public, corrections)
     public.sort(key=lambda e: e.id)
     review.sort(key=lambda e: e.id)
     for folder, entries in (("registry", public), ("review", review)):

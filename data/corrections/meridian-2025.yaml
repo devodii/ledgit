@@ -1,0 +1,12 @@
+# Corrections applied by `receipts pipeline write` on top of the generated registry.
+# Open a pull request to add one. Every correction needs a public source_url.
+# Example:
+# - claim_id: some-org-abc123
+#   source_url: https://example.com/page-that-proves-it
+#   note: Short explanation for the reviewer.
+#   org: { domain: example.com, country: Exampleland }
+#   add_evidence:
+#     - { kind: asset_issuer, network: pubnet, ref: "CODE-GISSUER...", found_via: "issuer listed on the org's stellar.toml" }
+#   remove_evidence:
+#     - { kind: anchor, network: pubnet, ref: wrong.example.com }
+[]

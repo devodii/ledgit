@@ -119,3 +119,23 @@ class RegistryEntry(StrictModel):
     evidence: list[EvidenceItem] = Field(default_factory=list)
     sources: list[SourceRef] = Field(default_factory=list)
     provenance: Provenance
+
+
+class OrgCorrection(StrictModel):
+    domain: str | None = None
+    country: str | None = None
+
+
+class EvidenceKey(StrictModel):
+    kind: EvidenceKind
+    network: Network
+    ref: str
+
+
+class Correction(StrictModel):
+    claim_id: str
+    source_url: str = Field(pattern=r"^https?://")
+    note: str = ""
+    org: OrgCorrection | None = None
+    add_evidence: list[EvidenceItem] = Field(default_factory=list)
+    remove_evidence: list[EvidenceKey] = Field(default_factory=list)
