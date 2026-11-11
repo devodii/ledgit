@@ -1,0 +1,35 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid currentcolor;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.live {
+  background: var(--status-live-subtle);
+  color: var(--status-live);
+}
+
+.testnet_only {
+  background: var(--status-testnet-subtle);
+  color: var(--status-testnet);
+}
+
+.no_trace_found {
+  background: var(--status-no-trace-subtle);
+  color: var(--status-no-trace);
+}
+
+.pending {
+  background: var(--status-pending-subtle);
+  color: var(--status-pending);
+}
+
+.open_ask {
+  background: var(--status-open-ask-subtle);
+  color: var(--status-open-ask);
+}

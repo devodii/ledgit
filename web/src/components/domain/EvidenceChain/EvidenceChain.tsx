@@ -12,16 +12,17 @@ import '@xyflow/react/dist/style.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ChainData, ChainEvidence, ObservationResult } from '@/fixtures/evidenceChain';
 import { Icon, type IconName } from '../../ui/Icon';
+import { HoverCard } from '../../ui/HoverCard';
 import styles from './EvidenceChain.module.scss';
 
 type Kind = 'claim' | 'org' | 'evidence' | 'verdict';
+type CardRow = [string, string];
 type ChainNodeData = {
   kind: Kind;
-  title: string;
-  lines: string[];
-  tone: string;
+  label: string;
   icon: IconName;
-  result?: ObservationResult | null;
+  tone: string;
+  card: { heading: string; rows: CardRow[]; note?: string };
   vertical: boolean;
 };
 type ChainNode = Node<ChainNodeData, 'chain'>;
@@ -75,31 +76,47 @@ const RESULT_ICON: Record<ObservationResult | 'none', IconName> = {
   none: 'hourglass',
 };
 
-function ChainNodeView({ data, selected }: NodeProps<ChainNode>) {
+function ChainNodeView({ data }: NodeProps<ChainNode>) {
   const target = data.vertical ? Position.Top : Position.Left;
   const source = data.vertical ? Position.Bottom : Position.Right;
+  const big = data.kind === 'verdict';
   return (
-    <div
-      className={`${styles.node} ${styles[data.tone]} ${selected ? styles.selected : ''}`}
-      aria-label={`${data.title}. ${data.lines.join('. ')}`}
+    <HoverCard
+      side={data.vertical ? 'right' : 'top'}
+      content={
+        <div className={styles.card}>
+          <h3>{data.card.heading}</h3>
+          <dl>
+            {data.card.rows.map(([name, value]) => (
+              <div key={name}>
+                <dt>{name}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+          {data.card.note && <p>{data.card.note}</p>}
+        </div>
+      }
     >
-      {data.kind !== 'claim' && <Handle type="target" position={target} />}
-      <span className={styles.nodeTitle}>
-        <Icon name={data.icon} size="sm" />
-        {data.title}
-      </span>
-      {data.lines.map((line, index) => (
-        <span key={index} className={index === 0 ? styles.primaryLine : styles.line}>
-          {line}
+      <div
+        className={styles.orb}
+        tabIndex={0}
+        role="group"
+        aria-label={`${data.label}. ${data.card.heading}`}
+      >
+        {data.kind !== 'claim' && <Handle type="target" position={target} />}
+        <span className={`${styles.circle} ${styles[data.tone]} ${big ? styles.big : ''}`}>
+          <Icon name={data.icon} size="lg" />
         </span>
-      ))}
-      {data.kind !== 'verdict' && <Handle type="source" position={source} />}
-    </div>
+        <span className={styles.label}>{data.label}</span>
+        {data.kind !== 'verdict' && <Handle type="source" position={source} />}
+      </div>
+    </HoverCard>
   );
 }
 
 const nodeTypes = { chain: ChainNodeView };
-const NODE_W = 240;
+const NODE_W = 150;
 const GAP_X = 120;
 const GAP_Y = 36;
 
@@ -126,10 +143,16 @@ function layout(chain: ChainData, vertical: boolean) {
     data: {
       ...base,
       kind: 'claim',
-      title: 'Claim',
-      lines: [`"${chain.claim.quote}"`, `${chain.claim.speaker}, ${chain.claim.role}`],
+      label: 'Claim',
+      icon: 'message',
       tone: 'neutral',
-      icon: 'info',
+      card: {
+        heading: `"${chain.claim.quote}"`,
+        rows: [
+          ['Speaker', chain.claim.speaker || 'Not stated'],
+          ['Role', chain.claim.role || 'Not stated'],
+        ],
+      },
     },
   });
   nodes.push({
@@ -139,10 +162,16 @@ function layout(chain: ChainData, vertical: boolean) {
     data: {
       ...base,
       kind: 'org',
-      title: 'Organisation',
-      lines: [chain.org.name, chain.org.domain, chain.org.country],
-      tone: 'neutral',
+      label: chain.org.name,
       icon: 'link',
+      tone: 'neutral',
+      card: {
+        heading: chain.org.name,
+        rows: [
+          ['Domain', chain.org.domain || 'Not found'],
+          ['Country', chain.org.country || 'Not found'],
+        ],
+      },
     },
   });
   edges.push({
@@ -162,15 +191,19 @@ function layout(chain: ChainData, vertical: boolean) {
       data: {
         ...base,
         kind: 'evidence',
-        title: `${KIND_LABEL[item.kind]} (${item.network})`,
-        lines: [
-          item.ref,
-          `${RESULT_LABEL[item.result ?? 'none']}: ${item.detail}`,
-          `Checked ${item.checkedAt}`,
-        ],
-        tone,
+        label: KIND_LABEL[item.kind],
         icon: RESULT_ICON[item.result ?? 'none'],
-        result: item.result,
+        tone,
+        card: {
+          heading: `${KIND_LABEL[item.kind]} on ${item.network}`,
+          rows: [
+            ['Reference', item.ref],
+            ['Result', RESULT_LABEL[item.result ?? 'none']],
+            ['What we saw', item.detail],
+            ['Found via', item.foundVia],
+            ['Last checked', item.checkedAt],
+          ],
+        },
       },
     });
     edges.push({
@@ -209,10 +242,10 @@ function layout(chain: ChainData, vertical: boolean) {
     data: {
       ...base,
       kind: 'verdict',
-      title: 'Verdict',
-      lines: [VERDICT_LABEL[status], chain.verdict.reason],
-      tone: VERDICT_TONE[status],
+      label: VERDICT_LABEL[status],
       icon: VERDICT_ICON[status],
+      tone: VERDICT_TONE[status],
+      card: { heading: VERDICT_LABEL[status], rows: [], note: chain.verdict.reason },
     },
   });
   return { nodes, edges };

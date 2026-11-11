@@ -1,0 +1,22 @@
+.content {
+  z-index: var(--z-tooltip);
+  width: min(22rem, calc(100vw - var(--space-6)));
+  animation: fade-in var(--duration-fast) var(--ease-standard);
+  filter: drop-shadow(var(--shadow-md));
+}
+
+.arrow {
+  fill: var(--color-border-strong);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-1));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
