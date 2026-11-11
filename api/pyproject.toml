@@ -57,5 +57,5 @@ plugins = ["pydantic.mypy"]
 testpaths = ["tests"]
 
 [[tool.mypy.overrides]]
-module = ["yt_dlp", "yt_dlp.*"]
+module = ["yt_dlp", "yt_dlp.*", "apscheduler.*"]
 ignore_missing_imports = true

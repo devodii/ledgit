@@ -37,6 +37,7 @@ class Settings(BaseSettings):
 
     verify_min_asset_holders: int = 10
     verify_contract_activity_days: int = 30
+    verify_pending_days: int = 14
     pipeline_min_confidence: float = Field(default=0.7, ge=0, le=1)
 
     llm_provider: Literal["claude_code", "anthropic", "openai", "fake"] = "fake"

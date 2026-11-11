@@ -36,5 +36,6 @@ class CaptionSource(StrEnum):
 class ObservationResult(StrEnum):
     live = "live"
     testnet_only = "testnet_only"
+    inactive = "inactive"
     not_found = "not_found"
     error = "error"

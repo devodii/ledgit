@@ -74,6 +74,9 @@ class SorobanConnector(Connector):
             retention_days=round(retention_days, 1),
         )
 
+    def protocol_version(self, network: Network) -> int:
+        return int(self._rpc(network, "getLatestLedger")["protocolVersion"])
+
     def healthcheck(self) -> HealthResult:
         try:
             health = self._rpc(Network.pubnet, "getHealth")
