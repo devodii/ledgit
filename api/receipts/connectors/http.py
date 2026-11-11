@@ -133,7 +133,7 @@ class HttpClient:
                     return result
                 last_error = ConnectorError(f"{url} returned {response.status_code}")
             time.sleep(min(2**attempt, 8))
-        raise ConnectorError(f"{url} failed after {retries} attempts: {last_error}")
+        raise ConnectorError(f"{url} gave up after {retries} attempts: {last_error}")
 
     def get(self, url: str, **kwargs: Any) -> CachedResponse:
         return self.request("GET", url, **kwargs)

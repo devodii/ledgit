@@ -21,6 +21,8 @@ class StellarToml(BaseModel):
     currencies: list[TomlCurrency] = Field(default_factory=list)
     endpoints: dict[str, str] = Field(default_factory=dict)
     url: str = ""
+    org_names: list[str] = Field(default_factory=list)
+    org_url: str = ""
 
 
 SEP_KEYS = {
@@ -33,7 +35,10 @@ SEP_KEYS = {
 
 def parse_toml(domain: str, text: str, url: str) -> StellarToml:
     data: dict[str, Any] = tomllib.loads(text)
+    docs = data.get("DOCUMENTATION") or {}
     return StellarToml(
+        org_names=[str(docs[k]) for k in ("ORG_NAME", "ORG_DBA") if docs.get(k)],
+        org_url=str(docs.get("ORG_URL", "")),
         domain=domain,
         reachable=True,
         url=url,

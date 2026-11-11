@@ -13,7 +13,7 @@ from receipts.models.pipeline import Candidate, JudgeBatch
 from receipts.models.registry import EventSeed
 from receipts.pipeline.common import stage_cache, write_report
 
-JUDGE_VERSION = "v1"
+JUDGE_VERSION = "v2"
 
 SYSTEM = """You are a skeptical fact-check editor reviewing claims that another system extracted from a conference talk transcript. A wrong or invented claim would destroy the credibility of a public site, so you reject anything doubtful.
 
@@ -67,20 +67,13 @@ def judge_talk(
     for index, candidate in enumerate(candidates):
         verdict = verdicts.get(index)
         if verdict is None:
-            candidate.judge_issue = "judge_unavailable"
+            candidate.judge_reason = "judge_unavailable"
             out.append(None)
             continue
         candidate.judge_confidence = verdict.confidence
         candidate.judge_issue = verdict.issue
-        passed = (
-            verdict.checkable
-            and verdict.summary_faithful
-            and verdict.org_correct
-            and verdict.speaker_correct is not False
-        )
-        out.append(candidate if passed else None)
-        if not passed:
-            candidate.judge_issue = candidate.judge_issue or _reason(verdict)
+        candidate.judge_reason = _reason(verdict)
+        out.append(candidate if candidate.judge_reason == "accepted" else None)
     return out
 
 
@@ -91,7 +84,9 @@ def _reason(verdict: Any) -> str:
         return "summary_not_faithful"
     if not verdict.org_correct:
         return "org_incorrect"
-    return "speaker_incorrect"
+    if verdict.speaker_correct is False:
+        return "speaker_incorrect"
+    return "accepted"
 
 
 def run_judge(seed: EventSeed, workers: int = 4) -> int:
@@ -113,7 +108,7 @@ def run_judge(seed: EventSeed, workers: int = 4) -> int:
         ).fetchall()
     talks = {r["video_id"]: r for r in rows}
 
-    def work(video_id: str) -> tuple[list[Candidate], dict[str, int]]:
+    def work(video_id: str) -> tuple[list[Candidate], list[Candidate], dict[str, int]]:
         group = by_video[video_id]
         talk = dict(talks[video_id])
         key = hashlib.sha256(
@@ -124,28 +119,37 @@ def run_judge(seed: EventSeed, workers: int = 4) -> int:
         drops: dict[str, int] = {}
         if path.is_file():
             data = json.loads(path.read_text())
-            kept = [Candidate.model_validate(c) for c in data["kept"]]
-            return kept, data["drops"]
+            everything = [Candidate.model_validate(c) for c in data["all"]]
+            return (
+                [c for c in everything if c.judge_reason == "accepted"],
+                everything,
+                data["drops"],
+            )
         talk["description"] = youtube.metadata(video_id).description
         results = judge_talk(provider, talk, group)
         kept = [c for c in results if c is not None]
-        for original, result in zip(group, results, strict=True):
-            if result is None:
-                reason = original.judge_issue or "rejected"
-                drops[reason] = drops.get(reason, 0) + 1
+        for original in group:
+            if original.judge_reason != "accepted":
+                drops[original.judge_reason] = drops.get(original.judge_reason, 0) + 1
         path.write_text(
-            json.dumps({"kept": [c.model_dump(mode="json") for c in kept], "drops": drops})
+            json.dumps({"all": [c.model_dump(mode="json") for c in group], "drops": drops})
         )
-        return kept, drops
+        return kept, group, drops
 
     kept_all: list[Candidate] = []
+    judged_all: list[Candidate] = []
     drops_total: dict[str, int] = {}
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        for kept, drops in pool.map(work, sorted(by_video)):
+        for kept, everything, drops in pool.map(work, sorted(by_video)):
             kept_all.extend(kept)
+            judged_all.extend(everything)
             for reason, count in drops.items():
                 drops_total[f"judge:{reason}"] = drops_total.get(f"judge:{reason}", 0) + count
     kept_all.sort(key=lambda c: (c.video_id, c.start_seconds))
+    judged_all.sort(key=lambda c: (c.video_id, c.start_seconds))
+    (stage_cache("judge-verdicts") / f"{seed.slug}.json").write_text(
+        json.dumps([c.model_dump(mode="json") for c in judged_all], indent=1)
+    )
     out = stage_cache("judged") / f"{seed.slug}.json"
     out.write_text(json.dumps([c.model_dump(mode="json") for c in kept_all], indent=1))
     write_report(

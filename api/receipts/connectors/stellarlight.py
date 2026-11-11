@@ -26,6 +26,7 @@ class StellarLightProject(BaseModel):
     scf_total_usd: float | None = None
     scf_source_url: str = ""
     page_url: str = ""
+    website: str = ""
 
 
 class StellarLightConnector(Connector):
@@ -59,6 +60,7 @@ class StellarLightConnector(Connector):
             scf_total_usd=raw.get("scfTotalAwardedUSD"),
             scf_source_url=raw.get("scfSourceUrl") or "",
             page_url=f"{BASE}/directory",
+            website=str((raw.get("links") or {}).get("website") or ""),
         )
 
     def search_projects(self, query: str, limit: int = 10) -> list[StellarLightProject]:

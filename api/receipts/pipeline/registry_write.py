@@ -21,6 +21,7 @@ from receipts.models.registry import (
     VideoRef,
 )
 from receipts.pipeline.common import stage_cache, write_report
+from receipts.pipeline.resolve import valid_ref
 from receipts.registry.loader import sync_event, sync_registry
 from receipts.settings import get_settings
 
@@ -38,6 +39,7 @@ def build_entry(event: str, candidate: Candidate, org: OrgResolution) -> Registr
             kind=EvidenceKind(e.kind), network=Network(e.network), ref=e.ref, found_via=e.found_via
         )
         for e in org.evidence
+        if valid_ref(e.kind, e.ref)
     ]
     sources = [SourceRef.model_validate(s.model_dump()) for s in org.sources]
     if candidate.protocol_version:

@@ -86,7 +86,9 @@ class LumenLoopConnector(Connector):
         self._ensure_session()
         result = self._rpc("tools/call", {"name": tool, "arguments": arguments})
         if result.get("isError"):
-            raise ConnectorError(f"lumenloop {tool} failed: {result['content'][0]['text'][:200]}")
+            raise ConnectorError(
+                f"lumenloop {tool} returned an error: {result['content'][0]['text'][:200]}"
+            )
         text = result["content"][0]["text"]
         try:
             return json.loads(text)
@@ -98,13 +100,19 @@ class LumenLoopConnector(Connector):
         return [self._project(p) for p in data.get("projects", [])]
 
     @staticmethod
-    def _project(raw: dict[str, Any]) -> LumenLoopProject:
-        website = raw.get("website") or ""
-        if website.startswith("["):
+    def _text(value: Any) -> str:
+        if isinstance(value, str) and value.startswith("["):
             try:
-                website = (json.loads(website) or [""])[0]
+                value = json.loads(value)
             except json.JSONDecodeError:
-                website = ""
+                return ""
+        if isinstance(value, list):
+            return ", ".join(str(v) for v in value if v)
+        return str(value) if value else ""
+
+    @classmethod
+    def _project(cls, raw: dict[str, Any]) -> LumenLoopProject:
+        website = cls._text(raw.get("website")).split(",")[0].strip()
         return LumenLoopProject(
             slug=raw["slug"],
             title=raw.get("title", ""),
@@ -112,8 +120,8 @@ class LumenLoopConnector(Connector):
             website=website,
             description=raw.get("description") or "",
             tags=raw.get("tags") or [],
-            based_in=raw.get("based_in") or "",
-            operating_region=raw.get("operating_region") or "",
+            based_in=cls._text(raw.get("based_in")),
+            operating_region=cls._text(raw.get("operating_region")),
         )
 
     def project(self, slug: str) -> LumenLoopProject | None:

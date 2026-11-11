@@ -7,7 +7,10 @@ from receipts.connectors.base import Connector, HealthResult
 from receipts.connectors.http import HttpClient
 
 BASE = "https://communityfund.stellar.org"
-SUFFIXES = {"labs", "lab", "inc", "ltd", "llc", "foundation", "co", "corp", "limited", "gmbh"}
+SUFFIXES = {
+    "labs", "lab", "inc", "ltd", "llc", "foundation", "co", "corp", "limited", "gmbh",
+    "finance", "protocol", "network", "technologies", "capital", "group", "company", "the",
+}  # fmt: skip
 
 
 class ScfProject(BaseModel):
@@ -19,7 +22,7 @@ class ScfProject(BaseModel):
 
 def normalize_name(name: str) -> str:
     words = [w for w in re.sub(r"[^a-z0-9 ]+", " ", name.lower()).split() if w not in SUFFIXES]
-    return " ".join(words)
+    return "".join(words)
 
 
 def strip_tags(html: str) -> str:
