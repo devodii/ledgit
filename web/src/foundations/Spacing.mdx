@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing, radii and motion
+
+export const Bar = ({ name }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '6px 0' }}>
+    <code style={{ width: 110 }}>{name}</code>
+    <span style={{ height: 14, width: `var(${name})`, background: '#7aa2ff', borderRadius: 4 }} />
+  </div>
+);
+
+<Bar name="--space-1" />
+<Bar name="--space-2" />
+<Bar name="--space-3" />
+<Bar name="--space-4" />
+<Bar name="--space-6" />
+<Bar name="--space-8" />
+<Bar name="--space-12" />
+<Bar name="--space-16" />
+
+Radii: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-full`. Motion: `--duration-fast`, `--duration-base`, `--duration-slow`, all reduced to near zero when the visitor prefers reduced motion. Breakpoints: `sm` 36rem, `md` 48rem, `lg` 64rem, used through the `up()` mixin. The layout is designed from 360px wide.

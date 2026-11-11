@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/blocks';
+import { Icon, ICON_PATHS } from '../components/ui/Icon';
+
+<Meta title="Foundations/Icons" />
+
+# Icons
+
+A single typed set of inline SVG icons. Icons are decorative unless given a `label`.
+
+<div
+  style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 16 }}
+>
+  {Object.keys(ICON_PATHS).map((name) => (
+    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <Icon name={name} size="lg" />
+      <code>{name}</code>
+    </div>
+  ))}
+</div>

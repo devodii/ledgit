@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Everything is a CSS custom property on `:root`. Components use tokens only, never raw values. Status colour is never the only signal: every status also has an icon and a text label.
+
+export const Swatch = ({ name, note }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '6px 0' }}>
+    <span
+      style={{
+        width: 44,
+        height: 28,
+        borderRadius: 6,
+        background: `var(${name})`,
+        border: '1px solid #3b4252',
+      }}
+    />
+    <code>{name}</code>
+    <span style={{ color: '#a3abbd' }}>{note}</span>
+  </div>
+);
+
+## Surfaces and text
+
+<Swatch name="--color-bg" note="page background" />
+<Swatch name="--color-surface" note="cards" />
+<Swatch name="--color-surface-raised" note="raised elements" />
+<Swatch name="--color-surface-hover" note="hover state" />
+<Swatch name="--color-border" note="thin borders" />
+<Swatch name="--color-border-strong" note="inputs and emphasis" />
+<Swatch name="--color-text" note="body text, 13:1 on the background" />
+<Swatch name="--color-text-muted" note="secondary text, 8:1 on the background" />
+<Swatch name="--color-accent" note="links and primary actions" />
+<Swatch name="--color-focus" note="focus ring" />
+<Swatch name="--color-danger" note="errors" />
+
+## Verdict statuses
+
+<Swatch name="--status-live" note="Found live on Stellar mainnet" />
+<Swatch name="--status-testnet" note="Found on testnet, not yet on mainnet" />
+<Swatch name="--status-no-trace" note="We found no on-chain trace yet" />
+<Swatch name="--status-pending" note="Too recent to assess" />
+<Swatch name="--status-open-ask" note="Requested on stage, no builder identified" />
