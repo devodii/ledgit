@@ -1,6 +1,6 @@
 # Eval report: meridian-2025
 
-Generated 2026-11-11 19:39 UTC. Extraction and judging: `provider=claude_code model=claude-sonnet-5-5 prompt=v1`.
+Generated 2026-11-11 19:41 UTC. Extraction and judging: `provider=claude_code model=claude-sonnet-5-5 prompt=v1`.
 
 ## Funnel
 
@@ -35,6 +35,7 @@ Of candidates the extractor scored 0.8 or higher on both specificity and verifia
 
 | Stage | Reason | Count |
 | --- | --- | ---: |
+| resolve | no_evidence_found | 20 |
 | judge | judge:not_checkable | 103 |
 | judge | judge:org_incorrect | 2 |
 | judge | judge:summary_not_faithful | 46 |
@@ -65,7 +66,7 @@ Caption source: auto 40
 
 Verdicts: live 8, no_trace_found 32
 
-Check outcomes: live 45
+Check outcomes: live 53
 
 Verdict changes recorded: 55
 

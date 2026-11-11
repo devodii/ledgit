@@ -61,17 +61,17 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/abroad
-    retrieved_at: '2026-11-11T19:31:50.887690Z'
+    retrieved_at: '2026-11-11T19:40:25.820631Z'
     provides:
     - region
   - name: stellarlight
     url: https://communityfund.stellar.org/project/abroad-lxb
-    retrieved_at: '2026-11-11T19:31:55.156857Z'
+    retrieved_at: '2026-11-11T19:40:28.474134Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellarlight.xyz/project/abroad
-    retrieved_at: '2026-11-11T19:31:49.907922Z'
+    retrieved_at: '2026-11-11T19:40:24.332194Z'
     provides:
     - website
   provenance:
@@ -142,7 +142,7 @@
   sources:
   - name: homepage
     url: https://aztec.network/
-    retrieved_at: '2026-11-11T19:32:54.899298Z'
+    retrieved_at: '2026-11-11T19:40:47.418602Z'
     provides:
     - domain verification
   provenance:
@@ -180,22 +180,22 @@
   sources:
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:31:02.699466Z'
+    retrieved_at: '2026-11-11T19:40:02.392502Z'
     provides:
     - directory address
   - name: stellarlight
     url: https://communityfund.stellar.org/project/blend-mfy
-    retrieved_at: '2026-11-11T19:31:01.485037Z'
+    retrieved_at: '2026-11-11T19:40:02.379957Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellar.expert/explorer/public/contract/CAJJZSGMMM3PD7N33TAPHGBUGTB43OC73HVIK2L2G6BNGGGYOSSYBXBD
-    retrieved_at: '2026-11-11T19:31:01.485016Z'
+    retrieved_at: '2026-11-11T19:40:02.379896Z'
     provides:
     - contract
   - name: stellarlight
     url: https://stellarlight.xyz/project/blend
-    retrieved_at: '2026-11-11T19:30:54.847723Z'
+    retrieved_at: '2026-11-11T19:40:00.456761Z'
     provides:
     - website
   provenance:
@@ -233,17 +233,17 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/bridge
-    retrieved_at: '2026-11-11T19:33:27.862267Z'
+    retrieved_at: '2026-11-11T19:40:56.021938Z'
     provides:
     - region
   - name: stellarlight
     url: https://communityfund.stellar.org/project/bridgeanchor-xofusdc-for-lomi-xpb
-    retrieved_at: '2026-11-11T19:33:30.327652Z'
+    retrieved_at: '2026-11-11T19:40:58.790152Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellarlight.xyz/project/bridge
-    retrieved_at: '2026-11-11T19:33:26.664278Z'
+    retrieved_at: '2026-11-11T19:40:55.042121Z'
     provides:
     - website
   provenance:
@@ -281,22 +281,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/centrifuge
-    retrieved_at: '2026-11-11T19:31:26.907152Z'
+    retrieved_at: '2026-11-11T19:40:07.631580Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:31:31.608228Z'
+    retrieved_at: '2026-11-11T19:40:07.697524Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://centrifuge.io/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:31:28.634481Z'
+    retrieved_at: '2026-11-11T19:40:07.639538Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/centrifuge
-    retrieved_at: '2026-11-11T19:31:25.707421Z'
+    retrieved_at: '2026-11-11T19:40:06.625696Z'
     provides:
     - website
   provenance:
@@ -334,12 +334,12 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/cheesecake-labs
-    retrieved_at: '2026-11-11T19:33:04.939975Z'
+    retrieved_at: '2026-11-11T19:40:50.394458Z'
     provides:
     - region
   - name: stellarlight
     url: https://stellarlight.xyz/project/cheesecake-labs
-    retrieved_at: '2026-11-11T19:33:03.827202Z'
+    retrieved_at: '2026-11-11T19:40:49.464109Z'
     provides:
     - website
   provenance:
@@ -377,22 +377,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/circle
-    retrieved_at: '2026-11-11T19:30:39.846507Z'
+    retrieved_at: '2026-11-11T19:39:57.328754Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:30:42.956668Z'
+    retrieved_at: '2026-11-11T19:39:57.354027Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://circle.com/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:30:39.859183Z'
+    retrieved_at: '2026-11-11T19:39:57.338196Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/circle
-    retrieved_at: '2026-11-11T19:30:38.808843Z'
+    retrieved_at: '2026-11-11T19:39:56.067392Z'
     provides:
     - website
     - asset
@@ -431,22 +431,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/etherfuse
-    retrieved_at: '2026-11-11T19:33:11.140677Z'
+    retrieved_at: '2026-11-11T19:40:51.918350Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:33:15.900106Z'
+    retrieved_at: '2026-11-11T19:40:51.935414Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://etherfuse.com/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:33:13.629180Z'
+    retrieved_at: '2026-11-11T19:40:51.924898Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/etherfuse
-    retrieved_at: '2026-11-11T19:33:09.997095Z'
+    retrieved_at: '2026-11-11T19:40:51.006350Z'
     provides:
     - website
     - asset
@@ -518,7 +518,7 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:31:13.380524Z'
+    retrieved_at: '2026-11-11T19:40:04.785767Z'
     provides:
     - region
   provenance:
@@ -556,7 +556,7 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/freighter
-    retrieved_at: '2026-11-11T19:31:13.380524Z'
+    retrieved_at: '2026-11-11T19:40:04.785767Z'
     provides:
     - region
   provenance:
@@ -594,17 +594,17 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/goldsky
-    retrieved_at: '2026-11-11T19:32:35.211656Z'
+    retrieved_at: '2026-11-11T19:40:43.457928Z'
     provides:
     - region
   - name: stellarlight
     url: https://communityfund.stellar.org/project/goldsky-c3b
-    retrieved_at: '2026-11-11T19:32:38.243458Z'
+    retrieved_at: '2026-11-11T19:40:44.361509Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellarlight.xyz/project/goldsky
-    retrieved_at: '2026-11-11T19:32:34.259711Z'
+    retrieved_at: '2026-11-11T19:40:42.525875Z'
     provides:
     - website
   provenance:
@@ -675,7 +675,7 @@
   sources:
   - name: homepage
     url: https://near-intents.org/
-    retrieved_at: '2026-11-11T19:30:52.541309Z'
+    retrieved_at: '2026-11-11T19:40:00.418627Z'
     provides:
     - domain verification
   provenance:
@@ -713,12 +713,12 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/nethermind
-    retrieved_at: '2026-11-11T19:31:40.477964Z'
+    retrieved_at: '2026-11-11T19:40:09.781297Z'
     provides:
     - region
   - name: stellarlight
     url: https://stellarlight.xyz/project/nethermind
-    retrieved_at: '2026-11-11T19:31:39.407245Z'
+    retrieved_at: '2026-11-11T19:40:08.828517Z'
     provides:
     - website
   provenance:
@@ -760,32 +760,32 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/ondo
-    retrieved_at: '2026-11-11T19:29:46.757402Z'
+    retrieved_at: '2026-11-11T19:39:43.136531Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:29:55.049762Z'
+    retrieved_at: '2026-11-11T19:39:43.153186Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://ondo.finance/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:29:49.993184Z'
+    retrieved_at: '2026-11-11T19:39:43.142605Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/ondo
-    retrieved_at: '2026-11-11T19:29:45.446400Z'
+    retrieved_at: '2026-11-11T19:39:41.835576Z'
     provides:
     - website
   - name: stellarlight
     url: https://stellarlight.xyz/project/usdy
-    retrieved_at: '2026-11-11T19:29:51.078967Z'
+    retrieved_at: '2026-11-11T19:39:43.143412Z'
     provides:
     - asset
   - name: stellarlight
     url: https://stellar.expert/explorer/public/asset/USDY-GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6
-    retrieved_at: '2026-11-11T19:39:35.999455Z'
+    retrieved_at: '2026-11-11T19:39:41.827296Z'
     provides:
     - asset USDY
   provenance:
@@ -860,7 +860,7 @@
   sources:
   - name: stellarlight
     url: https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5
-    retrieved_at: '2026-11-11T19:39:36.003926Z'
+    retrieved_at: '2026-11-11T19:39:43.170134Z'
     provides:
     - asset PYUSD
   provenance:
@@ -898,32 +898,32 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:30:16.668641Z'
+    retrieved_at: '2026-11-11T19:39:50.435097Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:30:20.487752Z'
+    retrieved_at: '2026-11-11T19:39:50.460708Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://reflector.network/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:30:18.387139Z'
+    retrieved_at: '2026-11-11T19:39:50.445806Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:30:19.778066Z'
+    retrieved_at: '2026-11-11T19:39:50.446962Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:30:19.778014Z'
+    retrieved_at: '2026-11-11T19:39:50.446916Z'
     provides:
     - contract
   - name: stellarlight
     url: https://stellarlight.xyz/project/reflector
-    retrieved_at: '2026-11-11T19:30:15.714560Z'
+    retrieved_at: '2026-11-11T19:39:49.400335Z'
     provides:
     - website
   provenance:
@@ -961,32 +961,32 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/reflector
-    retrieved_at: '2026-11-11T19:30:16.668641Z'
+    retrieved_at: '2026-11-11T19:39:50.435097Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:30:20.487752Z'
+    retrieved_at: '2026-11-11T19:39:50.460708Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://reflector.network/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:30:18.387139Z'
+    retrieved_at: '2026-11-11T19:39:50.445806Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://communityfund.stellar.org/project/reflector-5w2
-    retrieved_at: '2026-11-11T19:30:19.778066Z'
+    retrieved_at: '2026-11-11T19:39:50.446962Z'
     provides:
     - scf award
   - name: stellarlight
     url: https://stellar.expert/explorer/public/contract/CAFJZQWSED6YAWZU3GWRTOCNPPCGBN32L7QV43XX5LZLFTK6JLN34DLN
-    retrieved_at: '2026-11-11T19:30:19.778014Z'
+    retrieved_at: '2026-11-11T19:39:50.446916Z'
     provides:
     - contract
   - name: stellarlight
     url: https://stellarlight.xyz/project/reflector
-    retrieved_at: '2026-11-11T19:30:15.714560Z'
+    retrieved_at: '2026-11-11T19:39:49.400335Z'
     provides:
     - website
   provenance:
@@ -1131,12 +1131,12 @@
   sources:
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:32:12.107569Z'
+    retrieved_at: '2026-11-11T19:40:29.515756Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:32:08.388434Z'
+    retrieved_at: '2026-11-11T19:40:29.506147Z'
     provides:
     - domain verification
     - accounts, currencies, sep endpoints
@@ -1311,22 +1311,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:57.600570Z'
+    retrieved_at: '2026-11-11T19:40:48.409451Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    retrieved_at: '2026-11-11T19:40:48.433963Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    retrieved_at: '2026-11-11T19:40:48.418706Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
   provenance:
@@ -1368,22 +1368,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:57.600570Z'
+    retrieved_at: '2026-11-11T19:40:48.409451Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    retrieved_at: '2026-11-11T19:40:48.433963Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    retrieved_at: '2026-11-11T19:40:48.418706Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
   provenance:
@@ -1425,22 +1425,22 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:57.600570Z'
+    retrieved_at: '2026-11-11T19:40:48.409451Z'
     provides:
     - region
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:32:57.648975Z'
+    retrieved_at: '2026-11-11T19:40:48.433963Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:32:57.613644Z'
+    retrieved_at: '2026-11-11T19:40:48.418706Z'
     provides:
     - accounts, currencies, sep endpoints
   - name: stellarlight
     url: https://stellarlight.xyz/project/stellar-development-foundation
-    retrieved_at: '2026-11-11T19:32:56.683265Z'
+    retrieved_at: '2026-11-11T19:40:47.449115Z'
     provides:
     - website
   provenance:
@@ -1515,7 +1515,7 @@
   sources:
   - name: stellarlight
     url: https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
-    retrieved_at: '2026-11-11T19:39:36.120096Z'
+    retrieved_at: '2026-11-11T19:40:53.084099Z'
     provides:
     - asset USDC
   provenance:
@@ -1586,12 +1586,12 @@
   sources:
   - name: stellar_expert
     url: https://api.stellar.expert/explorer/directory
-    retrieved_at: '2026-11-11T19:33:22.299513Z'
+    retrieved_at: '2026-11-11T19:40:53.064695Z'
     provides:
     - directory address
   - name: stellar_toml
     url: https://stellar.org/.well-known/stellar.toml
-    retrieved_at: '2026-11-11T19:33:22.285927Z'
+    retrieved_at: '2026-11-11T19:40:53.049840Z'
     provides:
     - domain verification
     - accounts, currencies, sep endpoints
@@ -1630,12 +1630,12 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/aha-labs
-    retrieved_at: '2026-11-11T19:33:23.227540Z'
+    retrieved_at: '2026-11-11T19:40:54.315674Z'
     provides:
     - region
   - name: stellarlight
     url: https://stellarlight.xyz/project/the-aha-company
-    retrieved_at: '2026-11-11T19:33:22.322858Z'
+    retrieved_at: '2026-11-11T19:40:53.097710Z'
     provides:
     - website
   provenance:
@@ -1706,12 +1706,12 @@
   sources:
   - name: lumenloop
     url: https://lumenloop.com/directory/wisdomtree
-    retrieved_at: '2026-11-11T19:32:16.337695Z'
+    retrieved_at: '2026-11-11T19:40:30.560498Z'
     provides:
     - region
   - name: stellarlight
     url: https://stellarlight.xyz/project/wisdomtree
-    retrieved_at: '2026-11-11T19:32:15.108278Z'
+    retrieved_at: '2026-11-11T19:40:29.542963Z'
     provides:
     - website
   provenance:

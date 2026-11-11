@@ -2,10 +2,12 @@
   "stage": "resolve",
   "event": "meridian-2025",
   "counts_in": 40,
-  "counts_out": 0,
-  "drops": {},
+  "counts_out": 29,
+  "drops": {
+    "no_evidence_found": 20
+  },
   "notes": [
     "counts are new orgs resolved"
   ],
-  "finished_at": "2026-11-11T19:39:36.143094Z"
+  "finished_at": "2026-11-11T19:41:02.566272Z"
 }
