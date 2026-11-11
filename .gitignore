@@ -1,0 +1,16 @@
+.env
+node_modules/
+dist/
+storybook-static/
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+coverage/
+playwright-report/
+test-results/
+data/cache/
+data/tasks/
+.DS_Store
