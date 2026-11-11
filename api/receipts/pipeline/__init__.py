@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 from receipts.registry.loader import read_event_seed
 from receipts.settings import get_settings
 
@@ -11,7 +13,7 @@ def run_stage(stage: str, event: str) -> None:
     from receipts.pipeline.transcripts_stage import run_transcripts
 
     seed = read_event_seed(get_settings().data_dir / "events" / f"{event}.yaml")
-    stages = {
+    stages: dict[str, Callable[[], object]] = {
         "discover": lambda: run_discover(seed),
         "transcripts": lambda: run_transcripts(event),
         "extract": lambda: run_extract(seed),
@@ -19,7 +21,7 @@ def run_stage(stage: str, event: str) -> None:
         "resolve": lambda: run_resolve(seed),
         "write": lambda: run_write(seed),
     }
-    order = list(stages)
-    for name in order if stage == "build" else [stage]:
+    names = list(stages) if stage == "build" else [stage]
+    for name in names:
         print(f"== {name}", flush=True)
         stages[name]()

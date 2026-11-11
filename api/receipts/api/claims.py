@@ -18,6 +18,7 @@ from receipts.models.api import (
     ObservationOut,
     OrgOut,
     ScfOut,
+    SourceOut,
     VerdictChangeOut,
     VerdictOut,
     VideoOut,
@@ -168,4 +169,9 @@ def get_claim(claim_id: str, conn: Annotated[Conn, Depends(get_conn)]) -> ClaimD
         history=[VerdictChangeOut.model_validate(h) for h in history_rows],
         extractor_model=row["extractor_model"],
         confidence=row["confidence"],
+        sources=[SourceOut.model_validate(x) for x in row["sources"]],
+        domain_source=row["domain_source"],
+        country_source=row["country_source"],
+        scf_source=row["scf_source"],
+        transcript_sha256=row["transcript_sha256"],
     )

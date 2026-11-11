@@ -1,7 +1,7 @@
 from datetime import UTC, datetime, time
 
 from receipts.connectors.youtube import YouTubeConnector, passes_gates
-from receipts.db.connection import connect
+from receipts.db.connection import Conn, connect
 from receipts.models.registry import EventSeed
 from receipts.models.talks import VideoMeta
 from receipts.pipeline.common import write_report
@@ -55,7 +55,9 @@ def run_discover(seed: EventSeed) -> list[VideoMeta]:
     return accepted
 
 
-def _upsert_talk(conn, event: str, meta: VideoMeta, accepted: bool, reason: str | None) -> None:  # type: ignore[no-untyped-def]
+def _upsert_talk(
+    conn: Conn, event: str, meta: VideoMeta, accepted: bool, reason: str | None
+) -> None:
     conn.execute(
         """
         INSERT INTO talks (

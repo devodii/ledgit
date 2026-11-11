@@ -51,3 +51,35 @@ class Candidate(BaseModel):
     score: float = 0.0
     extractor_model: str
     extracted_at: datetime
+
+
+class OrgResolution(BaseModel):
+    org_name: str
+    slug: str
+    domain: str = ""
+    domain_source: str = ""
+    country: str = ""
+    country_source: str = ""
+    scf_found: bool = False
+    scf_project_url: str = ""
+    scf_awarded_usd: float | None = None
+    scf_source: str = ""
+    evidence: list["EvidenceDraft"] = Field(default_factory=list)
+    sources: list["SourceDraft"] = Field(default_factory=list)
+
+
+class EvidenceDraft(BaseModel):
+    kind: str
+    network: str = "pubnet"
+    ref: str
+    found_via: str
+
+
+class SourceDraft(BaseModel):
+    name: str
+    url: str
+    retrieved_at: datetime
+    provides: list[str] = Field(default_factory=list)
+
+
+OrgResolution.model_rebuild()

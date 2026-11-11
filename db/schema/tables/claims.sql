@@ -18,5 +18,9 @@ CREATE TABLE claims (
     extracted_at TIMESTAMPTZ,
     confidence REAL NOT NULL DEFAULT 0,
     transcript_sha256 TEXT NOT NULL DEFAULT '',
+    sources JSONB NOT NULL DEFAULT '[]'::JSONB,
+    domain_source TEXT NOT NULL DEFAULT '',
+    country_source TEXT NOT NULL DEFAULT '',
+    scf_source TEXT NOT NULL DEFAULT '',
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );

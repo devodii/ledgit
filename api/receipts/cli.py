@@ -4,7 +4,6 @@ import sys
 from collections.abc import Sequence
 
 from receipts.connectors.errors import HumanActionRequired
-from receipts.registry.loader import read_event_seed
 from receipts.seed import seed_fixtures
 from receipts.settings import ConfigError, check_settings, get_settings
 from receipts.tasks.queue import create_task, list_tasks, resolve_task
@@ -24,10 +23,6 @@ CONNECTORS = {
     "stellarlight": ("receipts.connectors.stellarlight", "StellarLightConnector"),
 }
 STAGES = ["discover", "transcripts", "extract", "rank", "resolve", "write", "build"]
-
-
-def event_seed(slug: str):  # type: ignore[no-untyped-def]
-    return read_event_seed(get_settings().data_dir / "events" / f"{slug}.yaml")
 
 
 def cmd_check(_: argparse.Namespace) -> int:

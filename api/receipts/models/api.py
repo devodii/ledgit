@@ -96,6 +96,13 @@ class OrgOut(BaseModel):
     country: str
 
 
+class SourceOut(BaseModel):
+    name: str
+    url: str
+    retrieved_at: datetime
+    provides: list[str]
+
+
 class ClaimDetail(BaseModel):
     id: str
     event: str
@@ -112,6 +119,11 @@ class ClaimDetail(BaseModel):
     history: list[VerdictChangeOut]
     extractor_model: str
     confidence: float
+    sources: list[SourceOut]
+    domain_source: str
+    country_source: str
+    scf_source: str
+    transcript_sha256: str
 
 
 class OrgDetail(BaseModel):
