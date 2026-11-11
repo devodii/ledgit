@@ -1,0 +1,121 @@
+@use '../../../styles/mixins';
+
+.wrapper {
+  width: 100%;
+}
+
+.canvas {
+  width: 100%;
+  background: var(--color-bg);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  :global(.react-flow) {
+    --xy-background-color: var(--color-bg);
+    --xy-edge-stroke: var(--color-border-strong);
+    --xy-edge-label-background-color: var(--color-bg);
+    --xy-edge-label-color: var(--color-text-muted);
+    --xy-handle-background-color: var(--color-border-strong);
+  }
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 15rem;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  cursor: default;
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.selected {
+  @include mixins.focus-ring;
+}
+
+.nodeTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.primaryLine {
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.line {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  overflow-wrap: anywhere;
+}
+
+.neutral {
+  border-color: var(--color-border-strong);
+}
+
+.live {
+  border-color: var(--status-live);
+  background: var(--status-live-subtle);
+}
+
+.testnet {
+  border-color: var(--status-testnet);
+  background: var(--status-testnet-subtle);
+}
+
+.nothing {
+  border-color: var(--status-no-trace);
+  background: var(--status-no-trace-subtle);
+}
+
+.pending {
+  border-color: var(--status-pending);
+  background: var(--status-pending-subtle);
+}
+
+.ask {
+  border-color: var(--status-open-ask);
+  background: var(--status-open-ask-subtle);
+}
+
+.error {
+  border-color: var(--color-danger);
+  background: var(--color-danger-subtle);
+}
+
+.edge_live path {
+  stroke: var(--status-live);
+  stroke-width: var(--border-width-focus);
+}
+
+.edge_testnet path {
+  stroke: var(--status-testnet);
+  stroke-width: var(--border-width-focus);
+}
+
+.edge_nothing path {
+  stroke: var(--status-no-trace);
+}
+
+.edge_error path {
+  stroke: var(--color-danger);
+}
+
+.srList {
+  @include mixins.visually-hidden;
+}
