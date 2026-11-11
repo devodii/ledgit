@@ -23,7 +23,7 @@ CONNECTORS = {
     "lumenloop": ("receipts.connectors.lumenloop", "LumenLoopConnector"),
     "stellarlight": ("receipts.connectors.stellarlight", "StellarLightConnector"),
 }
-STAGES = ["discover", "transcripts", "extract", "judge", "rank", "resolve", "write", "build"]
+STAGES = ["discover", "transcripts", "extract", "judge", "resolve", "rank", "write", "build"]
 
 
 def cmd_check(_: argparse.Namespace) -> int:

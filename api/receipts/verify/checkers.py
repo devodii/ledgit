@@ -111,7 +111,31 @@ def check_anchor(ref: str, toml: StellarTomlConnector, sep: SepInfoConnector) ->
     )
 
 
-def check_protocol(ref: str, soroban: SorobanConnector) -> Observation:
+def check_core_version(ref: str, horizon: HorizonConnector) -> Observation:
+    wanted = tuple(int(p) for p in ref.removeprefix("core-").split("."))
+    main = horizon.core_version(Network.pubnet)
+    shown = ".".join(str(p) for p in main)
+    if main and main >= wanted:
+        return Observation(
+            result=ObservationResult.live,
+            summary=f"mainnet reports stellar-core {shown}, which is at or above {ref.removeprefix('core-')}",
+            detail={"mainnet_core": shown},
+        )
+    test = horizon.core_version(Network.testnet)
+    if test and test >= wanted:
+        return Observation(
+            result=ObservationResult.testnet_only,
+            summary=f"testnet runs stellar-core {'.'.join(str(p) for p in test)}, mainnet {shown or 'unknown'}",
+        )
+    return Observation(
+        result=ObservationResult.not_found,
+        summary=f"neither network reports stellar-core {ref.removeprefix('core-')} or newer",
+    )
+
+
+def check_protocol(ref: str, soroban: SorobanConnector, horizon: HorizonConnector) -> Observation:
+    if ref.startswith("core-"):
+        return check_core_version(ref, horizon)
     match = re.fullmatch(r"protocol-(\d+)", ref)
     if not match:
         return Observation(result=ObservationResult.error, summary=f"unsupported reference {ref}")
@@ -152,7 +176,7 @@ class Checkers:
                 case EvidenceKind.anchor:
                     return check_anchor(ref, self.toml, self.sep)
                 case EvidenceKind.protocol_upgrade:
-                    return check_protocol(ref, self.soroban)
+                    return check_protocol(ref, self.soroban, self.horizon)
         except (ConnectorError, ValueError) as exc:
             return Observation(
                 result=ObservationResult.error, summary=f"check could not run: {exc}"[:200]

@@ -17,7 +17,7 @@ from receipts.models.registry import EventSeed
 from receipts.models.talks import Segment
 from receipts.pipeline.common import stage_cache, write_report
 
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2"
 MAX_CHARS = 60000
 
 SYSTEM = """You extract checkable claims from conference talk transcripts for a public fact-check site about the Stellar network.
@@ -34,11 +34,14 @@ Rules you must follow:
 - "speaker_name" and "speaker_role" only if stated in the transcript, title or description. Never guess. Leave empty otherwise.
 - "org_domain" only if the exact domain is spoken or written in the provided text, else empty.
 - "protocol_version" only if the speaker names a specific numbered protocol release, else null.
+- "core_version" only if the speaker names a specific Stellar Core release number such as 22.3.0, else null.
+- "asset_codes" lists asset tickers the claim is about (for example PYUSD, USDY, EURC) exactly as spoken or written in the text, else an empty list.
 - "specificity" and "verifiability" are numbers from 0 to 1.
+- Strongly prefer claims that name something checkable on the network: an asset ticker, a contract, a protocol or core release, an anchor or SEP, or a named product that is live or shipping on Stellar. Prefer those over general statements about partnerships or plans.
 - Return at most N claims, the most specific and checkable ones. Returning none is fine.
 
 Reply with JSON only, no prose, in this shape:
-{"claims":[{"quote":"","summary":"","claim_type":"","speaker_name":"","speaker_role":"","org_name":"","org_domain":"","protocol_version":null,"specificity":0.0,"verifiability":0.0}]}"""
+{"claims":[{"quote":"","summary":"","claim_type":"","speaker_name":"","speaker_role":"","org_name":"","org_domain":"","protocol_version":null,"core_version":null,"asset_codes":[],"specificity":0.0,"verifiability":0.0}]}"""
 
 
 def build_prompt(title: str, description: str, text: str, limit: int) -> str:
@@ -142,7 +145,18 @@ def extract_talk(
                     org_domain=claim.org_domain.strip().lower()
                     if text_mentions(context, claim.org_domain)
                     else "",
-                    protocol_version=claim.protocol_version,
+                    protocol_version=claim.protocol_version
+                    if claim.protocol_version
+                    and f"protocol {claim.protocol_version}" in text.lower()
+                    else None,
+                    core_version=claim.core_version
+                    if claim.core_version and claim.core_version in text
+                    else None,
+                    asset_codes=[
+                        c.strip()
+                        for c in claim.asset_codes
+                        if c.strip() and re.search(rf"\b{re.escape(c.strip())}\b", text, re.I)
+                    ],
                     start_seconds=start,
                     caption_source=CaptionSource(talk["caption_source"]),
                     transcript_sha256=talk["sha256"],
@@ -182,7 +196,7 @@ def run_extract(seed: EventSeed, workers: int = 4) -> int:
         if path.is_file():
             data = json.loads(path.read_text())
             return [Candidate.model_validate(c) for c in data["candidates"]], data["drops"]
-        found, drops = extract_talk(provider, talk, seed.limits.max_claims_per_talk + 3)
+        found, drops = extract_talk(provider, talk, seed.limits.max_claims_per_talk + 7)
         path.write_text(
             json.dumps({"candidates": [c.model_dump(mode="json") for c in found], "drops": drops})
         )

@@ -24,6 +24,8 @@ class RawClaim(BaseModel):
     org_name: str = ""
     org_domain: str = ""
     protocol_version: int | None = None
+    core_version: str | None = None
+    asset_codes: list[str] = Field(default_factory=list)
     specificity: float = Field(default=0, ge=0, le=1)
     verifiability: float = Field(default=0, ge=0, le=1)
 
@@ -43,6 +45,8 @@ class Candidate(BaseModel):
     org_name: str
     org_domain: str
     protocol_version: int | None
+    core_version: str | None = None
+    asset_codes: list[str] = Field(default_factory=list)
     start_seconds: int
     caption_source: CaptionSource
     transcript_sha256: str

@@ -19,8 +19,8 @@ def run_stage(stage: str, event: str) -> None:
         "transcripts": lambda: run_transcripts(event),
         "extract": lambda: run_extract(seed),
         "judge": lambda: run_judge(seed),
-        "rank": lambda: run_rank(seed),
         "resolve": lambda: run_resolve(seed),
+        "rank": lambda: run_rank(seed),
         "write": lambda: run_write(seed),
     }
     names = list(stages) if stage == "build" else [stage]

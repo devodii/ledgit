@@ -7,10 +7,24 @@ export interface QuoteBlockProps {
   captionSource?: 'manual' | 'auto';
 }
 
+const FILLER = /\b(uh|um|uhm|erm|er|ah)\b/gi;
+
+function withQuietFillers(quote: string) {
+  return quote.split(FILLER).map((part, index) =>
+    index % 2 === 1 ? (
+      <span key={index} className={styles.filler}>
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}
+
 export function QuoteBlock({ quote, speaker, role, captionSource }: QuoteBlockProps) {
   return (
     <figure className={styles.figure}>
-      <blockquote className={styles.quote}>{quote}</blockquote>
+      <blockquote className={styles.quote}>{withQuietFillers(quote)}</blockquote>
       <figcaption className={styles.caption}>
         <span>
           {speaker ? `${speaker}${role ? `, ${role}` : ''}` : 'Speaker not stated in the talk'}

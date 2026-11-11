@@ -1,3 +1,4 @@
+import re
 from typing import ClassVar
 
 from pydantic import BaseModel
@@ -90,6 +91,41 @@ class HorizonConnector(Connector):
                 )
             )
         return out
+
+    def assets_by_code(self, code: str, limit: int = 60) -> list[AssetStats]:
+        response = self.http.get(
+            f"{self.urls[Network.pubnet]}/assets",
+            params={"asset_code": code, "limit": limit},
+            cache_ttl=3600,
+        )
+        if response.status != 200:
+            return []
+        out: list[AssetStats] = []
+        for record in response.data().get("_embedded", {}).get("records", []):
+            if record.get("asset_code") != code:
+                continue
+            out.append(
+                AssetStats(
+                    found=True,
+                    code=code,
+                    issuer=record["asset_issuer"],
+                    holders=int(record.get("accounts", {}).get("authorized", 0))
+                    + int(record.get("num_contracts", 0)),
+                    supply=float(record.get("balances", {}).get("authorized", 0)),
+                )
+            )
+        return out
+
+    def home_domain(self, address: str) -> str:
+        response = self.http.get(f"{self.urls[Network.pubnet]}/accounts/{address}", cache_ttl=86400)
+        if response.status != 200:
+            return ""
+        return str(response.data().get("home_domain") or "").lower()
+
+    def core_version(self, network: Network) -> tuple[int, ...]:
+        info = self.http.get(self.urls[network] + "/").data()
+        match = re.search(r"(\d+(?:\.\d+)+)", str(info.get("core_version", "")))
+        return tuple(int(p) for p in match.group(1).split(".")) if match else ()
 
     def account(self, address: str, network: Network = Network.pubnet) -> AccountInfo:
         response = self.http.get(f"{self.urls[network]}/accounts/{address}", cache_ttl=600)

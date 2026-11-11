@@ -6,6 +6,7 @@ from receipts.connectors.transcripts import normalize
 from receipts.models.pipeline import Candidate
 from receipts.models.registry import EventSeed
 from receipts.pipeline.common import stage_cache, write_report
+from receipts.pipeline.resolve import claim_key
 
 SPECIFIC_RE = re.compile(
     r"\b(20\d\d|q[1-4]|\d+(?:\.\d+)?\s?(?:%|percent|million|billion|k)|protocol \d+)\b", re.I
@@ -38,6 +39,10 @@ def run_rank(seed: EventSeed) -> int:
     candidates = [Candidate.model_validate(c) for c in json.loads(path.read_text())]
     for candidate in candidates:
         candidate.score = score(candidate)
+        extras = stage_cache("resolve-claims") / f"{claim_key(candidate)}.json"
+        has_evidence = extras.is_file() and bool(json.loads(extras.read_text())["evidence"])
+        if has_evidence or candidate.protocol_version or candidate.core_version:
+            candidate.score = round(min(candidate.score + 0.12, 1.0), 3)
     ranked = sorted(candidates, key=lambda c: (-c.score, c.video_id, c.start_seconds))
     drops: dict[str, int] = {}
     kept: list[Candidate] = []

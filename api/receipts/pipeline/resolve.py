@@ -10,6 +10,7 @@ from receipts.connectors.scf import ScfConnector, normalize_name
 from receipts.connectors.stellar_expert import StellarExpertConnector
 from receipts.connectors.stellarlight import StellarLightConnector
 from receipts.llm import LLMProvider, get_provider
+from receipts.models.enums import ClaimType
 from receipts.models.pipeline import (
     Candidate,
     EvidenceDraft,
@@ -19,6 +20,7 @@ from receipts.models.pipeline import (
 from receipts.models.registry import EventSeed, OrgRef
 from receipts.pipeline.common import stage_cache, write_report
 from receipts.pipeline.domain import fetch_toml, host_of, propose_domain, verify_domain
+from receipts.pipeline.relevance import select_relevant
 
 CONTRACT_RE = re.compile(r"^C[A-Z2-7]{55}$")
 ACCOUNT_RE = re.compile(r"^G[A-Z2-7]{55}$")
@@ -209,20 +211,36 @@ NOT_TICKERS = {
 }  # fmt: skip
 
 
-def resolve_claim_extras(candidate: Candidate) -> OrgResolution:
-    """Evidence tied to this specific claim: asset tickers named in the quote or summary."""
+def resolve_claim_extras(candidate: Candidate, org_domain: str) -> OrgResolution:
+    """Evidence tied to this specific claim: asset tickers and versions named in the talk."""
     result = OrgResolution(org_name=candidate.org_name, slug=claim_key(candidate))
     light = StellarLightConnector()
+    horizon = HorizonConnector()
     seen: set[str] = set()
     sources: dict[str, SourceDraft] = {}
-    for ticker in TICKER_RE.findall(f"{candidate.quote} {candidate.summary}"):
-        if ticker in NOT_TICKERS or ticker in seen:
+    tickers = [
+        t
+        for t in dict.fromkeys(
+            candidate.asset_codes + TICKER_RE.findall(f"{candidate.quote} {candidate.summary}")
+        )
+        if t not in NOT_TICKERS
+    ]
+
+    def add(kind: str, ref: str, via: str, origin: str, name: str, provides: str) -> None:
+        if valid_ref(kind, ref) and not any(e.ref == ref for e in result.evidence):
+            result.evidence.append(EvidenceDraft(kind=kind, ref=ref, found_via=via))
+            sources[origin] = SourceDraft(
+                name=name, url=origin, retrieved_at=now(), provides=[provides]
+            )
+
+    for ticker in tickers:
+        if ticker in seen:
             continue
         seen.add(ticker)
         try:
             hits = [p for p in light.search_projects(ticker, limit=10) if p.name.upper() == ticker]
         except ConnectorError:
-            continue
+            hits = []
         for project in hits:
             url = f"https://stellarlight.xyz/project/{project.slug}"
             via = f"ticker {ticker} named in the claim; stellarlight project {project.slug}: {url}"
@@ -232,16 +250,40 @@ def resolve_claim_extras(candidate: Candidate) -> OrgResolution:
                     ("asset_issuer", f"{project.asset_code}-{project.asset_issuer}", url)
                 )
             for kind, ref, origin in pointers:
-                if valid_ref(kind, ref) and not any(e.ref == ref for e in result.evidence):
-                    result.evidence.append(
-                        EvidenceDraft(kind=kind, ref=ref, found_via=f"{via} (pointer: {origin})")
-                    )
-                    sources[origin] = SourceDraft(
-                        name="stellarlight",
-                        url=origin,
-                        retrieved_at=now(),
-                        provides=[f"asset {ticker}"],
-                    )
+                add(
+                    kind,
+                    ref,
+                    f"{via} (pointer: {origin})",
+                    origin,
+                    "stellarlight",
+                    f"asset {ticker}",
+                )
+        if org_domain and len(ticker) >= 3:
+            try:
+                issuers = horizon.assets_by_code(ticker)
+                if 0 < len(issuers) <= 60:
+                    for asset in issuers:
+                        if host_of(horizon.home_domain(asset.issuer)) == org_domain:
+                            origin = f"https://horizon.stellar.lobstr.co/assets?asset_code={ticker}"
+                            add(
+                                "asset_issuer",
+                                f"{ticker}-{asset.issuer}",
+                                f"ticker {ticker} named in the claim; issuer account home_domain is {org_domain} (horizon {origin})",
+                                origin,
+                                "horizon",
+                                f"issuer of {ticker}",
+                            )
+            except ConnectorError:
+                pass
+    if candidate.core_version:
+        add(
+            "protocol_upgrade",
+            f"core-{candidate.core_version}",
+            f"core version {candidate.core_version} named in the talk",
+            f"https://www.youtube.com/watch?v={candidate.video_id}&t={candidate.start_seconds}s",
+            "talk",
+            "core version",
+        )
     result.sources = list(sources.values())
     return result
 
@@ -253,30 +295,45 @@ def claim_key(candidate: Candidate) -> str:
 
 
 def run_resolve(seed: EventSeed) -> int:
-    ranked = [
+    judged = [
         Candidate.model_validate(c)
-        for c in json.loads((stage_cache("ranked") / f"{seed.slug}.json").read_text())
+        for c in json.loads((stage_cache("judged") / f"{seed.slug}.json").read_text())
     ]
     cache = stage_cache("resolve")
+    claims_cache = stage_cache("resolve-claims")
     provider = get_provider()
     resolved = 0
     drops: dict[str, int] = {}
-    for candidate in ranked:
-        extras_path = stage_cache("resolve-claims") / f"{claim_key(candidate)}.json"
-        if not extras_path.is_file():
-            extras_path.write_text(resolve_claim_extras(candidate).model_dump_json(indent=1))
+    for candidate in judged:
         slug = OrgRef(name=candidate.org_name).slug
         path = cache / f"{slug}.json"
         if path.is_file():
-            continue
-        resolution = resolve_org(
-            candidate.org_name, candidate.org_domain, candidate.quote, provider
-        )
-        path.write_text(resolution.model_dump_json(indent=1))
-        resolved += 1
-        if not resolution.evidence:
-            drops["no_evidence_found"] = drops.get("no_evidence_found", 0) + 1
+            resolution = OrgResolution.model_validate_json(path.read_text())
+        else:
+            resolution = resolve_org(
+                candidate.org_name, candidate.org_domain, candidate.quote, provider
+            )
+            path.write_text(resolution.model_dump_json(indent=1))
+            resolved += 1
+        extras_path = claims_cache / f"{claim_key(candidate)}.json"
+        if not extras_path.is_file():
+            extras = resolve_claim_extras(candidate, resolution.domain)
+            org_level = (
+                []
+                if candidate.claim_type == ClaimType.protocol_feature
+                else list(resolution.evidence)
+            )
+            chosen = select_relevant(provider, candidate, org_level, claim_key(candidate))
+            extras.evidence = extras.evidence + chosen
+            extras_path.write_text(extras.model_dump_json(indent=1))
+        if not json.loads(extras_path.read_text())["evidence"]:
+            drops["no_relevant_evidence"] = drops.get("no_relevant_evidence", 0) + 1
     write_report(
-        "resolve", seed.slug, len(ranked), resolved, drops, ["counts are new orgs resolved"]
+        "resolve",
+        seed.slug,
+        len(judged),
+        len(judged) - drops.get("no_relevant_evidence", 0),
+        drops,
+        [f"new organisations resolved: {resolved}", "counts_out is claims with evidence"],
     )
     return resolved
